@@ -1,0 +1,36 @@
+Hive :
+sql ,faster and performace is high 
+
+dataframe into hive as a hivetable 
+dataframe into mysql using jdbc driver
+spark.sql()--hive env 
+saveastable
+creating python files and methoda to write the quieres and all 
+partition : provided by bussiness
+cardinality:- 
+
+spark =Sparksession.builder.master().appname()enableHiveSupport().config('spark.driver'
+                                                                                                '.extraClassPath',
+                                                                                                'mysql-connector-java'
+                                                                                                '-8.0.29.jar').getOrCreate()
+	
+
+df.write.format("jdbc").option("url", url).option("dbtable", dbtable) 
+
+Scd:- 
+tables in dwh using dimensional modelling concepyt 
+dimension:product / category 
+fact: numerical values
+
+Tbales in otlp is designed using normalization 
+1n,2nf,3nf
+c
+no duplicates (reduce redundency)
+
+scd1:overwriting existing data 
+scd2:inseritng updated record instead of obverwrite 
+
+surrogaetkey =primanry keyt  in dwh
+
+scd 2 eff start and end date 
+

@@ -1,0 +1,101 @@
+Understanding No sql Db - Hbase 
+RdBMS - relational database managemanet system 
+Mysql, sqlitr , postgrsql  
+
+challenges faced by traditional Rdbms ;
+Join operation on high volume of data is very much complicated 
+transaction support -
+mainatinting  high volume of data and velocity  of data 
+cost of Rdbms -> mainataince of rdbms is high due to they coukdnt run on commobidty hardware 
+High latency faced when dealing with high velocity of data (like performing some queries on data )
+NOSQL   -> Not only sql databases 
+Features of NoSql DB 
+Flexible schema No need to declare any schema 
+we can just insert the data on the fly 
+
+2. Support for multiple data models 
+No sql database can support all the 3 varients of data ,
+structured data , semi structured data ..json,xml,unstructured.image ,video ,audio 
+
+3.scalabilty 
+in rdbms ..only we do vertical scalling , if u do horizonatla consistency will be problem 
+with peer to peer architecture the nosql databaase are easily scaleable .
+Shading also helps in no sql database
+
+Distributed capability - No sql databases can be sitributed on a world wide scale follow cluster concept 
+
+
+
+Mongodb
+Is a document type data type json.. ,
+the structre of data that changes .. 
+casandra has is not consistent cap theorem 
+
+
+
+
+
+
+
+Replication means replica ..lik e if th e dta ta chnages the replica shd alao change 
+duplication means the data will not chnages in other machine 
+consistency ..either complete or not 
+time buffering between the transaction .. (eventulally consistent or soft state 
+
+Base => Basic availabilty 
+soft state
+eventulally consistent
+hbase  cassandr a mongodb 
+it doesnt follow acid |base
+
+in graph ..node is where we rae defining some relation 
+
+
+no schema , supports dynamic , replicarion shading , indexing 
+no joins , 
+
+spark airflow sql hdfs hive ,nosql db .. bit of cloud
+
+col.inserted_id is where we are inserting the id 
+
+collection.insert_many()
+find
+for..
+
+{"GRE Score":{"$gt":337}}  -- filter gretaer than 337
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+kafka zookeeper ... cluster coordinator
+
+kafka has embedded zookeeper (works on single node) metadata is stored in zookeper as an offset 
+
+emr is elastic map reduce 
+fully managed entrapise cluster  for big data 
+appache apRK , GADDOp is like venila la
+
+entrweprise service providers , cloera, autgonox , emr , 
+
+EMR
+
+log into console.aws.amaozn 
+inside data analytics we have emr 
+create a cluster go to advsnce option 
+
+
+go to ec2 key pair 
+create new key pair  file format is ppk putty 
+
+download putty and keep and provide key pair file in auth 

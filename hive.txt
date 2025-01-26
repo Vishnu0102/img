@@ -1,0 +1,295 @@
+on 28th jan
+
+HIve , batcg processing and analytics .. sql framework
+
+is a datawarehousing service , diificult to adapt by no tech prof 
+ diccult to process adhoc quries..
+ 
+built on top off haddop . it uses hdfs file stsyem , sql like frameowrk and has own quiery language
+ converts hql query to map reduce 
+
+ hive archetecture
+
+hive servics.. 
+server leson to incoming resquests..
+clients make requests ..
+schematic checks..
+
+refer the doc also .. 
+
+hive server suppetr the req and  , jdbc , odbc 
+
+hive server2  instread of 1 is doesnt recive concurrent req from more than 1 client 
+
+2nd namemnde is backp , derby bd is tightly coupled ,.. 
+
+
+
+
+haddop is used for batch , fr streeming data spark 
+data exploaration libraies used by ddata scientists mainly ..
+
+
+
+
+
+
+
+
+
+
+On 29th jan 
+
+>hive   show databases 
+
+hive interacts wth the meta store...
+
+types of table in hive ..
+internal and external table 
+
+if ex mysql it stores the memory will be ocupied by that table and 
+
+for hive the storage system is built on top ofhaddop  hdfs envirnment  , to set up hive ..hive will ask for storgae location(nothing but /warehouse directory)...durin setup..
+
+
+create new terminal on lab type hadoop -fs -ls /
+usr/hive 
+
+if the table is internal then ..metadat is dtored in metastore 
+data of table is tored in warehouse , if dropped both will removed\
+
+
+external .mesdata will be stored in metastore , raaw data not in hive warehouse directory , it will be at hdfsloactaion
+now keep data in local means where readme is present then move to hdfs path 
+hadoop fs -put departemnt.csv/tmp
+in hive c
+in hive its like bath load 
+row format delimted #
+fields terminated by -->serialization why we need , if u read data ,   ex jason has own way of repesentaion , csv and parqiue etc has own format .. if u process through n/w the data
+it shd be identified by mapreduce na 
+ 
+to type of load fom local or from hdfs
+
+to get details describe fromatted db cmd
+
+load data local inpath 'file://config/workspace ..' into table e[artment dat 
+
+select * from departmnt
+
+set hive.clpi.print haeader ... to print header 
+now drop table ...deprtment data  will be removed from hdfs datawarehouse path 
+
+now load from hdfs path no looacl in cmd 
+
+its like ineternal 
+
+
+in desribe it will e maanged table
+
+if u use load then it will be internal for external we need different style of creation and all 
+
+
+use case of external 
+in creation give loaction to become external
+in extrenal no tables are in  hadfs warehouse directory 
+
+in external it goes to location and no need to load the data 
+
+select name ,skills[]0
+ as primary skill from empployee
+
+select emp_id,name,size(skills) as total skils, array_conatisn(skills,"hadoop") as knows_hadoop
+sort array(skills) as sorted skills.
+from employee;
+
+
+for map data ..
+cretae (
+..
+map<details, string>)
+row format 
+collection items terminated by '|'
+map keys terminatd by ':'
+
+load data to table hivedb.emplmap data 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+on 4th feb class , here learn wth the documnet attached,
+why serialization ... less space is consumned from conerting 
+objects to bytes.. in transefering..  
+
+in deserrialization we even send the type wth the object 
+
+to skip 1st line use cmd   tableproperties("skip.header.line.count"="1")
+it wasnt proper so create a table sing properties 
+
+serdae is deseralize
+jason serade in hive 
+data is read from plain file while reading apply those rules
+
+hive catalog core 0.14.0 .jar has   to be used 
+
+add jar file://config/workspace/hive-hcatalog-core-.jar
+
+columnar file format/databases
+->parquet
+->ORC (Optimized Row Columnar)
+
+ alist explaing how memory is calculated in contegenous fashion
+seek time time taken to  gather infor or completion..
+
+for parquet use stored as parquet..
+
+why did in load no error but while reading we get error 
+schema on wrte .. 
+schema on read
+
+if you want to load csv data into hive , create a parquet table then 
+then overite the table wh other table  wth condition select *
+
+we have csv ->convert to hive , (so craete csv table and over write it into  parquet file done )
+if you want only certain colums then use select* ...colmn..
+
+
+
+
+Hive class -5th 
+
+>hive 
+>show databases;
+>create database hive_db;
+>use hive_db;
+> create table sales_data_v2() having ptype , total sales 
+>load 
+>set hive.cli.print.header=true;
+>select *from sales_data_v2()
+truncte table sales....
+>create table sales_data_pq_final(..) stored as parquet;
+describe formatted sales..
+>from sales_dta_v2 insert overwrite table sales_data_pq_final select*
+>seleect * from select_data_pq
+>
+go to emr termial and then 
+hadoop fs -ls /
+hadoop fs -ls /user
+hadoop fs -ls /user/hive/warehouse/hive_db.db
+
+only 1 mapper calss so only 1 task .. like/0000_0
+ hadoop fs -cat /...
+the data is in  parque form or yte form so we are not able to seee it corrctly
+
+parque format takes less space as they compress in the byte 
+to read parque we use hive like that ..
+when we do select deseralization happens so u can read , due to libararies
+
+cretae table slesorder data-csv1
+load the csv to  csv_v1
+
+select * from csv1 limit 5;
+create table sales_order_data_orc(...)stored as orc;
+from sales_order_data_csv_v1 insert overwrite table sales_order dataorc select *;
+>select*from oc=rc..
+> go check in warehouse for any files ..
+>
+select year_id,sum(sales) as total_sales from orc  gropu by year
+
+set mapreduce.job.reduces=3;
+
+performnaec test in bigger data , it shows what reducers and other things are considerd
+
+if more and more reducers , cost increses, so to control 
+set hive.exec.reducers.max10;
+
+Partioning and Bucketing..
+
+partitioning is a way of dividing a table into related parts based on the values of partion
+unnecessary data scan is avoided in partionig... 
+cardinality less columns 
+
+multi levael partioning  more than 1 coulmn partioned
+
+Types of partioning :
+->static partioning :-  where we load the data and also speicy where we need to do partion, less tiem 
+
+->dynamic partioning:-   column values are unknown , hive will identify the unique values from partitioned coumn , takes longer time.
+
+crete table slaes-data-static-part(
+)
+insert overwrite table sales-data-part partion(country='USA') select ordernumber,quantity ordr,sales,yearid)
+from sales-order-orc wheer country='usa'
+
+hadoop fs -ls /usr/..warehosue../static part
+.../0000_0 
+
+set header 
+select * from  sale-part where country=usa
+
+
+dynamic partioning...
+create table sales-sata-dynamic-part()
+
+
+insert overwrite table sal-synamic partion(country) select or,sales,... county from sales_orc;
+error we will get
+
+why set hive.exec.dynamic.partion.mode=nonstrict;
+
+hadoop s -ls and see whats in dynamic partion 
+
+if u enable overrite the new load will remove 
+
+in static no reducers because  no calcuatoion and we are providing all , 
+in dynamic calaculationas are done hence so 
+
+ceate sles_multilevel part1 ()
+..
+inert overtite  ...(country,year-id) select... saleesorc
+
+go to hdfs and see 
+
+select * from sales_data_dynamic_multileve where country='japan' and year=2003;
+
+
+
+
+ON 11 feb 
+
+bucketin  in hove 
+join right here if data is presn in some memory loactions 
+there is no gaurnate that data will be in the same node  ... based on key ..data is moved ..  in join group by data shuffles 
+
+in partioning we shuffle data by  colums or data 
+
+bucketing is in divide data into small   decomposng the tale dat ino managebele parts 
+
+on bucketing we pick key colum then perform hash value 
+
+
+create hive db , use db , cretetable users()row..
+load data local inpath ...users.csv into table users;
+set hivr.cli.print
+
+load... locations.csv
+

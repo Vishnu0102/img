@@ -1,0 +1,485 @@
+ADF
+
+Linked service , dataset , compute (Activity)
+cost , performance , productivty , security
+integration runtime SSIS  compute infracture(memo cpu etc) for  ss ir install 
+
+azure keyvalut  to store all credentilas ..(SFTP)
+read data from conig file ,parammietized , duynamic pipeleine 
+
+pipeline group of activity -> (action )move,trans control
+
+dataset- identify data within diffent source , table , file , fol , doc 
+
+SHIR (Self hosted integration runtime) on prem to cloud (adf)
+
+integration runtime - adf - cloud   (to connect to the vms)
+IR: compute infrastruvtue for adf ,azure ,azure ssis,self hosted 
+Data factory :- pipeline , activity , trigger, ir ,dataset,linked service,data flow
+run ssis pacages 
+
+Trigger
+Trigger are used to schedule a execution of pipeline 
+
+resource group where we store resources for  our services 
+
+Tags - value pairs to catagerize resorce and charge 
+
+overview Activity log Access control(to check level of acess)
+
+ADF Studio :.. 
+
+Day 6:
+	
+Storage accounts : 
+blobs(any type)(objects),datalake gen2 ,files, queues,tables 
+
+storagae account name case sensitive 
+
+LRS(local redundaant storage)(3)(proof of concept , practise)
+LRS   : in avalabilty zone repl 3
+Geo redunadant storage(GRS) :differnt zones with one relpica 
+ZRS: differnt zones lrs (one region)  lrs in another region
+GEo -zone (across regions)
+
+TLS (Transaction layer security )
+Access tier: hot(frequently), cool (infrequent monthly once , archive 
+
+enable public acees from seleted virual n/w and ip address 
+deafult routing 
+data protection : soft delete 1-365 dayas recoverable 
+encryption : MMK 
+under settings u can change some configuration 
+
+Azure Storage explorer:- in real time if we want to use different storage accounts we use it 
+ACCess Control (IAM) 
+create container and add files (like c drive and add files)
+Access keys (to connect to storage account)
+shared access signature (resitred acces (admin))
+
+Day 7:
+data lake gen 2 :
+for datalake enable hierarchial namespace  enable 
+blob is not for data analytics , ads gen2 is for analytics , acl access control list in adlg2 
+blob is object based storage , adls only obstorage
+performance , security ..
+
+ADF-
+ingest : template to copy data activity
+Autoresolver compute infra 
+LS_BlobConnection
+Authentication account key and storage account name   binay copy (check) , recursive (recursive copy of all the files , and sub folders )
+data consistency verification , 
+fault tolernce , where we can skip in compatable records .. enable logging()  to load the incompatable records 
+staging 
+
+data integration unit : auto scable for more data load 
+
+validate all : if any errors we can resolve , 
+publish all : save the changes 
+(copy activity is done )
+
+Day 8 :
+meta data driven copy 
+passing parametrized 
+use only one linked service nd pass the storage name as parameter
+
+loading behaviour full load, incremental load , watermark column 
+there are predefined templates that we can use during cretion of pipeline 
+
+Oracle on prem to azure : connect , sis , table ,staging layer (blob or gen2), compress and load to cloud.
+(mapping,naming conensions, ) 
+
+author pipeline template gallery
+
+Day 9 :
+
+Manage -> linked service-> new 
+compute  we have hd isnights and databricks etc 
+moto 
+blob(zip file )-->gen2()
+Authenication type: SAS ,SAS tocken,accountkey 
+create a linked service to connect blob 
+create dataset 
+Author -> dataset -> new dataset 
+as the file is zip u shd know what the zipped file is so we are using delimted , then linked service u need to selct (for blob),path for the file 
+
+in connection we have compression type (zip)select it , then view data 
+compress lvl optimal 
+first row header.
+
+create linked service for gen2 ,select gen2
+author-dataset -csv, select floder where to store the data 
+create pipeline -author piepline - prop-pipeline nmae -
+sink -file ext csv
+for many files in wildcard path u can use *
+
+binary format for image , audio , video etc ..
+
+Day 10:
+home-azure_databricks
+all services are in subscription or resource group 
+(creating services some one wil do )
+
+after creating databricks ,view acess 
+and log data 45 days 
+
+Azure datalake gen2 -databricks(etl tool like data factory)-> sql database
+
+delta lake , comput for cluster , 
+we can select number of workers , max and min 
+and aslo termination afer some time 
+
+day 11
+
+1.get meta data activity : 
+data about data ,schema , type , last modified , tyep 
+source blob ---> azure gen2 
+1.linked service and 2 dataset
+
+Activities metadata : field list ->column , exists , item type , last modified , size. 
+Storage account
+
+polling mechanism :(valiadtion if file is presnt or not )
+
+validation(dataset , timout 1.00.00.00 1 hr ,min size ) -getmetadata 
+
+in storage show deleted blob undlete
+
+if condition activity :if file contenets exists , 
+if column count is 4 then copy activity 
+equal(@activity(grtmetadat .oiyt put ,count ))
+
+monitor , pipeline trigger 
+not there , contenets , extra charecter , time out , data , configuration with data factory 
+
+for each : parallel and sequnetial (for many files ) 
+in single pipeline only 40 actvirites 
+
+Day 12:
+blob file  (raw)(1..n) -->gen2 (refined)file(1...n)
+
+1.link service 
+2.dataset
+5pipeline
+6 activities ,getmetadata,filter,foreach,copy
+
+getmeta data and child items 
+filter 
+
+wildcard ptha all the files are dumped at once , but using the copy activity we have cannot use that one by one file that creates multiple instace , this one is betterb as parallelism is maintained 
+@startswith(item().name,'sales')
+foreach:
+sequential (only 1 file )
+bath count for parallel (max 50)(more no of files with 100mb , 300mb like that use it )
+getmetadata-filter-foreach(copy) without wildpath (not recomoneded)
+
+day 13.2:
+
+copy data ctivity : 
+by default :
+setting s u can see diu as 4 :
+in details :DIU : data integration unit to speicfy the speedness of the daya copy 
+
+concunrreent connection as same as no of files 
+max diu for merge is 4 
+To increase performance diu increase
+for single fiele its 2-4 , for multifile we can increase till 256
+
+in source we want to select list of files ,then wild card *or /*.csv , or in list of files selct list 
+
+Day 13:
+Http to adls :
+github rawdata multiple  url -> adls 
+1.linked service : base url (raw github url for 1 file if multiple use parameter)
+
+2.dataset  http -> link and -empty relative url 
+in dataset open parameter , baseurl , relative url 
+connection  pass base and relative url 
+
+3.adls linked service 
+4.dataset 
+5.pipeline 
+pipeline creation copydata
+paramaeter - sourcebaseurl , source realtiveurl, 
+source inputdata,sourcebaseurl,sourecerelativeurl
+
+debug asks for relative nad base urls
+base is till some path then other path is daat
+
+when the pipeline are in queue , update to shi to  13.1 version 
+paraameter cannot be overwriten varibales can 
+set varibale used for modification of variable 
+
+difference between variable and paramter
+Another approcach in real time is through config files
+
+Lookup activity : read asingle row , read config file , table . and query 
+retrive dataset from multiple  datasource.  read and returns congifuration file.
+returns results of query or stored procedure 
+
+lookup-name-dataset(http/configfile_json provide base url and relative url and csv file )
+craete a blob storaage and place a config file in it in other folder config)
+now for lookup read this json file with link and adatset with json  upload 
+disable first row 
+
+day 14 
+
+look up - foreach -
+(parallel process ) parallel no of files in foreach is 20(batch)
+items- o/p of lookup to fech .. add then gethttpdatavalue
+edit option in foreach 
+select copy -source http/cscv
+link -http 
+parameter base url and relative url 
+pass from foreach itr , item().sourecebaseurl
+and item().reltiveurl
+
+now datset in parqueet for adls 
+add paramter so take it dynamically 
+
+if u want to merge here there is a copy behaviour merge use it 
+
+Trigger create  neew and pulish , to stop , stop on trigger and publish 
+
+Day 15:
+
+Azure sql db  (paas),bacup, patching ..sql server db (lastest version) 
+models vcore and , dtu  (performance)
+vcore -logical cpu (and 3 types of model .general ,bussiness(perfgormance sensitive),hyperscale (fast scaling))
+
+Dtu (cpu,memo,read,write) 
+one database resouces are diffenrtn to other 
+elastic db tu - single db engine and and share instnace to others 
+
+create sql db -dbname,server(authentication , sql , azure ad and both ),basic dtu ,networkcontevity -no access,connection policy  for adf(clinet to acess ), 
+
+ssms download :-for sql 
+
+Day 16 :
+vcore scalable ,dtu fixed 
+
+connection string -jdbc-odbc-php
+query editor login ,add ip address,overview,set server firewall- add ipv4 
+
+blob--->azure sql 
+files--tables
+source linkedservice -
+source dataset blob deleimted txt folder files /.kcsv
+target linkedservice -server-dbname-sql auth name and password 
+target dataset -azure sqldb  dbo .prodcut table 
+#we are unable to load multiple files  like in source u can provide wildcard *.csv but in target it requires a table so approcah is 
+get metadata from here get child items and filter
+endswith(item().name,'csv')  the in foreach 
+activty(filter csv ).output.value
+in foreach copyactivty new dtaatset 
+
+in sink choose a parameter  and provide the same to source
+
+lesson last 20 mins
+
+day 17:
+Sql -- datalake 
+
+pipline 
+lookup activty (to get all tables use data set query ) 
+in query database name is sqldbname and debug the lookup 
+then foreach -o/p of lookup.valuee -source sql db 
+
+one pipeleine after other so use execute pipeline activity 
+
+DAy 18 
+Triggers
+periodic :, dependency (only sfter one tumbling trigger then only execute another tumbling )
+
+when no overlaping is required use tumbling window 
+
+storage event 
+applicable to storage account 
+blob name start and ends are used to filter then pipeline gets triggered automaticlaly 
+
+for this one thing is required 
+subscription-resouce provider and microsoft eventgrid-registered
+only works on storage acoounts 
+
+Day 19:
+
+Azure key valut service :
+key valut service 
+keys , keywords, certifictaes 
+
+in valut we have keys , secrets , certificates , access 
+
+azure key valut in adf 
+
+
+in key vault : create a sceret (get the format from doc) and then go to add access policy and provide all 
+permissions and and principal select adf
+
+
+Day 20 
+authenticate gen2 , authenicatation type - system manage 
+parallel copy from sql db
+in copy activity - parallelcopies to 4 runs 4 queires and retrive data from sql db 
+when copy data to file store  write  to folder as multiple file ,performance is better instead of writing to single file 
+physical partiton of table -if enabled automatically detect the partitoning column in table if huge volume of data to load in target 
+-->to sql db
+Append -only new-bulk insert write
+upsert-update and isert-loadin temp table and then update 
+overwrite-reload entire dimension table -
+write with custom logic -extra processing before final insertion
+(performance issue sql db , i triedincrease peerformanece i used enable partioning and increse parallelism in copy activity and loading data , differnt option insert , update , overwrite )
+prec opy script - we need to drop the table and re create it 
+inc performance - in sink use write batch size 
+max concunnert conncetion -if u face issue in loading to single file , u can specify the number of concurrent conncection 
+use temp db - create  atable for better performance -insert update 
+
+parrallel copy ortogonal to diu or self hosted ir nodes
+
+wif copy behaviour merge file .the copy actity cannot take adv of parallelism 
+file-->sql 
+parallel copy depends on dtu,ru and default parallel copy is 4
+parallel copies aleways <more than datapartitons
+ 
+staged copy - blob or gen2 
+Tcp -1433 - outbound ports
+
+on prem - cloud 
+stagging area compress and then dec ompress
+in seetings enable compression and and pth 
+
+ 
+Day 21:
+System assigned managed idntity authentication 
+
+check it again not intresting ...
+
+day 22:
+we have dev,uat,prod 
+ADF - set up code repository 
+create new repository 
+in adf -gihtub -pass owner of github
+collabration -main -publish branch-adf_publish
+enable import resource into branch (Main)(for importing our pipleines crested to the branch)
+
+create new branch -future branch 
+create new pipeline -save all (sucessfuly ssaved in github in json format )
+create a pull request in feature to merge into main 
+create pull request or create draft pull request(require review )
+merge pull request -squash and merge , rebase and merge 
+from mail -publish , the data factory will be in live mode
+
+day 23:
+Adf -manage-gitconfiguration-disconnect 
+
+Azure devops git -
+App regirstetion service - diretory id 
+
+azure devops 
+wiki for documentation
+Boards - user stories, features , create issues , tasks 
+in adf , set up repo use repository tyep as azure devops  import the existing to repo 
+everything will be loaded into Repos folder in dazure devops
+
+origanizarion seetting - azuree active directory 
+the tenant ids must match 
+
+in repos - new branch future on master 
+go to adf and refresh future branch is cretaed 
+create a dumy pipeline  on future branch 
+ip ranges in azure adf
+
+pull request to merge the changes from fruture to master branch
+
+in real time we create tags - after merging it failed so we can remove the changes using this tags 
+
+complete - abandon to delete the pr  
+complete - merge squash  single commit to commit all code changes 
+we must publish code from master branch so it will be avai;llable live 
+
+after that go to adf  git config and disconnnect 
+
+
+
+Day 24:
+	Data flow : data tranasformation in adf 
+they are convereted into spark scale code 
+Daatflows : to run we need to cretae a pipeline and we can use actitvies also along 
+
+Day 25 :
+inline dataset :native to spark , connect to linked service , 
+dtaaset connect to dataset object 
+inline -native tot spark ,native to dataflow 
+
+
+on data flow....
+
+
+DAy 25 :
+adf is serveless infra , for IR - compute ingine (as adf needs the server , n/w bandwith . storgae)
+
+
+edit integration runtime :
+data flow runtime :
+if we have memory issue use  Memory optimized option 
+
+compte typr :general puprose u have 4 (+4 cores )
+
+Autihor-datflow-settings 
+Run on (azure ir ) - intgeration runtiner 
+
+logging lvel -verbose :info about partioning info ,rows o/p.
+
+runi n paralal - to oncre performnace 
+
+Day 26:
+	open a data flow , enable dataflow debug , 
+add a seelct , then select seeting ,the sort ..choose whats needed in sort ...
+sink - file o/p to single file ...
+
+create a dataflow , then add daatflow in a pipeline then apply trigger and run  
+
+new dataflow - 
+source - aggregate1 
+group by country , and mXSALES  =exp max(Sales),sum(),count()
+min(Sales)
+
+Day 27:
+
+disable dataflow debug after completing ..
+
+if the single source data , we split it baed on dtaa and sink will be many 
+
+while running use  run in parallel option..
+
+conditional split option 
+proper way to partion key u select or 
+set partition  , round robin hash range
+
+Day 29:
+derived column : we can create new colum or update
+
+
+
+
+column pattern : 
+
+USA(2014) --> USA
+-->2014
+
+Derived column funcftion --  toIntegfer(trim(right(Country,6),'()')
+6...total no of char , and trim () from it 
+
+
+DAY 33: 
+if error due to broadcasttimeout :
+
+optimize tab-auto,fixed, off, or set IR and memory optimized 
+
+
+DAy 34
+monitoring data flow performance 
+
+
+
+

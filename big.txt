@@ -1,0 +1,563 @@
+Big data : volume,value(quality ), velocity(speed) , visualization , volatile , varaity...
+volume is one of the problem not only problem in big data..     storage, processing ,testing, vizualizarrion, ds,ml,ai automation  
+(open source)hadoop -hdfs
+--------map reduce  
+(open source - apache  software foundation website )comercial support ...  
+cloudera,databricks,microsoftf,amazon. providing bigdata service  for hadoop  ( hdinsight in microsoft) 
+bigdata requirment .. linux(as much as possible),sql(joins,subquries ,dml,ddl,insert update delete).programming(java or any), 
+experience... general it experinece learn bigdata ... 
+Linux (1 week)
+sql(rdbms , joinds ,no(triggers stored procedure) , mysql or oracle  ).
+programming lang... (java (archi , adv , dis , use cases , if loops oops concept , jdbc conetviivty program string handling and exception handling, file handling.))(1 week)
+bigdata (techstack used in bigdata ) (hdfs,hive ,spark batch ,spark sql) ... 
+ETL concepts (data warehouse concepts)(data replication , lambada , type1 data ..  )
+basics of cloud ...
+work on projects..(perfromance optimazation)
+list of hive , spark optimization..
+prepare resume..
+upon windows use vmware and install linux  
+
+
+hadoop framework.
+
+2002 -gfs distributing data  ..
+2004 -gmr mapresudce 
+
+2005-06 hadoop (duckery )
+hdfs  
+mr
+
+when hadoop frame work we have other comp after mr and hdfs 
+  hive ((facebiook)backend java , but front we use sql)
+  pig  ((yahoo) run biglatin on top of mr)
+ scoop (from rdbms to hadoop and vice versa )
+schedulers to shedule big data jobs..
+
+abstarction of map reduce hive ,pig ,spoop and oozy  
+
+Hbase hbase shell command  , works on top of hadoop ,NOSQl database
+hbase (database), hive is query engine
+mahaoot (ml and ai analytics)\
+flume (connect wth rdbms ...etc(only incoming retive data to hadoop))
+
+framework are lossely coupled .. means like if u remove oozy hadoop will work.
+
+
+
+hdfs:- gfs 2002 goofle file systems 
+mr :-gmr 2002 mP REDUCE 
+hive data arehosuing , scoop data trans
+
+file system : layer b/w sofat and us . used to read and write data from and to the harddisk.
+ hd ex ntfs, ext (stanadard), hdfs, s3 (distribute )
+
+block 
+eg when 1gb data goes to  mtfs   it  divides into blocks 1gb/15kb ,1gb/560kb in linux ..
+
+distributed we have 2 like master and slave ..   hadoop , spark
+peerr peer .. each and every other now the satus of other
+
+master slave ... spof (single point of failure ), spoc(single point of communication )
+hadoop 0,1 and 3,4 versions..
+in hadoop we have 5 process runing back jp1,jp2,...
+
+node:- indivijual physical or virtual machine
+cluster grouo of nodes.
+
+api .. hdfs block size ,... 1b=64mb(default), 128mb(default) , replication (1b=3r)..copy of block 25:23
+replication 1b=3r like  1 block will have  2 copies so we have 3 copies .
+
+Hadoop Distributed file sysytem .
+ 5 node of clusters , raam config, hardware  , 5 vms in azure or aws ... so go for linux , hadoop is same for 32 bit and 64bit ..
+hadoop is master and slave archetecture .. chosose 1 as master and others as slave ... confuguratuoins are to be made as to be for masteras and slave .
+jp1 , jp2 , jp3,4 ,5  here we need to configure 1 as jp1 and other like jp2 and all 
+we cannot directly connect to jp1 and all so edge node is present connect to edge node then jp1 eg ur laptop will be edge node for facebook...
+all these nodes will have 2 file systems ext (doesnt  distrubted ) and hdfs  (gets distributed ).. 
+clent api gets created for every request triggered.. meta data get created for every request .. after reciving the file check th efile size , check hdfs  and hadoop converts the 1 gb to 16 blocks likie 1gb/64mb .. 
+meta data will havve bloc s then replica as where they are stored  and get stored in ext of master .
+then master sends response to clinet api.  pipleline will distribute the data  when the copy is done we will recive acknowlege and then pipeline send the ack like its done .
+every node sends heart beat signal to master for 3 sec ..
+data we have 2 types , block , and metadata (), [block gets stored in slave meta data in master ] 2 type of nodes slave and master nodes , network and softawre (temp failure) and hadware permanent failure
+
+if one node dead , then mastaer knows it and master takes the copy of one copy from other and hadoop tries to give back the failure ,
+it will create a process in which the master takes the data from one node and creates in another node, 
+for temp failure..
+whether its hardware or software failure make it as permanent and remove and add , when we have no new node whenever new node created 
+it will copy there ... 
+if hadoop has high availability(HA).. if master goes temperarily then , but if for master ...
+write and read will be failed when all nodes gets down , and if clienyt api fails then read write will stop 
+
+demon name =jp1-name node, jp2 - data node , jp3 - secondary name node , jp4- [job tracker in version 1 , and resource manager v2,] ,jp5- [task tracker in v1 and node manager v2]
+
+zookeper , runs on all name nodes ... , active name node , passive name node.., becomes ann , zookeper is leader folower .. helps when master goes down..
+type of nodes ,
+master node :- name node + job trackeer
+slave node :- data node  +tast tracker
+checkpoint node is seconday name node ...
+without ha  h2 .. 
+1 master node  NN+RM , 2 slave DN+NM , 3 snn
+
+types of cluster 
+h1 single node |pseudo node .
+nm ,dn , tt , jt, snn 
+2. distributed cluster , having more than 1 node and 1 for nm , 1 for dn like small  cluster combo of slave and master 
+
+HDFS QUota :- 2 types  
+1.space quota : set spcae for diretcory 
+hadoop fs -ls /tech
+
+hadoop dfsadmin -setSpaceQuota 100 /tech
+hadoop dfsadmin -clrSpaceQuota /tech
+
+setquota 
+limitations for file count in directory 
+
+hadoop dfsadmin -setQuota 3 /tech
+
+hadoop dfsadmin -clrQuota /tech
+
+hadoop fs -put ~/data_301.txt /tech/datafil193.txt
+
+use : admin and solution archetect dcide the  volume and do it .. 
+in hive if u upfdate the file , we have 2 files but the query we have will get latest one . 
+
+hive compaction : merge before and after file and delete old , , 
+how to check status of quota , 
+hadoop fs -count -q -h -v /tech
+
+Hadoop Single Node Setup .
+go for single node for learning ..
+for hadoop u need even java too 
+beetr to keep things on home 
+go to home and type ls -a , and .bashrc open the file click e 
+esc +shigt +g go last and  give 
+export JAVA_Home=path
+export Hadoop_home=path 
+(7.26 mins)
+esc :wq (save and quit )
+then execute the file type source .bashrc
+extract tar file type  tar -axvf  abc.tar.,az file 
+hadoop etc hadoop and open it in some editor  , select core,hdfs,slaves,hadoop, mapperd 
+
+open ssh so install ssh(when u want to connect to other machine so , ssh ip adress of other machine )
+sudo apt-get install openssh-server
+ssh localhost
+yes give password 
+hadoop uses ssh to satrt demon 
+to remove password less commminaction generate ssh keygen -t rsa 
+enter and click ls 
+u get 3 files 
+(make the steps shown okay .. , hadoop-2.9.1$ )
+
+
+Appache Hive introductionand architecture.
+hive provide sql for interacting mr (hive is a query engine .not a database  )even called as abstraction of map reduce .. 
+install hive , req are sent using cli , when hive is started  hive has meta data (store table info ) where hive stored metadata store (stores in rdbms)
+only meta data gets stores in rdbms , and data or table will store in hdfs,
+now to insert we give to hive and then store meta data then data store in hdfs 
+select * from 
+then hive will check metadata then goes to hdfs and then shows the table data..
+when u install hive u need to install rdbms .
+when u didnt install rdbms only hive then hive will have internal rdbms thats called as embebeded metestore(DERBY)
+
+dis adv is , like we have derby in each node and then , table meta data is stored in derby of that node , but when u request (it goes to other derby of another node and it will say nope not present.)
+jdbc is used to connect hive also ..
+hive can run on MR,TEZ,Spark  and also s3 of amazon aws. 
+
+insatlling apacie hive 2 with mysql 
+start hadoop
+cd hadoop-2.9.1/
+sbin/start-all.sh
+and then >jps 
+add hadoop home in bashrc
+search for appache hive 2 or 3 , 
+install mysql 
+sudo apt-get install mysql-server
+mysql -u root -p
+show databases
+
+to enable contivity bwtween hive and mysql 
+mysql connector jar maven 
+download the jar file go to hive lib and plaste mysqlConnector jar there .. go to con folder , hive-site.xml rename it and open  , add mysql info 
+hive craetes the meta data and store in 57 tbles  of mysql 
+
+bin/schematool -dbType mysql -initSchema 
+table info is stores in the 57 tables of mysql.
+
+mysql will be in apachive hive itself , apache-hive scripts metadata 
+we can acces 
+bin/hive 
+
+
+start hadoop services with , 
+cd hadoop-2.9.1 
+and sbin/start-all.sh
+jps 
+cd appache-hive-2.3.5-bin/
+/appache-hive-2.3.5-bin , bin/hive
+hive queries are similiar to mysql
+show databsae
+create database test;
+use test;
+show tables;
+hive supports , orc ...
+cretae table test.emp{
+sno int,
+usr_name string,
+city string
+)
+Row format delimter fields terminated by ',' lines terminated by '\n' stored as textfile;
+load data local path(from linux sys )
+load data local inpath'/home/test/usr_data.txt' into yable emp;
+select * from emp;
+
+hadoop fs -put /home/test/usr.tst /usr_date.txt
+load data inpath 'usr/
+
+
+hive tables stored in hdfs in path hadoop fs -ls /user/hive/warehouse
+hadoop fs -ls /user/hive/warehouse/test.db
+hadoop fs -ls /user/hive/warehouse/test.db/emp
+----------------------------user.txt
+hadoop fs -put /home/test/usr_data.txt  /user/hive/warehouse/test.db/emp/user_dta1.txt
+
+hive now 3 files got loaded 
+insert in hive 
+(mapreduce job get started not while loading)
+insert into emp(sn,emp,valr) values(1,g,cheni)
+desc emp;
+desc extended emp;
+show function;
+user defined function and agregation..
+select count (*) from emp;// will trigger mapreduce job any agreeagtion or join 
+
+hive internal and extrernal table in hive , when to use it. 
+
+in syntax we have external for extaernal table creation 
+in internal drop data and table is dropped ,
+when u drop extrernal table , u will have  table file in the path , data will still be ther but struce of table is deleted
+eg ascii cable (always internal),
+
+Hive partition 
+every table will be parttioned ...for easy fetching ,faster, performance increase
+like eg cheeni , mumbai , bangalore , are partioned 
+
+crete table and do partition by providing 
+enable dynamic partion ,
+start hadoop and then start hive 
+cd apa-hive-bin
+
+data is in local load into hive 
+take one of teh column as partion table ...
+and insert the data  
+10:32 mins
+hadoop fs -ls /usr/hive/warehouse/
+
+now table is empty to check that 
+hadoop fs -ls /user/hive/warehouse/user_data
+insert into table userdata partion(city="chennai") select sno , usr_name  .....
+query now the data which is in cheenai partion 
+hadoop fs-ls /usr/hive/warehouse/user_data/city=chennai
+
+in hive check  show partions uset_data;
+
+static and dynamic partition..
+(in dymanic no need to mention in where class)
+hadoop fs -ls /usr/hive/warehouse/usr_data-dynamic 
+bucket :- data sampling.. , map side join..
+
+  
+
+Hive Bucket 
+ 
+Data Sampling 
+Mapside join
+
+bucket is used to distribute the data..
+set bucket to true 
+dont use load instead use load (if spark not a problem )
+from normal table we are bucketing it to the bucket table ..
+how many buckets u want u have to mention (there is calculation to create bucket size)
+in bucket , bucket will decide where to land ur record , where as in partion we will decide  where the record has to go 
+bucket uses hash partion algo is used by bucket to decide where the record has to go .
+0000-0 (bucket 1)
+0001-0
+0002-0
+now we take mod of that value(inserted record val) and stores here
+use case , we can go to partion itself right why  bucket ..
+eg partion sl ,name country  now contry as partion (as it has duplicate ...) 
+now we use selction like  select * from where conty=us its easy and no full scan will happen ...
+for eg if we give like select * from where sl =1004 then full scan will happen  , to avoid it go to bucket .
+
+eg if u give 1004 it goes to buvkrt 1  and then go on serach the entire records ...there in that bucket.
+
+data sampling.. 
+select * from bucktable
+show create table buckettable  and go to that loaction in hdfs
+we can see like 3 buckets are present 
+for anaylis data scine purpose first we do sample and apply .. here we have block and buket smapling .
+select avg(amt) from bk-test_data tablesample (bucket 1 out of 3mon rand()) s;
+
+decide bucket size:
+how do u get bucket values..
+table size =2300mb , block size 128 mb then   == 2300/128 = 17.96
+then 2pow n = 17.96 take value  of n that is  neartest to round value of 17.96 so go wth 5  then 2pow 5=32 which is bucket count  
+after some 6 months what happens is like we may need to changae the no of buckets ,  so now u do this  
+insert overwrite bucket_usr1 select * from bucket;
+drop table bucket_usr1
+
+we can do both parttion and bucket
+
+Hive ORC file format :
+enconding with 
+text =585gb , parquet= 221gb , orc=131gb(78% of smmaelaer then orniginal data)
+orc uses coulmn orinated ..
+if u use acid table the storace type shd be orc
+
+ACID Table ..
+1st rule internal table 
+2nd rule  bucketed 
+3rd format orc format 
+4th enable transation must be =true
+ 
+insert ...
+trigger mapreduce job and select then u will have it..
+
+Hive UDF :
+	functions in hive , show functions
+java ecllipse then create paroject and  add libaries  , from the paths of hive and hadoop , jar files has to be added  , right click project java buil d path , select all jar files and okay
+class hiveudf extand udf 
+and inmplemet the logic with method name evalutae , 
+(custom hashing algo ,converting the time datae function)
+export as a jar and use this jar and 
+
+add jar /home/ubantu/udf.jar
+
+create te,poarry function my_function as 'org.sample.hive.training.HiveUDF' 
+//teast functi
+select my_fun("own") // OWN
+
+
+
+Appache spark.
+data processing frame work under bigdata.
+1.hadoop, 2.spark
+hdfs,mr,hive 
+
+spark :-both  hadoop and spark are indepenedent , in real time both spark and hadoop are tightly coupled..
+linux, sql.
+
+
+spark on top of spark sql (connect to hive .etc) 
+
+2..spark streeming (batch processing already stored in db (hadoop only for bath processing), stream processing data is processing live  )
+3.. mlib (machine learning ai libarary)
+4..graph xx (graph relationships )
+..spark batch , spark sql , spark streeming..
+
+data storage,
+data processing 
+data scheduling 
+data visualozation
+data testing
+data pipeline.
+
+hdfs ,hive , hbase , pis , oozie , flume nd scoope , mr
+
+
+in hadoop we have hbsae, hdfs, mr , hive , pis , sqoop , fiume, 
+
+in sapark , spark sql , spark stream , mlib , graphxx
+
+prob ... when migration from hadoop to spark (spark has enabled the connectivity to,spark (map reduce ) , hive , hbase )
+hbase (storage),
+spark (rdbms to spark) scoop 
+scheduler oozi 
+ 
+where mapreduce is repleced by spark... 
+
+spark is a data processing tech , batch , stream and analytics,
+lang : python , scala , java , python ,r 
+deman processing in spark ..
+back grnd process in spark ..
+-> master
+-> worker
+
+deployment mode (standlone (only spark), yarn(spark and hadoop), meosos (cluster manager).. )
+in memroy processing ... data is didtributed in spark 
+spark repel .. cmd line shell (testing the piece of code )1. spark shell , and 2. pyspark 
+
+apis .. rdd , data frames , data set (distributed , fault touralance , )
+transfermation  (map , group , sort , filter)and action (count , show , save as )
+
+lazy evaluation..  map - fileter - group - sort ..... etc... group (now at end no action then spark gievs error )
+
+
+
+installiung spark
+untar the file 
+(to unzip )tar -zxvf file name 
+ls ,
+then configure and setup 
+ls -a 
+bashrc open it used for setting env 
+export Path=$java_home/bin:$hadoop_home/bin:$path
+exc:wq
+exe source .bashrc
+cd spark/
+cd conf and ls 
+cp spark-env.sh.template spark-env.sh
+open wth gedit and place it .
+
+repel is nothing but shell..
+bin/spark-shell
+jps list out java process status
+
+then u will find master and worker..
+
+
+Word count program in scala
+start spark shell
+bin/spark-shell
+localhost:4040
+
+map = paralleism ()divide , reduce = group it back 
+
+spark contest (sc) like main in java 
+flat map flatten the data like split the alpahbaets  
+var a= sc.textfile("/home/test").flatMap(line => line.split(" ")).map(word => (word ,1));
+var b=a.reduceByKey(_+_)
+b.collect (action)
+
+it colects the data in the form of 
+1 and 2 like lists , eg  hi i am am go ,hi -1 , i -1 ,am -2 , go -1 
+
+.....
+
+
+
+
+
+Spark RDD
+
+Mpp( doing processing in parallel .)  1gb file into partition ... in spark n transforamtion can be given to a bloock 
+data lineagi  
+
+after every transforamtion it gets stored in memory , now do transformartion on top of  other transformation..
+if any of the transformation data is lost ... as spark  maniatns linieage  it takes before transforamtion and finds out teh value ... 
+spark support replication ,by storing the output of the transforamtion . 
+persist where to store the output .. ( memory_only_2 ) whole concept is RDD resilient distributed dataset..  fault tolerant.. RDD->  data frame -> data set 
+
+Spark Transformation Types and Actions..
+2 major operations transformation and action.. 
+map , filter , etc . (transforamtion)  --- narrow(one to one like data ..reduce..map..filter) and --- wide transformation... (if shuffle is hapening for the transforamtion ) then wide 
+collect , show.. , svae as (action..) 
+ lazy evaluation if action is presnt then only transformation is possible 
+
+DAG vizualization..
+var a= sc.textFile("/home/test/words").flatMap(line=>line.split("")).map(word=>(word,1))
+
+var b=a_reduceByKey(_+_);
+b.collect
+
+satge 1 and satge 2 like if we have wide and narrow ...
+
+Spark Executor core & memory explained 
+ imagine we have cluster and input data is partitioned and for these tasks  exe on top of 
+--num-executors
+--executor-memory
+--executor-cores
+--driver-memory 
+
+executor is like jvm  created on top of node and create task (...)   core like a value will be given which determines number tasks done at a time..
+driver mem main method is calleed driver which will be created   co ordinate task wth master
+
+when we do spark job we have spark lens .. it will inform the req number of gb..
+DRA spark takes care of memory dont go for oit 
+
+we have 6 nodes each node have 15 cores , 64 GB Ram
+ core - no of concurrent task
+for example we can give 5 parallel tasks for each execvutor
+
+no of core ;5
+ num executor :15/5 > 3 executor per node
+num executor memory :64/3 >21 gb  1or 2 gb yarn memoery =18 gb (we can give 5 gb memory for each job)
+
+spark submit cluster yae=rn mode 
+
+file new other maven project then create simplw project .. test .. artifactid test   u hve to download eclipse scala  configure  add scala structure 
+changae jdk version and scala version..
+always do maven clean and run as maven install will create the target file..
+
+Spark With JDBC 
+ 
+spark uses internakly  threaft  to connect to mysql 
+
+get mysql connector jar 
+spark-shell --jars /home/.... /mysql-connector-java-8.0.22.jar 
+sudo apt-get install mysql-server
+show database 
+show table 
+
+why partion when sleect query we shd get it fast so 
+
+predicates 
+
+spark udf (user defined function)
+weh have predefined funcions ...  use val customudf=udf(ucase)
+customudf(name)
+
+Repartition and Coalesce
+
+repartion from 100 to 150 .. network io increase and shuffle will happen .
+
+in coalsece no shuffle happnens  as we reduce from 100 to 15 
+here collace took so much of time where as repartion was much faster ..
+
+Reducebykey and groupbykey 
+
+input partion , output partion ... b/w we have shuffle .. n/w memeory if memory is full then store in  disk ..
+goal to reduce shuffle  so reduce n/w io , memoery io disk io
+wide transformation ,shuffle will be there ..
+ word count 
+here input then goes to mapper then summation  ( mapper to reducer )  it uses n/w io for (shuffle ) to summation in reducer 
+
+reduce by key now 
+in map reduce side  we have combiner  here summation hsppens in mapper then goes to reducer where no of i/o gets reduced
+
+
+Spark Dedup :
+if u have duplicates in table if u want to fix it 
+how they entered .. source itself has duplicates ..
+one use case :- mysql -- read-- spark---hive      after that --- on data --spark processing--- then to oracle 
+if the schedule has failed or job has failed ..(some iddue wth infra .. scheduler..) then re start schedlue then the alredy redcords will be present if ex 75 read then fail now gaain
+deadlock issue in oracle .. u have to query the hive .. then u will find that 275 rows will have  instead of 200 which even contains duplicates
+dedo is  drop dupliactes and craete a table as a_dedupe  and consider it to write into oracle 
+df.dropDuplicates().show
+df.dropDuplicates("colmn").show
+
+PySpark UDF is slow ?.
+to prove we did conatct operation on by using udf and aslo built in function..
+y pyspark is slow .. and not in scala and jvm 
+pyspark will have to use jvm and python runtime ...
+
+install hadoop , hive spark
+vi .bashrc
+
+SQoop  sql +haddop - .. datapipeline is qoop migrage from  hadoop to rdbms and rdbms to sqoop 
+rdbms(mysql ., oracle )---  hadoop ()
+import and export 
+rdbms ->hdfs, hive ,hbase  for import 
+haddop to rdbms
+hdfs->mysql
+hive->mysql
+hbase->mysql is not possible 
+sqoop runs on maprduce its map only job ..
+sudo apt-get install mysql-server 
+
+
+
+
+
+
+ 

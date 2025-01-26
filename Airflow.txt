@@ -1,0 +1,168 @@
+Airflow 
+
+before Airflow era  schedule
+we were extrating data and dump it into s3 bucket 
+
+bash 
+corn job ,python script are used before foer schedluing 
+
+origion -> load data from api, website -> dump on s3 
+											getting data from Api , website 
+for each job a code has to be written 
+Snip up 50(eg:) corn jobs(code for repetaed stufs),
+custom script for every job , check job statsu
+failure check , re run mechanism 
+
+.... load in db -> aggregate data  (combine X and Y )-> database
+Inter-dependency 
+Job Status check 
+Alert mechanish=m 
+Re run mechanish
+High complibity 
+
+challenges
+Monitoring : job statsu , previous jobs,
+Manage failure : alert on failure , timeout 
+dependinces , check upstream data , run  job 1 after job 2 
+back file , rerun the historic jobs 
+Scalability  centeralized system to managae jobs 
+Deployment : version control 
+
+Techmical terms of Aitrflow 
+Task:- source -load aggrate -load to dw 
+task are the smallest unit of the job 
+
+core compoennet of airflow 
+task execution log ->web server -> web ui 
+meta data database -> scheduler ->workers 
+
+Schedulrer triggers and schedules workflow  and submits task to the exectuor 
+executor rumns the task /job provided by scheduler 
+Worker -Runs the task (Maachines)
+
+Web server -User interface to inspect , trigger , debug the dag/tasks 
+Metadata store -> stores info about dag and tasks state 
+DAG folder - This is directory where all the dags code is presnt , read by schedluer and executor 
+
+
+Airflow 2
+
+architecture
+
+exceutor asign tasks to the worker 
+tasks are presnt in dag 
+meta dataore store info about jobs , time , statsu , logs
+
+Types of executor 
+Sequential executor  by default executor   sq execuor runs within the scheduler itself 
+
+>it can run one task instance at a time (no worker )
+>sqlite is the default meta 
+sqllite is default meta data database
+
+pros 
+No setup required , light weight ,cheap,
+cons 
+not scaleble , slow , single point of failure 
+not suitable for production level application 
+
+#local Executor 
+the executor runs witin the scheduler itself 
+initiates multitasks within executor 
+
+Pros 
+easy to setup 
+multiple task (faster) ,cheap (hardware ), lightweighted 
+cons:
+not scalebale 
+cannot be used in production 
+single point of failure 
+explode in case of high volume execuion
+
+celerhy executor :(most  widely used )
+ the executor runs on dediacted macjien 
+ it can handle multiple jobs/tasls at same tiem 
+ we weill be utilizinf teh queeue fro task execution 
+ 
+ (kafka/rabbit mq)queining service is added after celery excutor like cw1,2,3,...
+ 
+ rabbit Mq -message broker 
+ act like a task distributor 
+ 
+ pros : 
+ scalable . fault tolerent 
+ prod environmanet 
+ works well even wth high loads 
+ having works for concurrent task execution 
+ 
+ cons:-
+ complex architecture 
+ ,costly 
+ experts are requird to setup and maintain architecture 
+ wastes toom much of resource  (work evn if no tasks )
+ 
+ Kubernetes executor 
+ worker run on deddicate d pods 
+ uses kubernates apis to mnaag epods 
+ 
+ we have worker pods 1,2,n
+ worker pods re conncetd to db and also schelders
+
+docker running application -containers 
+
+(kuberantes )based on the scalabilty number of ec2 instances are increased 
+Pros:
+it can sacle up and scale down 
+fault tolerant 
+can assign to indivijual task (can launch different pods for different tasks )
+cost effective as compared to salary exectouyr
+
+cons :
+kubernates expert rq
+launching pods for the tasks takes few seconds of time (cold statart p[roblem )
+
+Airflow 3
+
+volumes are used as storage .. to transfer data 
+copy data from container to local 
+
+
+
+ 
+ 
+ 
+ 
+ Airflow youtube :
+ complex workflows manageent, workflow is sequence of tasks
+ repesented by dag(collection of tasks and relation and dependency) , its acyclic 
+ task is a unit of work in a dag 
+ operator decides what happnes with the tasks 
+ bash , python, customized  
+ execution date  :- when the dags are to be run 
+ task instance : when the task has to be run 
+ dag run :when the dag run on specific date 
+ 
+ docker-compose down -v 
+ up -d
+ 
+ ourdag.py
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

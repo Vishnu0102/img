@@ -1,0 +1,368 @@
+One of the table is very small in size .. 
+emp has 20k 
+dep=10 then .. 
+distyribute and then join operation..
+
+
+
+
+each mapper task exe on commoudity hardware  so map side join  canhave memory size ouver so ..out of mememory 
+(okay only for less size one )
+
+bucket map join 
+Employee table buckets ..  department table
+b1,b2,b3,b4                  d1,d2   ...buckets 
+
+Conditions..
+1.tables are bigger in size ,2 both tables are bucketized on same join column..
+3.Number of buckets in both of the table are multiple of each otehr
+
+the data distributed in buckets ..
+here instread of entire dta only buckets are are sent to mappers 
+like in city b1 is sent only to b1 of sales  like wise 
+b2 of city is sent only to b2 of sales 
+
+set hive.optimize.buckrtmapjoin=true
+then join 
+
+sorted merge bucket join
+
+a=[1,3,5]
+b=[2,4,7]
+res=[1,2,3,4,5,7]
+to optimize it 
+
+lengths n,m
+now compare i and j as values  to take position and check the posituons one after one and increse teh i and j 
+O(n+m)linear complexuty 
+
+if the match happens  we increse both i and j ..
+
+set sortednege-true
+..
+
+play wth the data download from kaggel e
+
+
+user defined functions 
+here he has written a python proygram  for muliply..
+time 2;22
+
+read inputs from terminal  and increasing some value to y
+
+and display..
+
+select transformstaion(quantityordered) using 'python multiply_udf.py' as (quanttiy ordered int) from sales_order_data limit 5;
+s
+2:38
+select *,transfa..... -- is not possibke gets error 
+
+2:39
+hive passes the row one by one to the udf.py 
+here in udf.py file the data is read  splited a sedn to the values  adn join is used (pamndas join) and printed..
+
+>hive 
+>?? multi cloumn user defined functionis working
+>add file file:///home/hadoop/many_coulmf_udf.py
+>select transforom(country, ordernumber,quyantity) using 'python many_col_udf.py'as (country string,ordernumber int, multiplied quantity int) from sales_order_data_orc limit 10;
+
+after hitting queryr 
+set hive.cli.print.headxer=true
+select transfor...
+
+
+
+check 2:57 timimng 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Sqoop1:
+
+Apache made a  tool to ease out the data transfer from rdbms to hdfs called sqoop
+
+features of sqoop :
+sqoop helps us to connect the results from the sql quiers to hdfs (if sqoop was not exited we shd have wriiten map reduce code )
+
+sqoop even help to load the processed data to hive and hbase
+data securirty operation wth the help of kerberos
+
+can perform compression of data 
+powerful and efficeinet
+
+
+kerberos : centeral autnentication server 
+key -- distribution center (kdc)
+autentication server - perform initial authentication and recive tickets for the ticket granting services.
+3ticket granting services issues tcicekt to server
+
+working :
+1st userf login and request service on host .thus user req for tgs
+
+authentication server verify the acess then tgt and seesion token .
+
+tgt and token in encyprition
+the decyption of message is sone usingh password and sent to the ticket tgs
+
+tgs decyrpt the ticket and authorization validation takes place 
+the server verifies the ticket  and acess to srver once granted the user can access  the service 
+
+
+workflow of sqoop: in sqoop we have 2 things sqoop import  rdbms to hdfs and export hdfs to rdbms
+
+linix os , virtual box ,cloud instance ec2 (can charge)
+
+EC2 instance 
+
+launch instance 
+name sqoop ,
+os ubuntu 22 
+instance type t2.xlarge
+keppair sqoop
+100 gb storage
+
+
+launch the instances
+ so all the details of sqoop instance will be running .
+
+now install mobatek
+then use the file sqoop to cooncet to ec2 instance
+
+ec2- instance coonect ssh client
+
+while creating u will have the key.pem
+2 services are present.
+
+
+install docker on the ubuntu now and if permission error then use ..sudo usermod -aG docker ubuntu 
+newgrp docker
+
+mysql -uroot -pcloudera
+
+cloudera is lke a distribution packge..
+
+>show databasese
+
+
+
+in sqoop terminal 
+sqoop list-databases --connect jdbc:mysql://localhost:3306 --username root --password cloudera
+
+sqoop import 
+
+sqoop import
+ --connect jdbc:mysql://localhost:3306/retaildb \
+--table categories\
+ --username root \
+ --password cloudera
+
+a mapjob is run  in and splits are handeled by sqoop
+
+go to hdfs system and check ..
+hdfs dfs -ls /
+hdfs dfs -ls /user/root/categories
+hdfs dfs -cat /user/root/categories/part*
+hdfs dfs -ls /user/root/categories/part* |wc -l
+
+sqoop eval \
+ --connect jdbc:mysql://localhost:3306/ \
+ --username root \
+ --password cloudera \
+--query 'show databases'
+
+for boundry query
+import and 
+--boundry-query "select min(cate),max(cate)" from cate"\
+--split by category
+
+hdfs dfs -rm -r /...
+
+after password --m 2 
+delete-target-dir
+
+
+
+sqoop 3
+
+install docker then add docker by giving permissions and then .. you need to run the image  its a cloud era image 
+
+docker exec -it a2 bash
+mysql -uroot -pcloudera
+
+use retail_db;
+echo -n "cloudera">sqoop.pwd
+
+here splitsize is based on the factors like ... splitsize by number of splits 
+
+--direct is used to decrease import time..
+
+--target-dir /user/data/
+--table customer
+--append
+-P 
+-warehouse-dir /user/datawarehouse
+--columns "cust_id,cust_fname"   to import limited nu,ber of columns
+-dleete-target-dir
+--where cust_id<100 only 100 rows 
+
+--m is used like for primary key check on it        --autoreset-to-one-mapper same function as of --m 
+--query "select ^ from .. chere custid<19"
+--exclude-tables 'orders,products'  # --connect jdbc:mysql://localhost:3306/retail_db in datawarehouse 
+hdfs dfs -ls /user/datawarehouse/order_items/
+
+--compress
+
+hdfs dfs -ls /user/data/order_items   to look cat and /ore/part*
+if the data is compresses use  -text instread of -cat 
+-as-srquencefile 
+-as-avrodatafile  .. it will be .avro format file to see -text 
+
+
+connect the spooq to the sqoop.pem
+docker --version
+docker ps
+docker exec -it 25 bash
+
+--fields-terminated-by '|'    the fields will be seperated by |
+ 
+incremental load , the data  inserted or appened  into tables at certain duration ..
+
+
+create a incremental name table in mysql 
+create table inc_imp(id int , name varchar(50),city varchar(50))
+insert data into incr_table\
+values(101,"vish","delhi")
+
+we get error now .. due to no primary key 
+so use --m 1  # let the sqoop job know that we run only 1 single part file and all data is appened to it so no ned of primary key 
+
+if you add some data in mysql and and want to update it ... run the comand 
+
+sqoop import /
+--connect 
+--username
+--password
+--table 
+--warehouse-dir 
+--m 1 
+--incremental append 
+--check-column id
+--last-value 103  # provide the last value from where appened has to happen 
+
+sqoop job is a script and run that script.. and shedhule it when ever we want to launch 
+echo -n "cloudera" >sqoop.pwd
+
+sqoop job \
+--cretae inc_imp_id\
+--import \
+--connect jdbc....
+--username root\
+--password-file file"///sqoop.pwd 
+--table inc_imp
+--m 1 
+--warehouse-dir /user
+--incremental append 
+--check-column id
+--last-value 0
+sqoop job --list
+
+
+delete from inc_imp where id in (104,105)
+
+sqoop job
+--exec  inc_imp_id
+
+hdfs dfs -cat /user/...
+sqoop job --show  in_imp_id
+
+then insert values in mysql 
+and now execute the sqoop job 
+
+considering dates 
+
+sqoop job /
+--create inc-imp_dt
+-- import      # give space here
+--connect 
+--username
+--password
+--table 
+--warehouse-dir 
+--m 1 
+--incremental append 
+--check-column start_date
+--last-value 0000-00-00
+
+insert ubto imp (102,vin,now() - interval 2 day),(...now() - interval 3 day)
+
+here if the datae is less than last value it cannot be added 
+
+last -modified value
+
+create wth start date timestamp
+
+sqoop job ...
+incremental lastmodified
+check-column start_date
+last-value 0000:00:00-00:00:00
+merge-key id
+
+in last maodidfied we have 3 senario 
+1)no change in the row  -- no job run
+2)data has been modified  -- reducerjob 
+3)new record has been inserted -- mapper job
+
+now if you exec the job 
+the modifed data is imported and reducer  job is used
+
+we cannot modify existing job.. 
+
+now sqoop eexport 
+
+create table dep_exp as select * from departments where 1=2;
+
+sqoop import  the table departments
+hdfs dfs -ls user/...depa
+
+sqoop export \
+--connect jdbc:mysql"localhost :3303
+--username root
+--password-file file 
+table dept_update
+--iexport-dir /usr/roo/departmrents
+
+if there are any chnages in mysql department then import the chnages first 
+then export 
+wth 
+-update-mode updateonly --update-key department_id 
+for even to update the new reords  we have to 
+-update-mode allowinsert --update-key department_id 
+
+staging ...
+
+sqoop export ...
+
+--staging-table dept_update_stg  @ here first the dat agoes into stg table then to update table and the data in staging table i sdeleted once the data goes into rdbms
+
+eg for large amounto of data transfer and sensitive like no data miss shd happen so we use thsi 
+
+
+
+
+
+
+
+
+
+

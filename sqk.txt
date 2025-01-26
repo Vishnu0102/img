@@ -1,0 +1,57 @@
+candidate  (minimal set of attripute to identify a set
+super email+phone (subset can be used to find a reocrd)
+primary any candidate is primary 
+
+1.1
+1.may cardinaltiy 
+
+
+1-1
+1-N (mom -child)
+N-1
+N-N (actor -acytoe )
+N--  N
+
+generalization and specialization 
+dog -cat 
+pet 
+
+specialization opposit of above 
+
+alter tzable users modify column emi varchar unique
+................. add primary key(user_id)
+
+alter table gold add constraint fk_uid foreign key (uid) references users(usera-id)
+
+use of show create table cmd 
+
+index makes query faster
+
+create index index_name product(prodcategrory)
+
+normal forms if well designed rules 
+
+1NF : atomic attributes , like  naga vishnu both should be in diffenrnt tables  not on same 
+
+2NF :  non prime atrrribute  and non key columns 
+
+we have primary key columns and non key columns 
+storeid,productid,date,revenue,product manager  here revenue is dependant on  (storeid,productid,date) 
+
+a table should have every non key columns fully 
+defined by or depany primary key
+
+3NF :, follow 1nf,2nf , Non key columns shd be independent of others
+
+start transaction 
+..
+...
+rollback 
+dsata manipulation8(insert , update ) can be rollbacked not kddl 
+
+begin end 
+
+
+read lock - the session u cannot insert 
+
+write lock - in this section u can insert the value , on another session u cannot insert  so unclock first in that session 

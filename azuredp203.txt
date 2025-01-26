@@ -1,0 +1,196 @@
+pipeline activiytb 
+
+
+landing zone - orginal zone  (cool access)
+staging -(basic sturvctr )
+curated transdformed 
+production - bussiness logic 
+experimental -combine multiple data set 
+
+folder structure : raw \datasorce\entity\yyymmdd\file.parquet
+
+appliying permissions and access 
+
+Avro - row based , schema json , data binary : schema chnages 
+parquet - columar , nested , binaty  : read heavy 
+ORC - columar , coll of rows , binary  : support acid 
+
+partiiton key 
+account +container+_blob 
+htt/landing/parquet
+
+range based partiioning :
+data is split intpo rabges 
+
+azure synaps distribute data across 60 databases 
+
+
+
+3 types of dirtibution 
+1 round robin - evenly  in random : okay for loads , no relation , slwo performnce 
+2. hash - calculate hash : column with more unique ,no nulls ,not a date column : large table grater than 2gb .insert update ,delete 
+creqtae tna;e wirh (hash of column )
+
+3. replication - full copy 
+
+Archibving- hot cool archive 
+
+pruning : -  data skipping (min and max ), z ordering 
+dfp dynamic file pruning 
+
+spark.databricks.optimizer.dynamicpartionpruning 
+spakr.databricks.optimizedr.deltatablesiuzethreshold 
+spark.databricks.optimizer.deltafilesthresold 
+sharding - spread data acrsoos mulitple compuetrs ,
+
+pipeline - logical group of activites 
+activites movemet and trasformation of dtaa 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+unit test and functinal twst 
+--count of  activuty -- count of rows 
+
+i9ncremental load 
+
+select watermark or refence olumn or value like timestamp 
+
+df- injest - tumbling\
+
+allow schema drift in source and sink and auto mapping
+
+-- Create fact table
+CREATE TABLE [dbo].[FactWeatherUpdates](
+	[refNumber] [int] IDENTITY(1,1) NOT NULL,
+    [dateKey] [int] NOT NULL,
+    [locationKey] [int] NOT NULL,
+	[userKey] [int] NOT NULL,
+	[high] [int],
+	[low] [int],
+	[conditions] [varchar](25)
+)
+GO
+
+-- Create dates dimension table
+CREATE TABLE [dbo].[DimDate](
+	[dateKey] int NOT NULL,
+    [dateAltKey] [datetime]  NOT NULL,
+    [calendarYear] [int]  NOT NULL,
+    [calendarQuarter] [int]  NOT NULL,
+    [monthOfYear] [int]  NOT NULL,
+    [monthName] [nvarchar](15)  NOT NULL,
+    [dayOfMonth] [int]  NOT NULL,
+    [dayOfWeek] [int]  NOT NULL,
+    [dayName] [nvarchar](15)  NOT NULL,
+    [fiscalYear] [int]  NOT NULL,
+    [fiscalQuarter] [int]  NOT NULL
+
+)
+GO
+
+-- Create locations dimension table
+CREATE TABLE [dbo].[DimLocation](
+	[locationKey] int NOT NULL,
+    [locationAlternateKey] [nvarchar](15) NULL,
+    [country] [nvarchar](50) NOT NULL,
+    [city] [nvarchar](50) NOT NULL
+)
+GO
+
+-- Create users dimension table
+CREATE TABLE [dbo].[DimUser](
+	[userKey] [int] NOT NULL,
+    [userAlternateKey] [nvarchar](15) NULL,
+    [userName] [nvarchar](50) NOT NULL
+)
+GO
+
+------------------------------------------
+-- Key and Constraint Creations
+------------------------------------------
+
+-- Create DimDate PK
+ALTER TABLE [dbo].[DimDate] WITH CHECK ADD
+    CONSTRAINT [PK_DimDate_dateKey] PRIMARY KEY CLUSTERED
+    (
+        [dateKey]
+    )  ON [PRIMARY];
+GO
+
+-- Create DimLocation PK
+ALTER TABLE [dbo].[DimLocation] WITH CHECK ADD
+    CONSTRAINT [PK_DimLocation_locationKey] PRIMARY KEY CLUSTERED
+    (
+        [locationKey]
+    )  ON [PRIMARY];
+GO
+
+-- Create DimUser PK
+ALTER TABLE [dbo].[DimUser] WITH CHECK ADD
+    CONSTRAINT [PK_DimUser_userKey] PRIMARY KEY CLUSTERED
+    (
+        [userKey]
+    )  ON [PRIMARY];
+GO
+
+-- Create foreign key relationships to the dimension tables
+ALTER TABLE [dbo].[FactWeatherUpdates] ADD
+    CONSTRAINT [FK_FactWeatherUpdates_DimDate] FOREIGN KEY([dateKey])
+            REFERENCES [dbo].[DimDate] ([dateKey]),
+    CONSTRAINT [FK_FactWeatherUpdates_DimLocation] FOREIGN KEY([locationKey])
+            REFERENCES [dbo].[DimLocation] ([locationKey]),
+    CONSTRAINT [FK_FactWeatherUpdates_DimUser] FOREIGN KEY([userKey])
+            REFERENCES [dbo].[DimUser] ([userKey]);
+GO
+
+
+
+
+
+masking .. defult , credig crda  , emiall. A... .com 
+random numner custom
+
+Audit - Synapse and sql  pool 
+ track the events 
+ 
+ Regulatory requiremts ,
+ dtaa retention policy.
+ hold data 
+ in audiing we have the option 
+ 
+ purging - deleteing hte data , 
+ dtaa life cyucle managemnt , creation - process-use-rentnrion - destruction 
+ 
+ Reason to purge the data 
+ gdpr , right to erasure , save money 
+ 
+ best practise .. data retention , active, archive , purge , 
+ 

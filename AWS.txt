@@ -1,0 +1,103 @@
+
+during tradition software systems , 
+we had machines , servers , network , databases , 
+To host or execute any application /program , we need the infrastcture and supportive services.
+
+rdbms , mysql , oracle ,... thes are the applications hepls to maipula6te the date 
+in traditional way .. infrastructure (physical /servers)
+(cost was high and security was low)
+Application
+Disadvantage of traditional deevelopment .
+(Manual setup , Physical machine maintaince ,cost is high , security flaws are high )
+
+cloud : a remote location or a remote agent which will provide  all the necessary services to build /host /mainatin the application
+Ex : to build and web app we need machines , dabase service 
+
+why c;oud , maninatce is quick , cost is cheap , security is good 
+
+cloud providers , aws , azure ,gcp
+
+aws>azure.gcp .
+common service , pricing ,infra,implementation
+
+storeage aws s3 , blob , gcp storage
+
+service or consulting firm 
+cloud data engineer 
+aws data engineering
+azure dats engineering
+gcp data engineerring
+
+types of aws services
+Computing service 
+ec2 (elastic cloud compute ), lambda (serverless service )
+Storage 
+S3 (simple storage service )
+
+database services
+aws rds
+
+storage s3 simple storage service 
+data services  aws rds (relational database service )
+aws athena (serverless db)
+No sql databasee... aws dynamo (key value )
+
+data warehouing redshift 
+analytics emr (elastic map reduce )
+glue (distributed )
+kinesis (for sptreamnng data )
+sqs (simple queee service )
+
+everything that u keep in bucket is cakled object 
+
+
+
+
+
+
+
+
+
+
+AWS 2 :
+ec2 is a on demand infra 
+
+aws lambda:
+lightweighted serverless service 
+no infra setup is needed 
+ex: API develpoment
+every request has a particular function 
+the https request is used to know about the function required to 
+
+the request are mapped to ufunction 
+lambda works on triggers 
+you provide the triggers while test ., 
+create a script , deply it , then tests it 
+cloud watch where logs are stored 
+
+S3 bucket 
+
+i am to restrict servcice  access 
+when 2 services in the aws 
+AWS A/C 
+I AM user ->differnt logins for eacj users 
+I am Role -> contains polices to acces aws resources 
+
+boto3 libarary in python 
+bucket stores data in the form of object , then key to identiffy them 
+
+on configure -permission-
+iam - roles- craete role-aws services- lambda -
+add permision- amazons3full access
+
+role that is created -permision-createinline policy  -s3-
+
+permissions lambda , aeslambdabasicexecutionrole
+attach then inline policy -s3-resource ..arn 
+
+bucket-prop-event notifications- event type..after u upload data fil e on 
+after u upload data  the cloud watch will have log of metadata  as we print eventr 
+
+lambda layers add layer awssdkpandas 
+
+ 

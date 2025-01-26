@@ -1,0 +1,678 @@
+1st assesment 
+2nd mock interview 
+AWS,
+past experinece is minimized and work on relevent projects in inueroin
+
+
+
+Project 1:-
+	
+	Incremental data load , 
+2,3 type of load ..  , datawarehouse table dtaa every day 
+
+
+
+https://www.linkedin.com/feed/update/urn:li:activity:7124833482383523840/
+question of dealing bottle neck problem in the given scenario
+architecture
+ virtual CPUs allocation and cost of purchasing them
+ write the schema of the output fil
+ 
+
+
+Few of you are asking for streaming question it goes like this, let's say you have some devices which are measuring temperature continuously through IOT, you have to capture the temparature in real time and have to produce the average of last 5 seconds temparature from devices and have to populate live dashboards with realtime average of last 5 seconds data.. you have to design Architecture for it and explain how you will connect each component to other to form a realtime architecture..
+
+
+
+: Inquired about window functions, rank, dense rank, and complex joins. Asked a question: If two tables have one column with duplicates, how many rows will be there after inner, left, right, and full joins?
+distinctions between "order by" and "sort by," partitions in Hive/Spark, differences among RDDs, datasets, and dataframes, along with insights into Spark architecture, and fundamental concepts of Hadoop and Hive.
+
+ETL Design Question: Asked to design an ETL pipeline based on given scenarios.
+
+ SQL Challenge: Tackled issues with lead and lag functions in SQL.
+
+📗 ACID Properties of Hive: Discussed reasons for not using ACID properties in the project.
+
+📗 Data Storage Preferences: Discussed the pros and cons of saving data either in row or columnar format.
+
+📗 Spark Optimization Strategies: Inquired strategies like salting, partitioning, bucketing, and caching.
+
+🔍 Round 3: Discover Interview
+
+📗 Led by the Hiring Manager.
+
+📗 Project Deep Dive: Shared detailed information about previous projects.
+
+📗 Team Insights: Discussed the current team's structure, tech/tools, and deployment processes.
+
+📗 Strengths and Weaknesses Discussion: Delved into personal strengths, areas for improvement, and individual achievements.
+
+📗 Team Fit Assessment: Explored the candidate's seamless fit into the team by presenting scenarios, such as how they would react in case of conflicts.
+
+
+ data profiling/quality checks in spark/pysapek /
+ https://medium.com/analytics-vidhya/data-profiling-data-quality-in-spark-big-data-with-pluggable-code-a75fbff9865
+ 
+ 
+high memory usage, network bottlenecks, and performance issues.--- remedy use serialization 
+we have java and kyro 
+for java - add java.     java.io.Serializable ,java.io.Externalizable.   Both methods, saveAsObjectFile on RDD and objectFile on SparkContext support Java serialization only.
+
+
+for kyro easy to find
+df2.unionByName(df1, allowMissingColumns=True
+ coalesce() + to_date() to find diffenrt data formats .. create a [* to_date(col,f) for f in format]
+ date_trunc => start of week , date_sub()
+ small file problem then go for bucketing.eg:
+ window functions
+  fibbonacci
+  Implementation of scd-2
+  missed due date 
+  df.write.parquet(//)
+  Q)avro vs parquet vs orc
+  
+  Q)Driver vs worker nodes how will they behave when increasing memory/cores aggressively.
+  Q)questions on Compression algo working internally for parquet and internal working and serilization and de-serialization of data.
+  Q)How did u handles data skewness?
+  %sh du -sch /dbfs:"source path"
+  df.rdd.getnumpartitions()
+  ("c",spark_partition_id()).groupby("c").count()
+  
+  equally distribute water between 3 people with some conditions.
+  
+ spark.sql.autoBroadcastJoinThreshold
+ shuffle hash join and sort merge join
+ Adaptive Query Execution (AQE):
+ 
+ knowledge of data security protocols, compliance regulations, and your experience implementing them in your projects.
+optimizing data pipelines, databases, and infrastructure to handle growing data volumes
+
+1. Difference between RDD & Dataframes
+2. What are the challenges you face in spark?
+3. What is difference between reduceByKey & groupByKey?
+4. What is the difference between Persist and Cache?
+5. What is the Advantage of a Parquet File?
+6. What is a Broadcast Join ?
+7. What is Difference between Coalesce and Repartition?
+8. What are the roles and responsibility of driver in spark Architecture?
+9. What is meant by Data Skewness? How is it deal? 
+10. What are the optimisation techniques used in Spark?
+11. What is Difference Between Map and FlatMap?
+12. What are accumulator and BroadCast Variables?
+13. What is a OOM Issue, how to deal it?
+14. what are tranformation in spark? Type of Transformation?
+15. Tell me some action in spark that you used ?
+16. What is the role of Catalyst Optimizer ?
+17. what is the checkpointing?
+18. Differernt between Slided() and grouped()
+19. What do you understand by Lazy Evaluation ?
+20. How to convert Rdd to Dataframe?
+  
+
+ Jenkins for CI/CD. So can you help me understand its flow and what it looks like?
+ Why are you using Jenkins instead of native AWS services?
+ 
+  deployment and it deployed in prod and there is some bug with the current release you are planning. What would be your rollback strategy w.r.t infrastructure
+  
+   Suppose you are processing your dataset for a particular day and because of your validation, only some of the records are getting processed while others fail. So what would be your strategy to design such a pipeline? Are you going to mark it as failed or only process the successful records
+   
+   . How many types of file formats you have used till now in Pyspark? Can you describe differences and benefits of using them?
+
+11. Was there any UDF in your spark code? What is UDF and how to use them? 
+
+
+. What is the use case of Cache in PySpark? Have you faced an Out-Of-Memory error?
+
+
+ arquet file contains metadata: ,
+ format version, schema information, column metadata
+  Parquet is an open source, column-oriented data file format designed for efficient data storage and retrieval. 
+   data compression and encoding schemes with enhanced performance to handle complex data in bulk. 
+   
+   
+   OutOfMemory error.  for collect()
+   
+    pyspark.sql.Column class provides several function  
+	
+	index, helping you find data faster than scanning the entire database.
+adv : faster reterival , dis : if column has duplictae s, 10% storage , and for every update and insert and delete , inxex has tobe updated 
+
+df:pyspark.sql.dataframe.DataFrame
+fname:string
+lname:string
+id:string
+gender:string
+
+(df.state.contains("Y")
+startswith("N",endswith("s")
+Day 20(Part 1) hashtag#30daysofPySpark ❄️
+df.dropDuplicates(
+
+The SORT BY clause is used to return the result rows sorted within each partition in the user specified order. When there is more than one partition SORT BY may return result that is partially ordered. This is different than ORDER BY clause which guarantees a total order of the output.
+
+. Syntax: DataFrame.transform
+
+Dynamic Partition Pruning wha t, how , work , setting properties 
+Adaptive query execution, 
+
+
+
+Deloite :
+
+introduction 
+df.head,take  same operation - both are same but head arugment is optional but fo take ar1 is require
+array columns to list of columns -- so u can explodethe arreay column to convert to column 
+like take a jason data and - df.select(*,explode(column1).alias('anme'))
+
+drop columns if it has null :
+
+df=spark.createDataFrame(data=data1,schema=schema1)
+df.show()
+
+df1=df.agg(*[f.count(i).alias(i) for i in df.columns])
+df1.show()
+
+l=[i for i in df1.columns  if df1[[i]].first()[i] >0]
+print(l)
+df1.select(*[l]).show()
+
+Error in dynamic partition puring 
+
+Read Mode : failfast,dropmalformed,permissive
+Write Mode :append,overwrite,ignore ,errorifexists
+
+How will you keep onve value in the column always at a top  eg country --- df1=df.withcolumn("col1",when(col1==India,1).otherwise(2).alias("rnk"))
+df1.orderBy(rnk).desc().show()
+
+
+
+No of occurnace in the coulms 
+
+age bracket df1.withcolhm1(age,when(age>0 & age<10,"child").when().otherwise("senior")
+
+
+How AQE works , 1. dynamically coalescing shuffle partitions  ,2. dynamically switching join stratagies  ,
+3.dynamically optimizing skew joins 
+
+1.during shuffele it will create 200 partitions (groupby )-- during shuffle the partitons will have un even data na these will be colased with other partiton 
+  
+skew if your skew data is more than 5 times of median or size of skew is greater than 256mb 
+2.
+2 tbales if u do smj then if the dtaa is less than 10 mb  now aqe broadcasts  it 
+3.optimize skew join : now after shuffle 1 parttion takes 10 sec other takes only 3 sec then oom occurs 
+sol1: salting... 
+Aqe shuffle reader : will have info of the runtime which jas high data in parttion 
+
+now the split in sugar data happens then a duplicate sugar parttiton shd be present in table b aslo 
+
+diff of mapreduce and spark 
+
+writing data ,faster, so it can display realtime without difficulty and securtiy , cached on disk , and
+ scalable (nodes)
+ 
+ 
+ mapredice :writing data in hdfs , not faster ,diffuclty to code ,no real time processing , no cached ,easily scalable 
+ (writes into disck and read again so slow )
+ spark,: data processing , faster ,easy to code , realtime , caaching , low scalbility 
+ 
+ Check pointing  in spark 
+ spark logical and physical plan can be very large , so computation chain could be too long , if due to some errors or exception occur , the whole compuattion need to be re exceuted , whohc is an expensive , so we need to check point the time consuming rdds , thus if the rdds 
+ goes wrong , it can continue with the data retrevived from checkpont rdds 
+ 
+ serializer : 
+ 
+ java serializer and kyro serializer 
+ 
+ serialization- ( conversion of objects into bytes gfor transfer of data in the n/w b/w the nodes ) and
+ deserialization (bytes to object)
+ 
+ read kyro sertialization 
+ conf.set(“spark.serializer”,“org.apache.spark.serializer.KryoSerializer”).
+ spark.kryoserializer.buffer config.
+ custom registartion.
+ 
+Rows to single column in like   a , b ,c ,"ghfj"
+
+select emp_id,fname, lname , dept, group_concat(column) as strngth from emp group by id 
+
+Anagram  words , silent , listen , triangle , integral 
+sol1 : sort both string and comapre str1=str2
+sol2 : use dict  to count the each charceter in both string and check wheteher they are same or not 
+sol3: ord(a)==97
+_____
+#str1="LISTEN"
+str1="SILENT"
+#EILNST
+#EILNST
+char_count={}
+
+for i in str1:
+    print
+    if i in char_count:
+        char_count[i]+=1
+    else:
+        char_count[i]=1
+print(char_count)
+ss=""
+for k in sorted(char_count.keys()):
+    ss+=(char_count[k]*k)
+print(ss)
+_________
+2sum problem :  nums =[2,7,11,15] target =9 
+0/p [0,1]   
+nums =[3,2,4] tar=6
+
+nums =[2,7,11,15]
+target =9
+k=0
+n=len(nums)
+for i in range(n-1):
+    for j in range(i+1,n):
+        if nums[i]+nums[j]==target:
+            print(i,j)
+            break
+print("done")
+--
+nums = [1, 2, 4, 5, 11] 
+target =6
+
+visited_numbers = dict()  
+          
+for index, num in enumerate(nums):  
+    print(index,num)
+    number_to_be_search = target - num  
+    if number_to_be_search in visited_numbers:  
+        print("--")
+        print(index, visited_numbers[number_to_be_search])
+        print("**")
+    else:  
+        visited_numbers[num] = index  
+print(visited_numbers)
+-----
+
+nokri - delotte hr , 2 rounds ,1 senior lead , techno manager ,project related , if datat error , toughest situation  
+
+impetus 
+find occurance of each charecter  "hello world"
+--
+s="hello world"
+d={}
+for i in s:
+    if i in d:
+        d[i]+=1
+    else:
+        d[i]=1
+print(d)
+for i,j in d.items():
+    print(i,j)
+--
+sort the array and megr it 
+ar1=[7,5,1,10,9]
+ar2-[3,8,2,6,4]
+---
+ar1=[7,5,1,10,9]
+ar2=[3,8,2,6,4,4]
+
+
+ar1=sorted(ar1)
+ar2=sorted(ar2)
+
+print(ar1)
+print(ar2)
+
+"""l1=len(ar1)-1
+l2=len(ar2)-1
+l=[None]*(l1+l2)
+k=0
+i=0
+j=0
+while i<l1:
+    l[k]=ar1[i]
+    i=i+1
+    k=k+1
+while j<l2:
+    l[k]=ar2[j]
+    j=j+1
+    k=k+1"""
+ar1.extend(ar2)
+ar1.sort()
+print(ar1)
+**
+
+hive table creation and partition and buckrt 
+put data 
+create tbale db,tablwe (id string, name,string )
+parttioned by (state string, monthstring)
+row format delimted fileds terminated by |
+
+hdfs dfs -put -f <tablehsdfs loaction>
+load data loacal inpath filepath overwrite into table tbl1name partition(partcol1)
+
+select sum(id) whr id>0 union 
+select sum(id) where id<0
+
+not common in both  join  and take null 
+
+read csv and filtwr and write in pyspark 
+
+df.write.partitionBy , df.write.bucketed by 
+
+Walmart 
+
+parenthesis problkem 
+submit spark job 
+
+AQE while the program is executing it check which join is useful during runtime..
+how number of partitions are changed at runtime or howe join condition are changed
+
+optimze job
+broadcast join ..
+caching ..
+shuffle partition .. 200 by default --> 
+filter before shufling 
+
+insert  7 at correct location 
+print("Hello world")
+a=[3,6,8,12,15]
+target=7
+flag=0
+i=0
+res=0
+while i < len(a)-1 and flag ==0:
+    if a[i] < target and a[i+1]> target:
+        res=a[:i+1]+[target]+a[i+1:]
+        flag=1
+    i=i+1
+    
+print(res)
+
+data modeling for movie theater 
+
+challanging project and the challanges 
+data volume  600 gb 
+
+epam 
+
+we have internal convert to external table 
+alter table <table > set tblproperties('external'='True')
+
+what is vectorixation in hive 
+allows hive to process a batch of rows together instead of processing 1 row at a time ,   can process 1024 rows at a time  , hive.vectorization.excetuion .enable ,not suppoert for ddl and dml .,selection , filter and group by suported  and parttitoned tables are suported 
+
+
+word count in spark : 
+import sys , from pysaprk import sparkcontext, spark conf 
+sc=sparkcontext(local, pyspark word count )
+words=sc.txtfile(path).flapmap(lambda line : line.split(" "))
+wordCount = words.map(lambda word:(word,1)).reducebykey(lambda a,b:a+b)
+wordcount.saveas table 
+
+Anti join   : return rows in the left table taht have no matching rows in the right table 
+
+Projection pruning :- projection pushdown :  minimize the data transfer b/w the file system by eliminating the unnecessary fileds in the scanning process  (filter columns )
+ predicate pushdown : scale down the amount of dat passed to  proces (filters the rows )
+ here the necessary rows are selected based on filter and the process thos er rows 
+ 
+ Cache and persisit : 
+ when rdd memory only , when dataset ememory and disk  defualt 
+ persist (memory_only)
+ persist (memory_only_ser)
+ persist (memory_and-disk)
+ persist (memory_and-disk_ser)
+ persist (diskonly)
+ 
+ AQE : defualt enabled , while coalesing shuffle partitons (like we have 5 unique partions then intsted of 200 only 5 ),switching join stratagies (during runtime the df is <10 then choose best join stratergies),(optimize skew joins ) 
+ 
+ How query gets created list all the 4 stages 
+ unresolved logical plan -logical plan - optimixed logical plan -physical plan - cost model -select physicla plan -rdd 
+ 
+ pivot programing question 
+ banaga and usage
+ 
+ pivotdf=df.groupBy(products).pivot(country).sum(amount)
+ 
+ pull the may month data , 
+ 
+ 2 sum problem   not sure ... 
+ 
+ 
+ 
+ 
+ hashedin 
+
+manager names of employees 
+who is manager who is not 
+
+add a new coumn with avg salry in dept
+max(slary) over partiton by (dept)
+
+Plaindrome check  NITIN 
+while i<=j
+ if s[i]==s[j] i+= j++ else retrun false 
+ 
+ 123a  112233aa
+ for c in s:
+   cc+=str(c)*2
+
+for i in range(2,n//2):
+  if number %i==0
+   retrun not rpimt 
+else :
+
+how to process 1 tb of data in spark 
+designaning a data warehouse problem startement 
+
+fact dimesnion join key , foreign , primary key relation , data mart 
+  
+Tiger analytics
+newest record for each name : id , name , date 
+group_concat(course order by id separator ',')   xto get rows to single row 
+
+array_join(collect_list(course),',') as courses from tbl group by id , name 
+
+1, arul ,sql,spark    1, arul, sql 
+
+in sql u can use string_split(course,',')
+
+in spark sql -- id, name , explode(split(course,",")) as cc from tbl
+
+find avg salary of each maanger 
+
+t1, t2 
+inner  2+2+2 =6 
+left 6+1= 7
+
+spark.read.csv(path)
+df.createorreplacetempview()
+df.printschema 
+
+word count 
+file=sc.txtfile(path)
+flat_file=file.flatMap(lamba word: word.split(" ") )
+flat_file.map(lambda word;(word,1)).reduceBy( lambda x,y:x+y).collect()
+
+HCL 
+
+explain architecure of your project 
+1) Domain of the project 
+2. aim 
+3. end to end pipleine (source target )
+4.Tech stack 
+
+( i have been working with the clinet mostly deals with ethe phramaceutical domain , in our project we were working with doctor data, The aim of the projet is to find what is the 5 age of doctors who is prescribung our producrt and how often  he is prescribing the competstrors product 
+
+first we get the data from the date provider vendor which is different s3 buvkt and we do not have acces to it , using shell scripting dat is moved to developer accessed s3 buvkrt and thewn then we load the required data into our spark clusetr , After processing is done KPI is wriitirn into hive data base / ware djhous each
+
+coming back to tech stack being sued , are  python , spark sql , Data frame api , hive , spark and to automate the process Airfloew has been used .
+
+)
+l1=[1,4,6,8,2]
+list2=list1
+list3=list.copy()
+
+difference b/w shallow and deep copy 
+
+{'a':1,'c':5,'e':3,'b':4}
+Dictionary sorting based on key and value 
+print(my_dict.get('a'))
+sorted_dict={}
+list-fofsort=sorted(my-dict,key=my-dict.get)
+print(list-of sorted )
+for key in  
+
+pysaprk code to extract data from csv file and create table 
+
+from pysaprk.sql import sparksession 
+spark=Sparksession.builder.appName(CSv to table).getorcreate()
+
+df=spark.read.csv("path",header=true,inferschema=true)
+df.createOrreplace tempview(mytabel)
+
+query=spark.sql("select * from table")
+query.show()
+
+df.write.saveastable('tblname')
+df.write.format(parquet).mode(overwrite).parttionBy(col).saveas
+
+difrence b/w transfromation and actions 
+How do you monitor spark jobs 
+
+read,write,delete update , rename, all the operations usingcli 
+
+what is the volume of the data that you have worked on 
+
+what is the cluster configuration for your project :
+we had a 2tb cluster dedicated for developement 
+
+nd multiple queues 
+
+fact table and star schema in dat warehouse
+
+sql find the house of student whose avg is >70 
+
+diffreence b/w list and tuple 
+
+what is map reduce architecture 
+
+how did you handle production deployment in project 
+
+spark submit
+
+parttioning and bucketing in hive 
+
+spark sql and hive in performabnce 
+in memory 
+query optimization  - predicate pushdoem , projection  cost based model 
+hive -orc 
+spark -parquet -csv 
+
+pwc 
+1000
+null  inner outer 
+
+diffrence b/w rank and dense rank  row number 
+read adf , define schema , filter employye less than 20k salary , and column bonus 10% fro each  and calculate total salry 
+
+points code in python 
+replace the !@# with ""
+regexp_replace(col(column1,[!@#$],'')
+
+Nagarro 
+
+how to upsert your data ,
+split the data into new recors and updated records df 
+
+based on join  updte and insert operation 
+scd 2 imp 
+what is shuffle and how to handle this 
+broadcast join and why iti s required 
+
+predicate pushdown : filter the data 
+select * from emp where sal>5000 
+ and what is aqe 
+ 
+pysaprk code to perform broadcast join and conditinal join and conditinal agg based on location max(avg(salary))
+
+forms student table take avg of best of three in pyspark 
+
+windowSpec = window.parttionBy(studentid).orderBy(col(marks).desc)
+
+rankedff=student.df.withcolumn(rank,row_number().over(eindowspec))
+bestthere=rankdf.filter(col(rank)<=3)
+res_df=bestthere.groupBy(std_id).agg(avg(col(marks)))
+.alias("avg_mark")
+
+
+
+how to handle null 
+filter null vlaue 
+or replceing null 
+drop rows 
+coalesce
+how to convert scd0 to scd3 
+add column old , new 
+
+facts table and dimension 
+fact measuremnt , dimesinal tables are for contest 
+transactional data , foreign keys , data volumnes (very high )
+descriptive , primary frequnet updata,
+
+what are the challanges you faced impemenation of spark jobs and how did u resolve 
+
+data duplication after join
+upsert not supported 
+bussiness complex use case 
+oom 
+spark optimization for tbs of data 
+- upsert , scd2 , 
+
+what is data shuffling ?. why it is occureed and what are the techniques to resolve this 
+
+single parttion ,repartiton  and sorting 
+
+diff b?w narrow and wide transformation 
+
+diff b/w reducebykey  and groupby key 
+mapper - reducer     groupby key 
+combiner - reducer  reduceby key 
+
+what is the data volumne in your day to day pipeline and how to resolve it ..
+
+validate and monitor jobs satges in psark in production 
+and what is the orchestation tool 
+
+if job fails we get logs , 
+
+no sql databases and features 
+schema flexibilty , 
+horizontal scaling 
+caching and in memory storage 
+
+
+
+
+
+
+
+----
+badRecordsPath path... to store corrupted data 
+in schema provide like _corrupt_records
+
+
+
+parttionby and  bucketby 
+
+use repartiton and then bucket beacuse like for 200 task  200X5 =1000 buckets are created like that 
+
+bucket pruning 100020202/number of bucket 
+
+in dataframe union and uniona ll smae but in sql its diffenrnt 
+
+count is also an action and  transformation 
+
+df.count 
+df.select(count(col1))\
+
+
+GK coders :
+

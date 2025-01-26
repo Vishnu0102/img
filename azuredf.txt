@@ -1,0 +1,311 @@
+Reduce-Side Join
+SET hive.auto.convert.join=false;
+Map Side Join
+SET hive.auto.convert.join=true; 
+Bucket Map Join
+set hive.optimize.bucketmapjoin=true;
+SET hive.auto.convert.join=true;
+
+set hive.enforce.sortmergebucketmapjoin=false;
+set hive.auto.convert.sortmerge.join=true; 
+set hive.optimize.bucketmapjoin = true; 
+set hive.optimize.bucketmapjoin.sortedmerge = true;
+
+SET hive.auto.convert.join=false;
+set hive.cli.print.header = true;
+
+databricks c;uster  -cluster single node 
+mount linking databricks 
+azure data lake storage gen2 
+in databricks  workspace  shared  add notebook to code 
+(paste what u copied for mounting )
+provide container from adf conatiner , then storage account name 
+do the same to mount raw data in container and also transform 
+
+then ... df spark load 
+
+lambda 
+working with rdd
+
+noukri profile :-
+
+working in project from 2.5+ , techo... so migration project easy to convinse 
+oracle db to migrate to bigdata , source end . sql queries to hive queries 
+functionality  is same... data migration walmart data migration blogs 
+pyspark transformation.. string functions  spark functions and udfs 
+string is treated diffferently in 
+how to deal with null values in spark, string (left and right side)
+what u do , tell challanages... why u apply transformation (to mimic the data) , agg , date time columns  function ...  
+string columns , charater issues ,time zones are differnet , duplicate data 
+Learn Airflow,
+how do u automate ur pipeline git repo for code and airflow to automate data pipeline ,
+challanges in data ingestion pipeline , landing zone , pipeline getting triggered ran no data changes,null pointer , file not found retry mechanism 
+retry mechanism . automate the code ... 
+table t migrate the table hive ot hdfs , pyspark  code , how u automate the script for triggrring , airflow (shell scripting )
+insurance ... we have daily data pipeline , dump the data into hive spark and bi team 
+challanges in data engineering , data migration project challanages ,
+bi want data for analytics and dashboard , but we have data in oracle (heavy load and slow) and for that we put daily data in hdfs ,
+ we have hive query   incremental load into landing zone consume the transform then store in hdfs .
+
+git..
+transformatioms..
+streaming..
+fundamental questions on data structres
+
+
+reduceByKey and groupByKey both triggers a shuffle operation
+reduceByKey does a map side combine and groupByKey does not do a map side combine.
+here by doing map combine we will reduce the number of data we send for shuffle.
+BroadcastHashJoin is performed between the smallerDF and LargerDF using the condition provided.
+repartition() dec or inc par heavy data shuffling , 
+coalsec() dec part coalesce() does not trigger a shuffle
+
+driver  info Spark Application,res to user ,scheduling work across the execuotr
+ dataskewness distribution of data across partitions is uneven : choose a proper key  for partition 
+ map()
+ flatmap()   flattens the DataFrame/Dataset after applying the function
+ broadcast variable : readonly variable   , cache or copy and driver all noders 
+ Accumulators  implement counters or sums.
+ 
+ 
+OutOfMemory Exception can occur at the Driver or Executor level.
+ 
+driver df.collect() 
+spark.driver.maxResultSize or repartition.
+broadcast 
+increase the driver memory or reduce the value for spark.sql.autoBroadcastJoinThreshold
+
+
+
+narrow all the elements that are required to compute the records in single partition live in the single partition of parent RDD.
+
+Catalyst optimizer
+
+An optimizer that automatically finds out the most efficient plan to execute data operations specified in the user’s program.
+It “translates” transformations used to build the Dataset to physical plan of execution.
+
+
+Checkpointing  fsimage along with the latest edit log
+
+
+
+spark optimization : tuning filter , avaoild shufle , reduce by key , use colasec ,broadcast join and varibales , 
+dframe on rdd and dataset , file format 
+partion and bucketby ,  mappartitons 
+
+code optimization : `len(df.head(1))>0`,`df.explain()`
+
+You can view GC information in the Executors tab of Spark UI.
+spark.conf.set("spark.sql.shuffle.partitions", 5) 
+what is salting  : is a technique to mitigtae data skewneess , so adding salt or random compenoents 
+hash aggregate rathen then sort agg 
+
+
+
+questions to shari 
+
+why deployemmnt :
+size of files :
+udf in spark :
+disadv of external tables :
+out of memory errro  : exectour overhead 
+Increase the Heap Size,Optimize Your Code,spark.memory.offHeap.enabled use half heaf memory 
+Garbage collection refers to the process of automatically freeing up memory that is no longer being used by the application
+
+
+window = Window.partitionBy("Category").orderBy("Date").rowsBetween(Window.currentRow, 2)
+
+# Calculate the rolling sum of revenue for each product category   import pyspark.sql.functions as func 
+sales_df = sales_df.withColumn("RollingRevenueSum", func.sum("Revenue").over(window))
+
+data migration :-  
+files ;oft ,file ---tables 
+tables db to db ,
+
+audit log 
+scheduler :control M
+
+handle null 
+drop null or fill default values 
+.dropna("any")
+.dropna("all")
+.dropna(subset=("columnname","another coulmn"))
+.dropna(threshold=2,subset=("columnname","another coulmn"))
+
+.na.fill({"name":"Arnol"})
+
+if a column has null values then take into another df 
+df.filter(psf.col("quanitiy").isNotNull())
+df.filter(psf.col("quid").isNull() | psf.col("quanitiysold").isNull()).
+withcolumn("hold",psf.when(psf.col("quanitiysold").isNull(),"quantity missing").otherwise 
+
+
+
+security on Pyspark 
+
+- Deep experience in developing data processing tasks using pySpark such as reading data from external sources,
+ merge data, perform data enrichment and load in to target data destinations 
+ 
+ 
+ in oracle , || in hive concat , join shd be used cannot join all at once 
+ number |int ,varchar |string
+ in hive cannot modify column like alter so recareate and aapply where col is not null 
+ 
+ hive doesnt enfource constarint like oracle 
+ To provide uniquness in data in hive , you can use pysaprk then dump the data into hive 
+ 
+ or u can use insert overwrite  like use rn and take where only rn==1 partition by uniq id 
+ 
+ trim is same 
+ options , storage congiguration, buffer pool , flash cache , tablespaces , indexes  not supported 
+ int string decimal in hive 
+ number varchar char 
+ no dual so use some dummy table 
+ 
+ dual in oracle is a dummy table created  by orac wth 1vale...
+ 
+ 
+ SELECT date_format('2018-06-05 15:25:42.23','yyyy-MM-dd'); -- 2018-06-05 STRING_TYPE
+ from_unixtime(unix_timrstamp(),'yyyymmddhhmmss')
+ SELECT cast(current_date() as date); -- 2018-06-26 DATE_TYPE
+ --cant update , u need to overwrite
+ cant update 2 column value in condition so update once at a time 
+ CAST('12-03-2010' as date 'dd-mm-yyyy')
+(unix_timestamp('05-06-2018', 'dd-MM-yyyy'
+from_unixtime(unix_timestamp('12-03-2010' , 'dd-MM-yyyy'))
+
+ hive> set CURRENT_DATE='2012-09-16';
+hive> select * from foo where day >= ${hiveconf:CURRENT_DATE}
+
+in df create tem tabel and use sparkcontext.sql(hive query to create and cp data of table )
+Alter table table_name drop partition (partition_name);
+he functions current_date and current_timestamp are now available in Hive 1.2.0
+hive> describe Formatted dbname.tablename;
+ 
+
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.master(master_url).enableHiveSupport().getOrCreate()
+
+df = spark.range(100)
+
+df.write.saveAsTable("test1")
+df.write.option("path","/hive/warehouse").saveAsTable("test2")
+
+hive> describe formatted test1;
+OK
+# col_name              data_type     
+DROP TABLE IF EXISTS data PURGE;
+ ALTER TABLE emp REPLACE COLUMNS( name string, dept string);   # deletes the id column only in schema other way
+ create temp for copy and create a table by choosing only particular coumns 
+ 
+
+  hive> select cast('2147483647' as int);
+    OK
+    2147483647
+    
+    hive> select cast('2147483648' as int);
+    OK
+    NULL
+    
+    hive> select cast('2147483648' as bigint);
+    OK
+    2147483648
+ 
+ key=$1
+value=$2
+
+output_file="concatenated_values.txt"
+
+touch $output_file
+
+while read line1 && read line2 <&3; do
+	line1=$(echo $line1 | tr -d '[:space:]')
+	echo "INSERT INTO TABLE_TO_UPD_FSCD_1 VALUES ('$line1','$line2');">>$output_file
+done < $key 3< $value 
+
+echo "insertion is done"
+
+regexp_like ( data_value , '.*\$FPM([^)]).*' )
+regexp_substr ( data_value , '\$FPM\([^)]*' )
+ 
+ 
+
+normally ir turn off , data issue s, connection string expire , 
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Gk codelabs \
+ 
+ 1.
+ 
+for incremental overload use hive : 
+selct from table ,join then select from only max of time so the data will be updated
+
+2.
+
+staging area , 
+3.
+in rdd  .glom() flattens the o/p
+keyby
+x.keyBy(w->w.charat(0)) # for every value we are appenoednig keyt 
+sc.parallelize(list(...),2) list onto 2 partitions 
+rdd.aggretgaet(0)(Math.max(_*_)_+_)
+
+countbykey _>o/p is map 
+
+stages more number of wide transformation so more stages 
+no of block for file hdfs fsck file_name path 
+configuration shd be  pass it in spark -submit cmd
+or use /etc/spark/spark-env.sh
+configuration  spark ui ,
+yarn ui is not running yarn cli mode 
+yarn application -list appstates all /submitted . accepted .running etc/spark/spark-env
+yarn logs -applicationid appid
+edge node we run these cmds
+
+& cecks both left and right , if && then left
+map.conatins (chck keys )
+custom data tyeps using types 
+.mapvalues()
+
+filter(when first false )
+rdd.takewhile stops when 1st false occurs
+watermarking we shd have event time 
+
+all functions iterate over row of the column , to iterate over column foldf 
+
+Day to Day work in 
+Arpitsingh209/GKCCollabProject1
+
+
+
+
+
+
+
+
+
+
+

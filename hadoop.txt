@@ -1,0 +1,6 @@
+distributed storage : break data into pices and store in doigfernt machines 
+
+what is distributed compuattaion : Process the multiple parts of data on diffeernt machine at teh same time 
+
+hdfs w ehave  a name node  (commodity hard waree 
+s

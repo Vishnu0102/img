@@ -1,0 +1,12 @@
+GK 
+
+incremnentakl load 
+
+select t1.* from 
+(select * from inc_table)t1
+join 
+(select emp_id,max(modi_dat) max_modi from 
+(slect * from inc_tbla)t2 
+group by emp_id) s
+on t1.emp_id=s.emp_id And t1.modified_date =s.modifieddate 
+

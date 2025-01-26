@@ -1,0 +1,93 @@
+Azure dp 203 (databag):
+
+data storage :-Azure storage accounts , azure data lake , azure sql ,Azure cosmos DB
+Transformation :- azure data factory , azure stream analytics, azure databricks Azure hdinsights 
+
+Azure synapse Analytics :-
+
+Azure storage 
+
+1.file - directory typoe
+2.quee - messgaes whatssap like that 
+3.table - no sql (key value)
+4.blob - (objects or blobs , everytype of data (txt,binary, structured un ))
+
+azure -subscription- resoueces group-(service, vms)
+
+data storage - conatiners -upload any type of fiel 
+how to read a data in blob 
+
+blob + data lake gen 1(spark,hive,hbsase hadoop ) =azure data lake storage gen2
+
+in craete u have option gen2 enable 
+hirearchial namespace is enabled 
+and acl(access control list) is present
+data ingestion (data from anything )
+
+Data Lake:- Access tiers , Monitoring service, security , redundancy ,Life cycle policy 
+Access tiers :- hot :acces frequnr , cool: infrequnet 30 days, Archive : Rare access atleast 180 days (rehydrate (move to hot or cold and then access) )
+Monitoring service: 
+Life cycle policy : automater to move from hot to cooll like that 
+(add rules) , even delete  
+
+lift and shift of hadoop is data lake gen 1 
+security : 
+authentication  :
+access control : 
+network access  : firewall rule for ip address or range of ip address 
+data protection  : data in cloud is always encrypted 
+service principal (give acces to any, user , service )
+
+activity log ,Tags are used 
+
+Access key : , storage explorer (ui kind of file explorer ) can connect to gen2 using access key 
+Shared Access signature : we can use like read, writr ,etc  
+Azure active directory : list of all users (role based access control )
+Access control (IAM ): for users u can provvide access ,
+
+folder -manage acl +add principal (user, apps)
+V2,45:39
+
+networking :- selected networks add virtual n/w(private network)
+Redundancy :- high availablity and 
+LRS(locally redundant storage),GRS(),ZRS(3 gones),Read access RS
+Monitoring : 
+alerts :tracking..  , email notification
+,metrics, - avg ..like that charts blob capacuty
+workbooks :
+diagnostics, create a log 
+log analytics
+
+joins : 
+broadcast join :
+sort merge join : defualt -shuffle (shuffle the data based on key column), sort(tthe shuffled data on both the table on key column ) ,merge (merge the data): create dag  
+collection of partitons distuented b/w executor 
+no of executors , 
+1,defualt block size128mb
+2,
+
+shuffle hash join df:  the samller df will be hashed(in memeory instead of cpu) to form hash table 
+can you  please roll-off so that I get calls from other projects.
+
+
+Azure dta bfactory 
+V2 ) 
+storage account container1 to storage account container2
+
+Integration runtime : compute infrasture , integarting to sources , 
+Azure integration runtime :copy  b/w azure integrations services 
+self-hosted integration runtime : on primise or vN - azure ,
+sql server integration services :  ssis package 
+
+managed  : autoresolbe managed virtual network integartion run time 
+Pipeline and activities :- 
+
+complete these remaninag then , senarios , then pyspark senarios 
+ 
+
+
+
+
+
+
+

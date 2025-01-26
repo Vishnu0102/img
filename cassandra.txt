@@ -1,0 +1,271 @@
+Casandra 
+
+CAP Theorem  we can only achive 2 properties froma a database 
+consistency ,  (either succes or failure , if a and b user tries to reaad the data botn sdh get same result if not it slike inconsistent )
+
+availability (eg system going down for some time , its hdnt be , system shd be avialble by 24 hrs )
+            if singl epointof failure hard to achive 
+partition tolerance
+n1,n2  if there is network break in system still it should  operate and serve the request 
+
+rdbms cannot serve purpose of big data so nosql databases 
+
+We can only achive 2 propertirs from a datrabase
+
+for no sql partition tolerance is must 
+
+from the theorm its like it can provide any two  wither c and a or pa and a like that 
+
+
+hbase has master slave architeure  ,single point of failiure if master fails ,..
+casssandra , developby facebook
+opensource project 
+3.0f ,3.25 verison
+casandra is not made for analytical queries 
+we cannot perform  joins aggregation etc 
+it is beneficial for fater write operation , fatster readd search type quirires 
+ring kind of arch 
+
+real time data pipeline (high velocity )
+to read and write high velocity of adtaa , mysql and all cannot happen so 
+
+so cassandra is coonceted to spark , spark read data as df and perform transfermqations and store into different flatfroms 
+and send to even transfom data can be dumped into  snowflake , aws redshift  ,hdfs ...
+data warehouse is for sytore meaningful  info like structured data ...so cannot use mysql 
+snowflake is a warehouse ,azure  data factory 
+
+back ground sinking happens in casandra..
+
+process data in distributed fashion or parallel fashion 
+
+datalake store raw data (structurd,unstructuredd,semi structured )
+hdfs,aws3 azure blob ,gcp storage 
+
+cassandra architecture 
+
+cluster is the combination of commodity hardwares 
+
+rings in connetd form , dc means  data centers  ... if by any chnace the dc is down 
+so replica of data are presnt in other data center its called rap awereness
+
+Rack aweressness .. like data is stored in rack and repica of the data is presnt in other rack 
+fig 
+
+No master and there is cordination 
+node , where data stored 
+cluster combination of nodes 
+data center large loctaion to conatin nodes 
+corodinators  handle current read and write request 
+commit log every write operation is written in commit log 
+is used for crash recovery 
+men table after data written in commit log data wil be written in mem table 
+data is writetn in memm_table temporirly 
+
+ss table  when mem table reaches certain threshold data is flushed to an sstable disk 
+
+data replication in  casandra 
+
+Means Making Multiple copies of data and storing in different nodes for fault tolerance
+cassandra places replicas of data on differentnodes based on 2 factors 
+1> where to place next replica is determine by replication strategy
+2> while the total number of replicas placed on differnt nodes is determined by replication factor 
+
+replication factor how many copies of same data will be created 
+
+2 types odf repication strategy
+
+1, simple strategy .. used when we have 1 data ceneter 
+first copie will be craeted on cordinator node and after that remaining copies will
+ be created on other nodes in clock wias e direction 
+ 
+if replication factor is 3 then   D-E-A
+
+Network topology strategy 
+it is used when there are more than 1 data center
+replicas are set for each data center 
+network topologyplaces replicas in the clockwise direction in the ring until 
+it reaches the first node in another data center 
+
+replication fopr dc1=2 , dc2 =3 
+hence they follow the flow of fig 
+this typr is called gossiping communication
+
+concepts of keys in cassandra 
+primary or 
+partion  ..  .. we do gash and store them in na like that  (partitioner)
+a partion key is for data placemnt from uniqueley identify a record 
+
+partion will decide which node data will be stored 
+
+id is incement and not primary only app_name is used as it is used ofr for partiioning for getting the logs records
+
+hash on app and stord on nodes
+
+composite partition
+if we need to combine more than 1 value to form a single partion key that is known as composite 
+partion key 
+
+composite (2tables if we use as primary then ) or combined partion key 
+clustering 
+
+ex:
+create table applicationz_logs 
+...primary key (appname , env )
+#hence its a composite primary key 
+
+2:54
+
+
+clustering key :- the key columns 
+
+the columns which will be used to order the data inside a partition
+
+create table app_logs(
+id,app-name ,hostname , logdatetime,env,logmessage
+ primary key ((app_name,env),hostname ,logdata )
+              partition          clustering key for ordering 
+helful for serach and filter related queries 
+
+how to change the order for clustering
+
+....
+)with clustering order by (hostname asc , logdatetime desc )
+
+primary key .. it consist of one or more partition key 
+and 0 or more clustering key.
+
+
+cassandra 2 
+
+how data is partiioning in cansandra 
+
+token-> a hash value is created  fro a partition key
+
+token Range-> each node in casandra will be given a range of 
+token values 
+
+example total number  of token served by cassandra cluster=100
+
+token = hash(partition key )  ... partition key % total tokens
+
+each node will be assignes a taken point  
+token ={0....99}
+
+id =210 , token ?.
+token=210%10 =10
+cassandra follows murmur3 hash algorithm to genearte token 
+data squeeness .if no unique vales then one node gets lot of data  hence 
+
+if during data node failure , the data will be passed to another node 
+collision :if same hash value got generated for  differnet values 
+
+in cassandra token range is between -2pow 63 to 2 pow 63 -1
+now token range is shared between the nodes in cassandra 
+
+for each node =total token range /number of nodes
+node =2 
+num_tokens =4 totken range =0-100 
+
+what if we increase the number of nodes 
+
+taoken range  decreses 
+
+
+consistency levels in cassandra 
+based on cap theorm cassandra lies where ?. 
+its AP , available and partition tolerance 
+
+what will be impact if we apply consisitency 
+hinders performance (speed)
+fig ,by forecefull write operation 
+
+what happens consistency
+  write  -> if consistency not mainated the write operation failiure
+  read          read fail 
+  
+consisitency in write operation
+:based on acknowledgement from replicas 
+ONE: it needs acknowlwdgemnet from only one replica node 
+in this case data will be synced asynchronously (from backend ) on remaining replicas 
+
+TWO : it needs acknowledgement from 2 replica nodes 
+
+QUORUM :  if we have 100% of something the least value for majaority will be 51 % 
+quorum =(sumof relicatio n factor /2 )+1 
+in an array of 10 lements if for majority then 6
+
+quorum needs acknowlegemnet form 51% or majority of replica nodes acreosss all data cnetres 
+quo=(2+3)/2 +1 here 2 and 3 are from rings or data nodes from the same data center 
+as the cordinator
+
+local quorum : need the acknowledgement from 51 percent or majority of replica nodes within the same data ceneteras cordinator 
+eg fig 
+
+All : needs acknowledgement from all the replica nodes .  and its work from all 
+
+consistency for read -
+one  only one replica node eturn the value 
+quorum with the most   upto dated data 
+ r1,r2,r3  have data but the one wth last update happened is considered for  read 
+ 
+ local_quorum ->  returns  resukt from loacal quorm with latest data a nd follow coordinator node 
+ for local quarum value 
+ 
+ all: read data from all replica and return based on time stamp 
+ 
+ write path in cassandra :
+ 
+ commit log  transaction logs will be written here for crash recovery .Non volatile so if power failure happens still we can reciver 
+ mem tbale  : memory copy to store copy of data 
+ ss table : the final destination where actual dat astores in disk 
+ fig 
+ bottleneck 
+ the flish data getting stored inn disk and seek time increases 
+  for this compaction happens , 
+ 2:38
+ 
+ write path 
+ cassandra appends writes in commit log for durability 
+ data then will be written in a memory cache as memtable 
+ the memm_table stores write ina sorted order until reaches the memory 
+ thrn it is flushed to sorted strieng table calleeeeed as ss table . write operation are atomic on row level ,
+ means values for each column of teht row will be writte 
+ wirtten/updated or none will be written 
+
+read path in cassandra 
+1. cassandra first check if the data is available in the memm_table
+2. if not found than data will be read from ss table
+3.to optimize the reads 
+*cassandra uses bloom filter technique to minimize the data scan.
+Cassandra uses indexing on ss table ,metadata for actual data 
+compaction also helps to improve reads
+
+Types of reads coordinatator can send to replica
+direct read request
+digest request
+background read repair request
+
+coordinator node contacts one replica node , after that digest request will be sent to the remaaining replica nodes basded on consistency levlevl
+the digest request will chefck if data on the replica  are upto date or not.
+Then coordinator will send the digest req to remaning nodes.
+
+if any replica node have out of date  data , a background read repair request will be sent ,
+read repaur request ensures the requested row data is made consistent on all replicas involved in read querry 
+select with consistency quorum=2
+
+
+cassandra 3 
+
+datastax astra google search 
+surl.li/bwzmt
+
+keyspacename :databaase name 
+
+here we need driver s to connect to databases , methods and parameters ned to know to make  connection 
+
+result will be in the form of table format or and object 
+to convert the result into which is object into 	get table form of conecte
+so we use one()
+result.one() gives row object   and row[1] gives 1st object 
+
+there wasnt modify 

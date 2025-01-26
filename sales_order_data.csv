@@ -1,0 +1,499 @@
+ORDERNUMBER,QUANTITYORDERED,PRICEEACH,ORDERLINENUMBER,SALES,STATUS,QTR_ID,MONTH_ID,YEAR_ID,PRODUCTLINE,MSRP,PRODUCTCODE,PHONE,CITY,STATE,POSTALCODE,COUNTRY,TERRITORY,CONTACTLASTNAME,CONTACTFIRSTNAME,DEALSIZE
+10107,30,95.7,2,2871,Shipped,1,2,2003,Motorcycles,95,S10_1678,2125557818,NYC,NY,10022,USA,NA,Yu,Kwai,Small
+10121,34,81.35,5,2765.9,Shipped,2,5,2003,Motorcycles,95,S10_1678,26.47.1555,Reims,,51100,France,EMEA,Henriot,Paul,Small
+10134,41,94.74,2,3884.34,Shipped,3,7,2003,Motorcycles,95,S10_1678,+33 1 46 62 7555,Paris,,75508,France,EMEA,Da Cunha,Daniel,Medium
+10145,45,83.26,6,3746.7,Shipped,3,8,2003,Motorcycles,95,S10_1678,6265557265,Pasadena,CA,90003,USA,NA,Young,Julie,Medium
+10159,49,100,14,5205.27,Shipped,4,10,2003,Motorcycles,95,S10_1678,6505551386,San Francisco,CA,,USA,NA,Brown,Julie,Medium
+10168,36,96.66,1,3479.76,Shipped,4,10,2003,Motorcycles,95,S10_1678,6505556809,Burlingame,CA,94217,USA,NA,Hirano,Juri,Medium
+10180,29,86.13,9,2497.77,Shipped,4,11,2003,Motorcycles,95,S10_1678,20.16.1555,Lille,,59000,France,EMEA,Rance,Martine,Small
+10188,48,100,1,5512.32,Shipped,4,11,2003,Motorcycles,95,S10_1678,+47 2267 3215,Bergen,,N 5804,Norway,EMEA,Oeztan,Veysel,Medium
+10201,22,98.57,2,2168.54,Shipped,4,12,2003,Motorcycles,95,S10_1678,6505555787,San Francisco,CA,,USA,NA,Murphy,Julie,Small
+10211,41,100,14,4708.44,Shipped,1,1,2004,Motorcycles,95,S10_1678,(1) 47.55.6555,Paris,,75016,France,EMEA,Perrier,Dominique,Medium
+10223,37,100,1,3965.66,Shipped,1,2,2004,Motorcycles,95,S10_1678,03 9520 4555,Melbourne,Victoria,3004,Australia,APAC,Ferguson,Peter,Medium
+10237,23,100,7,2333.12,Shipped,2,4,2004,Motorcycles,95,S10_1678,2125551500,NYC,NY,10022,USA,NA,Frick,Michael,Small
+10251,28,100,2,3188.64,Shipped,2,5,2004,Motorcycles,95,S10_1678,2015559350,Newark,NJ,94019,USA,NA,Brown,William,Medium
+10263,34,100,2,3676.76,Shipped,2,6,2004,Motorcycles,95,S10_1678,2035552570,Bridgewater,CT,97562,USA,NA,King,Julie,Medium
+10275,45,92.83,1,4177.35,Shipped,3,7,2004,Motorcycles,95,S10_1678,40.67.8555,Nantes,,44000,France,EMEA,Labrune,Janine,Medium
+10285,36,100,6,4099.68,Shipped,3,8,2004,Motorcycles,95,S10_1678,6175558555,Cambridge,MA,51247,USA,NA,Hernandez,Marta,Medium
+10299,23,100,9,2597.39,Shipped,3,9,2004,Motorcycles,95,S10_1678,90-224 8555,Helsinki,,21240,Finland,EMEA,Karttunen,Matti,Small
+10309,41,100,5,4394.38,Shipped,4,10,2004,Motorcycles,95,S10_1678,07-98 9555,Stavern,,4110,Norway,EMEA,Bergulfsen,Jonas,Medium
+10318,46,94.74,1,4358.04,Shipped,4,11,2004,Motorcycles,95,S10_1678,2155551555,Allentown,PA,70267,USA,NA,Yu,Kyung,Medium
+10329,42,100,1,4396.14,Shipped,4,11,2004,Motorcycles,95,S10_1678,2125557818,NYC,NY,10022,USA,NA,Yu,Kwai,Medium
+10341,41,100,9,7737.93,Shipped,4,11,2004,Motorcycles,95,S10_1678,6562-9555,Salzburg,,5020,Austria,EMEA,Pipps,Georg,Large
+10361,20,72.55,13,1451,Shipped,4,12,2004,Motorcycles,95,S10_1678,+61 2 9495 8555,Chatswood,NSW,2067,Australia,APAC,Huxley,Adrian,Small
+10375,21,34.91,12,733.11,Shipped,1,2,2005,Motorcycles,95,S10_1678,40.67.8555,Nantes,,44000,France,EMEA,Labrune,Janine,Small
+10388,42,76.36,4,3207.12,Shipped,1,3,2005,Motorcycles,95,S10_1678,5085552555,New Bedford,MA,50553,USA,NA,Benitez,Violeta,Medium
+10403,24,100,7,2434.56,Shipped,2,4,2005,Motorcycles,95,S10_1678,(171) 555-2282,Liverpool,,WX1 6LT,UK,EMEA,Devon,Elizabeth,Small
+10417,66,100,2,7516.08,Disputed,2,5,2005,Motorcycles,95,S10_1678,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Large
+10103,26,100,11,5404.62,Shipped,1,1,2003,Classic Cars,214,S10_1949,07-98 9555,Stavern,,4110,Norway,EMEA,Bergulfsen,Jonas,Medium
+10112,29,100,1,7209.11,Shipped,1,3,2003,Classic Cars,214,S10_1949,0921-12 3555,Lule,,S-958 22,Sweden,EMEA,Berglund,Christina,Large
+10126,38,100,11,7329.06,Shipped,2,5,2003,Classic Cars,214,S10_1949,(91) 555 22 82,Madrid,,28023,Spain,EMEA,Sommer,Mart¡n,Large
+10140,37,100,11,7374.1,Shipped,3,7,2003,Classic Cars,214,S10_1949,6505556809,Burlingame,CA,94217,USA,NA,Hirano,Juri,Large
+10150,45,100,8,10993.5,Shipped,3,9,2003,Classic Cars,214,S10_1949,+65 221 7555,Singapore,,79903,Singapore,Japan,Natividad,Eric,Large
+10163,21,100,1,4860.24,Shipped,4,10,2003,Classic Cars,214,S10_1949,2125558493,NYC,NY,10022,USA,NA,Hernandez,Maria,Medium
+10174,34,100,4,8014.82,Shipped,4,11,2003,Classic Cars,214,S10_1949,61-7-3844-6555,South Brisbane,Queensland,4101,Australia,APAC,Calaghan,Tony,Large
+10183,23,100,8,5372.57,Shipped,4,11,2003,Classic Cars,214,S10_1949,2155554695,Philadelphia,PA,71270,USA,NA,Cervantes,Francisca,Medium
+10194,42,100,11,7290.36,Shipped,4,11,2003,Classic Cars,214,S10_1949,78.32.5555,Lyon,,69004,France,EMEA,Saveley,Mary,Large
+10206,47,100,6,9064.89,Shipped,4,12,2003,Classic Cars,214,S10_1949,(604) 555-3392,Vancouver,BC,V3F 2K1,Canada,NA,Tannamuri,Yoshi,Large
+10215,35,100,3,6075.3,Shipped,1,1,2004,Classic Cars,214,S10_1949,3105553722,Burbank,CA,94019,USA,NA,Thompson,Steve,Medium
+10228,29,100,2,6463.23,Shipped,1,3,2004,Classic Cars,214,S10_1949,6175555555,Cambridge,MA,51247,USA,NA,Tseng,Kyung,Medium
+10245,34,100,9,6120.34,Shipped,2,5,2004,Classic Cars,214,S10_1949,2035559545,New Haven,CT,97823,USA,NA,Murphy,Leslie,Medium
+10258,32,100,6,7680.64,Shipped,2,6,2004,Classic Cars,214,S10_1949,+81 3 3584 0555,Minato-ku,Tokyo,106-0032,Japan,Japan,Shimamura,Akiko,Large
+10270,21,100,9,4905.39,Shipped,3,7,2004,Classic Cars,214,S10_1949,+61 2 9495 8555,Chatswood,NSW,2067,Australia,APAC,Huxley,Adrian,Medium
+10280,34,100,2,8014.82,Shipped,3,8,2004,Classic Cars,214,S10_1949,011-4988555,Torino,,10100,Italy,EMEA,Accorti,Paolo,Large
+10291,37,100,11,7136.19,Shipped,3,9,2004,Classic Cars,214,S10_1949,0695-34 6555,Boras,,S-844 67,Sweden,EMEA,Larsson,Maria,Large
+10304,47,100,6,10172.7,Shipped,4,10,2004,Classic Cars,214,S10_1949,30.59.8555,Versailles,,78000,France,EMEA,Tonini,Daniel,Large
+10312,48,100,3,11623.7,Shipped,4,10,2004,Classic Cars,214,S10_1949,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Large
+10322,40,100,1,6000.4,Shipped,4,11,2004,Classic Cars,214,S10_1949,6035558647,Nashua,NH,62005,USA,NA,Young,Valarie,Medium
+10333,26,100,3,3003,Shipped,4,11,2004,Classic Cars,214,S10_1949,6505555787,San Francisco,CA,,USA,NA,Murphy,Julie,Medium
+10347,30,100,1,3944.7,Shipped,4,11,2004,Classic Cars,214,S10_1949,03 9520 4555,Melbourne,Victoria,3004,Australia,APAC,Ferguson,Peter,Medium
+10357,32,100,10,5691.84,Shipped,4,12,2004,Classic Cars,214,S10_1949,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10369,41,100,2,4514.92,Shipped,1,1,2005,Classic Cars,214,S10_1949,6175558555,Brickhaven,MA,58339,USA,NA,Nelson,Allen,Medium
+10381,36,100,3,8254.8,Shipped,1,2,2005,Classic Cars,214,S10_1949,6505551386,San Francisco,CA,,USA,NA,Brown,Julie,Large
+10391,24,100,4,2416.56,Shipped,1,3,2005,Classic Cars,214,S10_1949,02 9936 8555,North Sydney,NSW,2060,Australia,APAC,O'Hara,Anna,Small
+10411,23,100,9,4140.23,Shipped,2,5,2005,Classic Cars,214,S10_1949,(514) 555-8054,Montreal,Quebec,H1J 1C3,Canada,NA,Fresnisre,Jean,Medium
+10424,50,100,6,12001,In Process,2,5,2005,Classic Cars,214,S10_1949,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Large
+10107,39,99.91,5,3896.49,Shipped,1,2,2003,Motorcycles,118,S10_2016,2125557818,NYC,NY,10022,USA,NA,Yu,Kwai,Medium
+10120,29,96.34,3,2793.86,Shipped,2,4,2003,Motorcycles,118,S10_2016,03 9520 4555,Melbourne,Victoria,3004,Australia,APAC,Ferguson,Peter,Small
+10134,27,100,5,3307.77,Shipped,3,7,2003,Motorcycles,118,S10_2016,+33 1 46 62 7555,Paris,,75508,France,EMEA,Da Cunha,Daniel,Medium
+10145,37,100,9,5192.95,Shipped,3,8,2003,Motorcycles,118,S10_2016,6265557265,Pasadena,CA,90003,USA,NA,Young,Julie,Medium
+10159,37,100,17,5016.83,Shipped,4,10,2003,Motorcycles,118,S10_2016,6505551386,San Francisco,CA,,USA,NA,Brown,Julie,Medium
+10168,27,100,4,3660.93,Shipped,4,10,2003,Motorcycles,118,S10_2016,6505556809,Burlingame,CA,94217,USA,NA,Hirano,Juri,Medium
+10180,42,100,12,4695.6,Shipped,4,11,2003,Motorcycles,118,S10_2016,20.16.1555,Lille,,59000,France,EMEA,Rance,Martine,Medium
+10188,38,96.34,4,3660.92,Shipped,4,11,2003,Motorcycles,118,S10_2016,+47 2267 3215,Bergen,,N 5804,Norway,EMEA,Oeztan,Veysel,Medium
+10201,24,100,5,3025.92,Shipped,4,12,2003,Motorcycles,118,S10_2016,6505555787,San Francisco,CA,,USA,NA,Murphy,Julie,Medium
+10210,23,100,2,3009.09,Shipped,1,1,2004,Motorcycles,118,S10_2016,+81 06 6342 5555,Osaka,Osaka,530-0003,Japan,Japan,Kentary,Mory,Medium
+10223,47,100,4,5422.39,Shipped,1,2,2004,Motorcycles,118,S10_2016,03 9520 4555,Melbourne,Victoria,3004,Australia,APAC,Ferguson,Peter,Medium
+10236,22,100,1,2852.08,Shipped,2,4,2004,Motorcycles,118,S10_2016,2155559857,Philadelphia,PA,71270,USA,NA,Hernandez,Rosa,Small
+10251,44,100,5,5756.52,Shipped,2,5,2004,Motorcycles,118,S10_2016,2015559350,Newark,NJ,94019,USA,NA,Brown,William,Medium
+10263,40,100,5,4472,Shipped,2,6,2004,Motorcycles,118,S10_2016,2035552570,Bridgewater,CT,97562,USA,NA,King,Julie,Medium
+10275,22,100,4,2904.44,Shipped,3,7,2004,Motorcycles,118,S10_2016,40.67.8555,Nantes,,44000,France,EMEA,Labrune,Janine,Small
+10285,47,100,9,6484.59,Shipped,3,8,2004,Motorcycles,118,S10_2016,6175558555,Cambridge,MA,51247,USA,NA,Hernandez,Marta,Medium
+10298,39,96.34,1,3757.26,Shipped,3,9,2004,Motorcycles,118,S10_2016,40.32.2555,Nantes,,44000,France,EMEA,Schmitt,Carine,Medium
+10308,34,100,2,4043.96,Shipped,4,10,2004,Motorcycles,118,S10_2016,9145554562,White Plains,NY,24067,USA,NA,Frick,Steve,Medium
+10318,45,100,4,5566.5,Shipped,4,11,2004,Motorcycles,118,S10_2016,2155551555,Allentown,PA,70267,USA,NA,Yu,Kyung,Medium
+10329,20,100,2,3176,Shipped,4,11,2004,Motorcycles,118,S10_2016,2125557818,NYC,NY,10022,USA,NA,Yu,Kwai,Medium
+10339,40,68.92,4,2756.8,Shipped,4,11,2004,Motorcycles,118,S10_2016,+81 3 3584 0555,Minato-ku,Tokyo,106-0032,Japan,Japan,Shimamura,Akiko,Small
+10361,26,51.15,8,1329.9,Shipped,4,12,2004,Motorcycles,118,S10_2016,+61 2 9495 8555,Chatswood,NSW,2067,Australia,APAC,Huxley,Adrian,Small
+10374,39,100,5,5288.01,Shipped,1,2,2005,Motorcycles,118,S10_2016,61-7-3844-6555,South Brisbane,Queensland,4101,Australia,APAC,Calaghan,Tony,Medium
+10388,50,44.51,5,2225.5,Shipped,1,3,2005,Motorcycles,118,S10_2016,5085552555,New Bedford,MA,50553,USA,NA,Benitez,Violeta,Small
+10402,45,100,1,5833.8,Shipped,2,4,2005,Motorcycles,118,S10_2016,(1) 47.55.6555,Paris,,75016,France,EMEA,Perrier,Dominique,Medium
+10417,45,100,5,5887.35,Disputed,2,5,2005,Motorcycles,118,S10_2016,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Medium
+10107,27,100,4,6065.55,Shipped,1,2,2003,Motorcycles,193,S10_4698,2125557818,NYC,NY,10022,USA,NA,Yu,Kwai,Medium
+10120,46,100,2,9264.86,Shipped,2,4,2003,Motorcycles,193,S10_4698,03 9520 4555,Melbourne,Victoria,3004,Australia,APAC,Ferguson,Peter,Large
+10134,31,100,4,7023.98,Shipped,3,7,2003,Motorcycles,193,S10_4698,+33 1 46 62 7555,Paris,,75508,France,EMEA,Da Cunha,Daniel,Large
+10145,33,100,8,5176.38,Shipped,3,8,2003,Motorcycles,193,S10_4698,6265557265,Pasadena,CA,90003,USA,NA,Young,Julie,Medium
+10159,22,100,16,4132.7,Shipped,4,10,2003,Motorcycles,193,S10_4698,6505551386,San Francisco,CA,,USA,NA,Brown,Julie,Medium
+10168,20,100,3,4183,Shipped,4,10,2003,Motorcycles,193,S10_4698,6505556809,Burlingame,CA,94217,USA,NA,Hirano,Juri,Medium
+10180,41,100,11,8892.9,Shipped,4,11,2003,Motorcycles,193,S10_4698,20.16.1555,Lille,,59000,France,EMEA,Rance,Martine,Large
+10188,45,100,3,8714.7,Shipped,4,11,2003,Motorcycles,193,S10_4698,+47 2267 3215,Bergen,,N 5804,Norway,EMEA,Oeztan,Veysel,Large
+10201,49,100,4,8065.89,Shipped,4,12,2003,Motorcycles,193,S10_4698,6505555787,San Francisco,CA,,USA,NA,Murphy,Julie,Large
+10210,34,100,1,6123.4,Shipped,1,1,2004,Motorcycles,193,S10_4698,+81 06 6342 5555,Osaka,Osaka,530-0003,Japan,Japan,Kentary,Mory,Medium
+10223,49,100,3,9774.03,Shipped,1,2,2004,Motorcycles,193,S10_4698,03 9520 4555,Melbourne,Victoria,3004,Australia,APAC,Ferguson,Peter,Large
+10237,39,100,9,7023.9,Shipped,2,4,2004,Motorcycles,193,S10_4698,2125551500,NYC,NY,10022,USA,NA,Frick,Michael,Large
+10251,43,100,4,7078.23,Shipped,2,5,2004,Motorcycles,193,S10_4698,2015559350,Newark,NJ,94019,USA,NA,Brown,William,Large
+10263,41,100,4,8336.94,Shipped,2,6,2004,Motorcycles,193,S10_4698,2035552570,Bridgewater,CT,97562,USA,NA,King,Julie,Large
+10275,36,100,3,6901.92,Shipped,3,7,2004,Motorcycles,193,S10_4698,40.67.8555,Nantes,,44000,France,EMEA,Labrune,Janine,Medium
+10285,27,100,8,5438.07,Shipped,3,8,2004,Motorcycles,193,S10_4698,6175558555,Cambridge,MA,51247,USA,NA,Hernandez,Marta,Medium
+10299,29,100,11,6683.34,Shipped,3,9,2004,Motorcycles,193,S10_4698,90-224 8555,Helsinki,,21240,Finland,EMEA,Karttunen,Matti,Medium
+10308,20,100,1,4570.4,Shipped,4,10,2004,Motorcycles,193,S10_4698,9145554562,White Plains,NY,24067,USA,NA,Frick,Steve,Medium
+10318,37,100,3,7667.14,Shipped,4,11,2004,Motorcycles,193,S10_4698,2155551555,Allentown,PA,70267,USA,NA,Yu,Kyung,Large
+10329,26,100,3,5868.2,Shipped,4,11,2004,Motorcycles,193,S10_4698,2125557818,NYC,NY,10022,USA,NA,Yu,Kwai,Medium
+10339,39,76.67,3,2990.13,Shipped,4,11,2004,Motorcycles,193,S10_4698,+81 3 3584 0555,Minato-ku,Tokyo,106-0032,Japan,Japan,Shimamura,Akiko,Small
+10362,22,100,4,3664.1,Shipped,1,1,2005,Motorcycles,193,S10_4698,6505556809,Burlingame,CA,94217,USA,NA,Hirano,Juri,Medium
+10374,22,100,1,3834.38,Shipped,1,2,2005,Motorcycles,193,S10_4698,61-7-3844-6555,South Brisbane,Queensland,4101,Australia,APAC,Calaghan,Tony,Medium
+10388,21,86.77,7,1822.17,Shipped,1,3,2005,Motorcycles,193,S10_4698,5085552555,New Bedford,MA,50553,USA,NA,Benitez,Violeta,Small
+10403,66,100,9,11886.6,Shipped,2,4,2005,Motorcycles,193,S10_4698,(171) 555-2282,Liverpool,,WX1 6LT,UK,EMEA,Devon,Elizabeth,Large
+10417,56,100,4,9218.16,Disputed,2,5,2005,Motorcycles,193,S10_4698,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Large
+10105,50,100,2,7208,Shipped,1,2,2003,Classic Cars,136,S10_4757,31 12 3555,Kobenhavn,,1734,Denmark,EMEA,Petersen,Jytte,Large
+10119,46,100,11,5004.8,Shipped,2,4,2003,Classic Cars,136,S10_4757,6562-9555,Salzburg,,5020,Austria,EMEA,Pipps,Georg,Medium
+10129,33,100,2,4398.24,Shipped,2,6,2003,Classic Cars,136,S10_4757,(171) 555-0297,London,,WX3 6FW,UK,EMEA,Brown,Ann,Medium
+10143,49,100,15,5597.76,Shipped,3,8,2003,Classic Cars,136,S10_4757,5085559555,New Bedford,MA,50553,USA,NA,Tam,Wing C,Medium
+10155,32,100,13,4526.08,Shipped,4,10,2003,Classic Cars,136,S10_4757,90-224 8555,Helsinki,,21240,Finland,EMEA,Karttunen,Matti,Medium
+10167,44,100,9,5924.16,Cancelled,4,10,2003,Classic Cars,136,S10_4757,0695-34 6555,Boras,,S-844 67,Sweden,EMEA,Larsson,Maria,Medium
+10178,24,100,12,3492.48,Shipped,4,11,2003,Classic Cars,136,S10_4757,61.77.6555,Toulouse,,31000,France,EMEA,Roulet,Annette,Medium
+10186,26,100,9,3854.24,Shipped,4,11,2003,Classic Cars,136,S10_4757,(171) 555-7555,London,,WA1 1DP,UK,EMEA,Hardy,Thomas,Medium
+10197,45,100,6,5324.4,Shipped,4,11,2003,Classic Cars,136,S10_4757,(93) 203 4555,Barcelona,,8022,Spain,EMEA,Saavedra,Eduardo,Medium
+10209,39,100,8,5197.92,Shipped,1,1,2004,Classic Cars,136,S10_4757,2155554369,Los Angeles,CA,,USA,NA,Chandler,Michael,Medium
+10222,49,100,12,5997.6,Shipped,1,2,2004,Classic Cars,136,S10_4757,7605558146,San Diego,CA,91217,USA,NA,Thompson,Valarie,Medium
+10248,20,100,3,2910.4,Cancelled,2,5,2004,Classic Cars,136,S10_4757,2125557818,NYC,NY,10022,USA,NA,Yu,Kwai,Small
+10261,27,100,1,3378.24,Shipped,2,6,2004,Classic Cars,136,S10_4757,(514) 555-8054,Montreal,Quebec,H1J 1C3,Canada,NA,Fresnisre,Jean,Medium
+10273,30,100,4,3508.8,Shipped,3,7,2004,Classic Cars,136,S10_4757,(02) 5554 67,Bruxelles,,B-1180,Belgium,EMEA,Dewey,Catherine,Medium
+10283,25,100,6,2992,Shipped,3,8,2004,Classic Cars,136,S10_4757,(604) 555-4555,Tsawassen,BC,T2F 8M4,Canada,NA,Lincoln,Elizabeth,Small
+10295,24,100,1,3427.2,Shipped,3,9,2004,Classic Cars,136,S10_4757,6175559555,Boston,MA,51003,USA,NA,Yoshido,Juri,Medium
+10307,22,100,9,2692.8,Shipped,4,10,2004,Classic Cars,136,S10_4757,2155554695,Philadelphia,PA,71270,USA,NA,Cervantes,Francisca,Small
+10316,33,100,17,4128.96,Shipped,4,11,2004,Classic Cars,136,S10_4757,(198) 555-8888,Cowes,Isle of Wight,PO31 7PJ,UK,EMEA,Bennett,Helen,Medium
+10325,47,64.93,6,3051.71,Shipped,4,11,2004,Classic Cars,136,S10_4757,07-98 9555,Stavern,,4110,Norway,EMEA,Bergulfsen,Jonas,Medium
+10337,25,48.05,8,1201.25,Shipped,4,11,2004,Classic Cars,136,S10_4757,2125558493,NYC,NY,10022,USA,NA,Hernandez,Maria,Small
+10350,26,75.47,5,1962.22,Shipped,4,12,2004,Classic Cars,136,S10_4757,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Small
+10359,48,54.68,6,2624.64,Shipped,4,12,2004,Classic Cars,136,S10_4757,26.47.1555,Reims,,51100,France,EMEA,Henriot,Paul,Small
+10373,39,100,3,4046.25,Shipped,1,1,2005,Classic Cars,136,S10_4757,981-443655,Oulu,,90110,Finland,EMEA,Koskitalo,Pirkko,Medium
+10384,34,100,4,4846.7,Shipped,1,2,2005,Classic Cars,136,S10_4757,6505551386,San Francisco,CA,,USA,NA,Brown,Julie,Medium
+10395,32,100,2,3370.56,Shipped,1,3,2005,Classic Cars,136,S10_4757,+33 1 46 62 7555,Paris,,75508,France,EMEA,Da Cunha,Daniel,Medium
+10400,64,100,9,9661.44,Shipped,2,4,2005,Classic Cars,136,S10_4757,4085553659,San Jose,CA,94217,USA,NA,Frick,Sue,Large
+10414,19,100,3,2764.88,On Hold,2,5,2005,Classic Cars,136,S10_4757,6175559555,Boston,MA,51003,USA,NA,Yoshido,Juri,Small
+10103,42,100,4,5398.26,Shipped,1,1,2003,Classic Cars,147,S10_4962,07-98 9555,Stavern,,4110,Norway,EMEA,Bergulfsen,Jonas,Medium
+10114,31,100,8,4305.28,Shipped,2,4,2003,Classic Cars,147,S10_4962,(1) 42.34.2555,Paris,,75012,France,EMEA,Bertrand,Marie,Medium
+10126,22,100,4,3347.74,Shipped,2,5,2003,Classic Cars,147,S10_4962,(91) 555 22 82,Madrid,,28023,Spain,EMEA,Sommer,Mart¡n,Medium
+10140,26,100,4,3188.12,Shipped,3,7,2003,Classic Cars,147,S10_4962,6505556809,Burlingame,CA,94217,USA,NA,Hirano,Juri,Medium
+10150,20,100,1,3191.2,Shipped,3,9,2003,Classic Cars,147,S10_4962,+65 221 7555,Singapore,,79903,Singapore,Japan,Natividad,Eric,Medium
+10164,21,100,2,3536.82,Resolved,4,10,2003,Classic Cars,147,S10_4962,7675-3555,Graz,,8010,Austria,EMEA,Mendel,Roland,Medium
+10175,33,100,9,5362.83,Shipped,4,11,2003,Classic Cars,147,S10_4962,(171) 555-0297,London,,WX3 6FW,UK,EMEA,Brown,Ann,Medium
+10183,28,100,1,3433.36,Shipped,4,11,2003,Classic Cars,147,S10_4962,2155554695,Philadelphia,PA,71270,USA,NA,Cervantes,Francisca,Medium
+10194,26,100,4,4263.74,Shipped,4,11,2003,Classic Cars,147,S10_4962,78.32.5555,Lyon,,69004,France,EMEA,Saveley,Mary,Medium
+10207,31,100,15,4076.19,Shipped,4,12,2003,Classic Cars,147,S10_4962,6175552555,Boston,MA,51003,USA,NA,Franco,Valarie,Medium
+10217,48,100,4,7020.48,Shipped,1,2,2004,Classic Cars,147,S10_4962,+65 224 1555,Singapore,,69045,Singapore,APAC,Victorino,Wendy,Large
+10229,50,100,9,6426.5,Shipped,1,3,2004,Classic Cars,147,S10_4962,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10245,28,100,2,4591.72,Shipped,2,5,2004,Classic Cars,147,S10_4962,2035559545,New Haven,CT,97823,USA,NA,Murphy,Leslie,Medium
+10259,26,100,12,4033.38,Shipped,2,6,2004,Classic Cars,147,S10_4962,+65 224 1555,Singapore,,69045,Singapore,APAC,Victorino,Wendy,Medium
+10270,32,100,2,4302.08,Shipped,3,7,2004,Classic Cars,147,S10_4962,+61 2 9495 8555,Chatswood,NSW,2067,Australia,APAC,Huxley,Adrian,Medium
+10281,44,100,9,7020.64,Shipped,3,8,2004,Classic Cars,147,S10_4962,2155551555,Allentown,PA,70267,USA,NA,Yu,Kyung,Large
+10291,30,100,4,3855.9,Shipped,3,9,2004,Classic Cars,147,S10_4962,0695-34 6555,Boras,,S-844 67,Sweden,EMEA,Larsson,Maria,Medium
+10305,38,100,13,6680.78,Shipped,4,10,2004,Classic Cars,147,S10_4962,6175558555,Cambridge,MA,51247,USA,NA,Hernandez,Marta,Medium
+10313,40,100,7,6678,Shipped,4,10,2004,Classic Cars,147,S10_4962,(604) 555-3392,Vancouver,BC,V3F 2K1,Canada,NA,Tannamuri,Yoshi,Medium
+10322,46,61.99,8,2851.54,Shipped,4,11,2004,Classic Cars,147,S10_4962,6035558647,Nashua,NH,62005,USA,NA,Young,Valarie,Small
+10334,26,100,2,3188.12,On Hold,4,11,2004,Classic Cars,147,S10_4962,0921-12 3555,Lule,,S-958 22,Sweden,EMEA,Berglund,Christina,Medium
+10347,27,100,2,4428,Shipped,4,11,2004,Classic Cars,147,S10_4962,03 9520 4555,Melbourne,Victoria,3004,Australia,APAC,Ferguson,Peter,Medium
+10357,43,100,9,5780.92,Shipped,4,12,2004,Classic Cars,147,S10_4962,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10370,35,65.63,4,2297.05,Shipped,1,1,2005,Classic Cars,147,S10_4962,02 9936 8555,North Sydney,NSW,2060,Australia,APAC,O'Hara,Anna,Small
+10381,37,100,6,6231.54,Shipped,1,2,2005,Classic Cars,147,S10_4962,6505551386,San Francisco,CA,,USA,NA,Brown,Julie,Medium
+10391,37,46.9,7,1735.3,Shipped,1,3,2005,Classic Cars,147,S10_4962,02 9936 8555,North Sydney,NSW,2060,Australia,APAC,O'Hara,Anna,Small
+10411,27,100,2,4427.73,Shipped,2,5,2005,Classic Cars,147,S10_4962,(514) 555-8054,Montreal,Quebec,H1J 1C3,Canada,NA,Fresnisre,Jean,Medium
+10425,38,100,12,5894.94,In Process,2,5,2005,Classic Cars,147,S10_4962,40.67.8555,Nantes,,44000,France,EMEA,Labrune,Janine,Medium
+10108,33,100,6,5265.15,Shipped,1,3,2003,Classic Cars,194,S12_1099,+63 2 555 3587,Makati City,,1227 MM,Philippines,Japan,Cruz,Arnold,Medium
+10122,42,100,10,7599.9,Shipped,2,5,2003,Classic Cars,194,S12_1099,91.24.4555,Marseille,,13008,France,EMEA,Lebihan,Laurence,Large
+10135,42,100,7,8008.56,Shipped,3,7,2003,Classic Cars,194,S12_1099,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Large
+10147,48,100,7,9245.76,Shipped,3,9,2003,Classic Cars,194,S12_1099,6175558555,Brickhaven,MA,58339,USA,NA,Nelson,Allen,Large
+10159,41,100,2,8296.35,Shipped,4,10,2003,Classic Cars,194,S12_1099,6505551386,San Francisco,CA,,USA,NA,Brown,Julie,Large
+10169,30,100,2,5019.9,Shipped,4,11,2003,Classic Cars,194,S12_1099,02 9936 8555,North Sydney,NSW,2060,Australia,APAC,O'Hara,Anna,Medium
+10181,27,100,14,5411.07,Shipped,4,11,2003,Classic Cars,194,S12_1099,+47 2267 3215,Bergen,,N 5804,Norway,EMEA,Oeztan,Veysel,Medium
+10191,21,100,3,3840.9,Shipped,4,11,2003,Classic Cars,194,S12_1099,0221-5554327,Koln,,50739,Germany,EMEA,Pfalzheim,Henriette,Medium
+10203,20,100,8,3930.4,Shipped,4,12,2003,Classic Cars,194,S12_1099,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Medium
+10211,41,100,2,7498.9,Shipped,1,1,2004,Classic Cars,194,S12_1099,(1) 47.55.6555,Paris,,75016,France,EMEA,Perrier,Dominique,Large
+10225,27,100,9,4517.91,Shipped,1,2,2004,Classic Cars,194,S12_1099,0897-034555,Gensve,,1203,Switzerland,EMEA,Holz,Michael,Medium
+10238,28,100,3,5774.72,Shipped,2,4,2004,Classic Cars,194,S12_1099,31 12 3555,Kobenhavn,,1734,Denmark,EMEA,Petersen,Jytte,Medium
+10253,24,100,13,3922.56,Cancelled,2,6,2004,Classic Cars,194,S12_1099,(171) 555-2282,Liverpool,,WX1 6LT,UK,EMEA,Devon,Elizabeth,Medium
+10266,44,100,14,9160.36,Shipped,3,7,2004,Classic Cars,194,S12_1099,0522-556555,Reggio Emilia,,42100,Italy,EMEA,Moroni,Maurizio,Large
+10276,50,100,3,9631,Shipped,3,8,2004,Classic Cars,194,S12_1099,6175557555,Brickhaven,MA,58339,USA,NA,Barajas,Miguel,Large
+10287,21,100,12,3432.24,Shipped,3,8,2004,Classic Cars,194,S12_1099,0897-034555,Gensve,,1203,Switzerland,EMEA,Holz,Michael,Medium
+10300,33,100,5,5521.89,Shipped,4,10,2003,Classic Cars,194,S12_1099,+49 69 66 90 2555,Frankfurt,,60528,Germany,EMEA,Keitel,Roland,Medium
+10310,33,100,10,6934.62,Shipped,4,10,2004,Classic Cars,194,S12_1099,0221-5554327,Koln,,50739,Germany,EMEA,Pfalzheim,Henriette,Medium
+10320,31,100,3,6876.11,Shipped,4,11,2004,Classic Cars,194,S12_1099,0921-12 3555,Lule,,S-958 22,Sweden,EMEA,Berglund,Christina,Medium
+10329,41,71.47,5,2930.27,Shipped,4,11,2004,Classic Cars,194,S12_1099,2125557818,NYC,NY,10022,USA,NA,Yu,Kwai,Small
+10341,45,79.65,2,3584.25,Shipped,4,11,2004,Classic Cars,194,S12_1099,6562-9555,Salzburg,,5020,Austria,EMEA,Pipps,Georg,Medium
+10363,33,85.39,3,2817.87,Shipped,1,1,2005,Classic Cars,194,S12_1099,+358 9 8045 555,Espoo,,FIN-02271,Finland,EMEA,Suominen,Kalle,Small
+10375,45,76,7,3420,Shipped,1,2,2005,Classic Cars,194,S12_1099,40.67.8555,Nantes,,44000,France,EMEA,Labrune,Janine,Medium
+10389,26,99.04,4,2575.04,Shipped,1,3,2005,Classic Cars,194,S12_1099,0695-34 6555,Boras,,S-844 67,Sweden,EMEA,Larsson,Maria,Small
+10419,12,100,13,1961.28,Shipped,2,5,2005,Classic Cars,194,S12_1099,6562-9555,Salzburg,,5020,Austria,EMEA,Pipps,Georg,Small
+10105,41,100,15,8690.36,Shipped,1,2,2003,Classic Cars,207,S12_1108,31 12 3555,Kobenhavn,,1734,Denmark,EMEA,Petersen,Jytte,Large
+10117,33,100,9,6034.38,Shipped,2,4,2003,Classic Cars,207,S12_1108,+65 221 7555,Singapore,,79903,Singapore,Japan,Natividad,Eric,Medium
+10127,46,100,2,11279.2,Shipped,2,6,2003,Classic Cars,207,S12_1108,2125557413,NYC,NY,10022,USA,NA,Young,Jeff,Large
+10142,33,100,12,8023.29,Shipped,3,8,2003,Classic Cars,207,S12_1108,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Large
+10153,20,100,11,4904,Shipped,3,9,2003,Classic Cars,207,S12_1108,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Medium
+10165,44,100,3,8594.52,Shipped,4,10,2003,Classic Cars,207,S12_1108,+65 221 7555,Singapore,,79903,Singapore,Japan,Natividad,Eric,Large
+10176,33,100,2,7474.5,Shipped,4,11,2003,Classic Cars,207,S12_1108,0522-556555,Reggio Emilia,,42100,Italy,EMEA,Moroni,Maurizio,Large
+10185,21,100,13,3883.74,Shipped,4,11,2003,Classic Cars,207,S12_1108,5085559555,New Bedford,MA,50553,USA,NA,Tam,Wing C,Medium
+10196,47,100,5,8887.7,Shipped,4,11,2003,Classic Cars,207,S12_1108,2035559545,New Haven,CT,97823,USA,NA,Murphy,Leslie,Large
+10208,46,100,13,8602.92,Shipped,1,1,2004,Classic Cars,207,S12_1108,78.32.5555,Lyon,,69004,France,EMEA,Saveley,Mary,Large
+10220,32,100,2,7181.44,Shipped,1,2,2004,Classic Cars,207,S12_1108,+353 1862 1555,Dublin,,2,Ireland,EMEA,Cassidy,Dean,Large
+10231,42,100,2,8378.58,Shipped,1,3,2004,Classic Cars,207,S12_1108,+34 913 728 555,Madrid,,28023,Spain,EMEA,Fernandez,Jesus,Large
+10247,44,100,2,10606.2,Shipped,2,5,2004,Classic Cars,207,S12_1108,+358 9 8045 555,Espoo,,FIN-02271,Finland,EMEA,Suominen,Kalle,Large
+10272,35,100,2,5818.4,Shipped,3,7,2004,Classic Cars,207,S12_1108,2155551555,Allentown,PA,70267,USA,NA,Yu,Kyung,Medium
+10282,41,100,5,7071.27,Shipped,3,8,2004,Classic Cars,207,S12_1108,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Large
+10293,46,100,8,8411.56,Shipped,3,9,2004,Classic Cars,207,S12_1108,011-4988555,Torino,,10100,Italy,EMEA,Accorti,Paolo,Large
+10306,31,100,13,6570.76,Shipped,4,10,2004,Classic Cars,207,S12_1108,(171) 555-1555,Manchester,,EC2 5NT,UK,EMEA,Ashworth,Victoria,Medium
+10314,38,100,5,7975.44,Shipped,4,10,2004,Classic Cars,207,S12_1108,86 21 3555,Aaarhus,,8200,Denmark,EMEA,Ibsen,Palle,Large
+10325,42,64,8,2688,Shipped,4,11,2004,Classic Cars,207,S12_1108,07-98 9555,Stavern,,4110,Norway,EMEA,Bergulfsen,Jonas,Small
+10336,33,57.22,10,1888.26,Shipped,4,11,2004,Classic Cars,207,S12_1108,(1) 42.34.2555,Paris,,75012,France,EMEA,Bertrand,Marie,Small
+10348,48,52.36,8,2513.28,Shipped,4,11,2004,Classic Cars,207,S12_1108,(91) 555 22 82,Madrid,,28023,Spain,EMEA,Sommer,Mart¡n,Small
+10359,42,100,8,4764.48,Shipped,4,12,2004,Classic Cars,207,S12_1108,26.47.1555,Reims,,51100,France,EMEA,Henriot,Paul,Medium
+10371,32,100,6,3560.64,Shipped,1,1,2005,Classic Cars,207,S12_1108,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10382,34,100,10,3823.64,Shipped,1,2,2005,Classic Cars,207,S12_1108,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10395,33,69.12,1,2280.96,Shipped,1,3,2005,Classic Cars,207,S12_1108,+33 1 46 62 7555,Paris,,75508,France,EMEA,Da Cunha,Daniel,Small
+10413,36,100,2,8677.8,Shipped,2,5,2005,Classic Cars,207,S12_1108,2035552570,Bridgewater,CT,97562,USA,NA,King,Julie,Large
+10103,27,100,8,3394.98,Shipped,1,1,2003,Trucks and Buses,136,S12_1666,07-98 9555,Stavern,,4110,Norway,EMEA,Bergulfsen,Jonas,Medium
+10113,21,100,2,3415.44,Shipped,1,3,2003,Trucks and Buses,136,S12_1666,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10126,21,100,8,2439.57,Shipped,2,5,2003,Trucks and Buses,136,S12_1666,(91) 555 22 82,Madrid,,28023,Spain,EMEA,Sommer,Mart¡n,Small
+10140,38,100,8,4829.8,Shipped,3,7,2003,Trucks and Buses,136,S12_1666,6505556809,Burlingame,CA,94217,USA,NA,Hirano,Juri,Medium
+10150,30,100,5,4100.1,Shipped,3,9,2003,Trucks and Buses,136,S12_1666,+65 221 7555,Singapore,,79903,Singapore,Japan,Natividad,Eric,Medium
+10164,49,100,6,6563.06,Resolved,4,10,2003,Trucks and Buses,136,S12_1666,7675-3555,Graz,,8010,Austria,EMEA,Mendel,Roland,Medium
+10174,43,100,1,6817.22,Shipped,4,11,2003,Trucks and Buses,136,S12_1666,61-7-3844-6555,South Brisbane,Queensland,4101,Australia,APAC,Calaghan,Tony,Medium
+10183,41,100,5,6163.94,Shipped,4,11,2003,Trucks and Buses,136,S12_1666,2155554695,Philadelphia,PA,71270,USA,NA,Cervantes,Francisca,Medium
+10194,38,100,8,4933.92,Shipped,4,11,2003,Trucks and Buses,136,S12_1666,78.32.5555,Lyon,,69004,France,EMEA,Saveley,Mary,Medium
+10206,28,100,3,4056.36,Shipped,4,12,2003,Trucks and Buses,136,S12_1666,(604) 555-3392,Vancouver,BC,V3F 2K1,Canada,NA,Tannamuri,Yoshi,Medium
+10216,43,100,1,5759.42,Shipped,1,2,2004,Trucks and Buses,136,S12_1666,30.59.8555,Versailles,,78000,France,EMEA,Tonini,Daniel,Medium
+10229,25,100,13,3451,Shipped,1,3,2004,Trucks and Buses,136,S12_1666,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10245,38,100,6,5920.4,Shipped,2,5,2004,Trucks and Buses,136,S12_1666,2035559545,New Haven,CT,97823,USA,NA,Murphy,Leslie,Medium
+10258,41,100,3,6668.24,Shipped,2,6,2004,Trucks and Buses,136,S12_1666,+81 3 3584 0555,Minato-ku,Tokyo,106-0032,Japan,Japan,Shimamura,Akiko,Medium
+10270,28,100,6,4094.72,Shipped,3,7,2004,Trucks and Buses,136,S12_1666,+61 2 9495 8555,Chatswood,NSW,2067,Australia,APAC,Huxley,Adrian,Medium
+10281,25,100,13,2938.5,Shipped,3,8,2004,Trucks and Buses,136,S12_1666,2155551555,Allentown,PA,70267,USA,NA,Yu,Kyung,Small
+10291,41,100,8,6387.8,Shipped,3,9,2004,Trucks and Buses,136,S12_1666,0695-34 6555,Boras,,S-844 67,Sweden,EMEA,Larsson,Maria,Medium
+10304,39,100,3,6396,Shipped,4,10,2004,Trucks and Buses,136,S12_1666,30.59.8555,Versailles,,78000,France,EMEA,Tonini,Daniel,Medium
+10313,21,100,11,2669.1,Shipped,4,10,2004,Trucks and Buses,136,S12_1666,(604) 555-3392,Vancouver,BC,V3F 2K1,Canada,NA,Tannamuri,Yoshi,Small
+10322,27,100,9,4784.13,Shipped,4,11,2004,Trucks and Buses,136,S12_1666,6035558647,Nashua,NH,62005,USA,NA,Young,Valarie,Medium
+10333,33,99.21,6,3273.93,Shipped,4,11,2004,Trucks and Buses,136,S12_1666,6505555787,San Francisco,CA,,USA,NA,Murphy,Julie,Medium
+10347,29,100,3,3586.43,Shipped,4,11,2004,Trucks and Buses,136,S12_1666,03 9520 4555,Melbourne,Victoria,3004,Australia,APAC,Ferguson,Peter,Medium
+10357,49,100,8,5960.36,Shipped,4,12,2004,Trucks and Buses,136,S12_1666,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10370,49,100,8,8470.14,Shipped,1,1,2005,Trucks and Buses,136,S12_1666,02 9936 8555,North Sydney,NSW,2060,Australia,APAC,O'Hara,Anna,Large
+10381,20,100,1,2952,Shipped,1,2,2005,Trucks and Buses,136,S12_1666,6505551386,San Francisco,CA,,USA,NA,Brown,Julie,Small
+10391,39,63.2,9,2464.8,Shipped,1,3,2005,Trucks and Buses,136,S12_1666,02 9936 8555,North Sydney,NSW,2060,Australia,APAC,O'Hara,Anna,Small
+10411,40,100,6,6232,Shipped,2,5,2005,Trucks and Buses,136,S12_1666,(514) 555-8054,Montreal,Quebec,H1J 1C3,Canada,NA,Fresnisre,Jean,Medium
+10424,49,100,3,7969.36,In Process,2,5,2005,Trucks and Buses,136,S12_1666,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Large
+10107,21,100,1,3036.6,Shipped,1,2,2003,Motorcycles,150,S12_2823,2125557818,NYC,NY,10022,USA,NA,Yu,Kwai,Medium
+10121,50,100,4,8284,Shipped,2,5,2003,Motorcycles,150,S12_2823,26.47.1555,Reims,,51100,France,EMEA,Henriot,Paul,Large
+10134,20,100,1,2711.2,Shipped,3,7,2003,Motorcycles,150,S12_2823,+33 1 46 62 7555,Paris,,75508,France,EMEA,Da Cunha,Daniel,Small
+10145,49,100,5,8339.8,Shipped,3,8,2003,Motorcycles,150,S12_2823,6265557265,Pasadena,CA,90003,USA,NA,Young,Julie,Large
+10159,38,100,13,6238.84,Shipped,4,10,2003,Motorcycles,150,S12_2823,6505551386,San Francisco,CA,,USA,NA,Brown,Julie,Medium
+10169,35,100,13,4639.25,Shipped,4,11,2003,Motorcycles,150,S12_2823,02 9936 8555,North Sydney,NSW,2060,Australia,APAC,O'Hara,Anna,Medium
+10180,40,100,8,6747.6,Shipped,4,11,2003,Motorcycles,150,S12_2823,20.16.1555,Lille,,59000,France,EMEA,Rance,Martine,Medium
+10189,28,100,1,4512.48,Shipped,4,11,2003,Motorcycles,150,S12_2823,6265557265,Pasadena,CA,90003,USA,NA,Young,Julie,Medium
+10201,25,100,1,4029,Shipped,4,12,2003,Motorcycles,150,S12_2823,6505555787,San Francisco,CA,,USA,NA,Murphy,Julie,Medium
+10211,36,100,13,4771.8,Shipped,1,1,2004,Motorcycles,150,S12_2823,(1) 47.55.6555,Paris,,75016,France,EMEA,Perrier,Dominique,Medium
+10224,43,100,6,6087.94,Shipped,1,2,2004,Motorcycles,150,S12_2823,20.16.1555,Lille,,59000,France,EMEA,Rance,Martine,Medium
+10237,32,100,6,4193.28,Shipped,2,4,2004,Motorcycles,150,S12_2823,2125551500,NYC,NY,10022,USA,NA,Frick,Michael,Medium
+10251,46,100,1,7552.28,Shipped,2,5,2004,Motorcycles,150,S12_2823,2015559350,Newark,NJ,94019,USA,NA,Brown,William,Large
+10263,48,100,1,6434.4,Shipped,2,6,2004,Motorcycles,150,S12_2823,2035552570,Bridgewater,CT,97562,USA,NA,King,Julie,Medium
+10276,43,100,14,5181.5,Shipped,3,8,2004,Motorcycles,150,S12_2823,6175557555,Brickhaven,MA,58339,USA,NA,Barajas,Miguel,Medium
+10285,49,100,5,6863.92,Shipped,3,8,2004,Motorcycles,150,S12_2823,6175558555,Cambridge,MA,51247,USA,NA,Hernandez,Marta,Medium
+10299,24,100,8,4157.04,Shipped,3,9,2004,Motorcycles,150,S12_2823,90-224 8555,Helsinki,,21240,Finland,EMEA,Karttunen,Matti,Medium
+10309,26,100,4,4660.24,Shipped,4,10,2004,Motorcycles,150,S12_2823,07-98 9555,Stavern,,4110,Norway,EMEA,Bergulfsen,Jonas,Medium
+10319,30,100,9,4111.8,Shipped,4,11,2004,Motorcycles,150,S12_2823,2125551957,NYC,NY,10022,USA,NA,Kuo,Kee,Medium
+10329,24,100,6,3542.64,Shipped,4,11,2004,Motorcycles,150,S12_2823,2125557818,NYC,NY,10022,USA,NA,Yu,Kwai,Medium
+10341,55,100,8,8118.55,Shipped,4,11,2004,Motorcycles,150,S12_2823,6562-9555,Salzburg,,5020,Austria,EMEA,Pipps,Georg,Large
+10362,22,100,1,3877.06,Shipped,1,1,2005,Motorcycles,150,S12_2823,6505556809,Burlingame,CA,94217,USA,NA,Hirano,Juri,Medium
+10375,49,78.92,13,3867.08,Shipped,1,2,2005,Motorcycles,150,S12_2823,40.67.8555,Nantes,,44000,France,EMEA,Labrune,Janine,Medium
+10388,44,100,6,5951.44,Shipped,1,3,2005,Motorcycles,150,S12_2823,5085552555,New Bedford,MA,50553,USA,NA,Benitez,Violeta,Medium
+10403,66,100,6,8648.64,Shipped,2,4,2005,Motorcycles,150,S12_2823,(171) 555-2282,Liverpool,,WX1 6LT,UK,EMEA,Devon,Elizabeth,Large
+10417,21,100,1,3447.78,Disputed,2,5,2005,Motorcycles,150,S12_2823,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Medium
+10104,34,100,1,5958.5,Shipped,1,1,2003,Classic Cars,151,S12_3148,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Medium
+10117,43,100,10,5911.64,Shipped,2,4,2003,Classic Cars,151,S12_3148,+65 221 7555,Singapore,,79903,Singapore,Japan,Natividad,Eric,Medium
+10127,46,100,3,7366.44,Shipped,2,6,2003,Classic Cars,151,S12_3148,2125557413,NYC,NY,10022,USA,NA,Young,Jeff,Large
+10142,33,100,13,4985.64,Shipped,3,8,2003,Classic Cars,151,S12_3148,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10153,42,100,12,5393.64,Shipped,3,9,2003,Classic Cars,151,S12_3148,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Medium
+10165,34,100,4,4880.02,Shipped,4,10,2003,Classic Cars,151,S12_3148,+65 221 7555,Singapore,,79903,Singapore,Japan,Natividad,Eric,Medium
+10176,47,100,3,8378.69,Shipped,4,11,2003,Classic Cars,151,S12_3148,0522-556555,Reggio Emilia,,42100,Italy,EMEA,Moroni,Maurizio,Large
+10185,33,100,14,4038.21,Shipped,4,11,2003,Classic Cars,151,S12_3148,5085559555,New Bedford,MA,50553,USA,NA,Tam,Wing C,Medium
+10196,24,100,6,3807.12,Shipped,4,11,2003,Classic Cars,151,S12_3148,2035559545,New Haven,CT,97823,USA,NA,Murphy,Leslie,Medium
+10208,26,100,14,3142.36,Shipped,1,1,2004,Classic Cars,151,S12_3148,78.32.5555,Lyon,,69004,France,EMEA,Saveley,Mary,Medium
+10220,30,100,3,4713.6,Shipped,1,2,2004,Classic Cars,151,S12_3148,+353 1862 1555,Dublin,,2,Ireland,EMEA,Cassidy,Dean,Medium
+10230,43,100,1,7016.31,Shipped,1,3,2004,Classic Cars,151,S12_3148,+49 69 66 90 2555,Frankfurt,,60528,Germany,EMEA,Keitel,Roland,Large
+10247,25,100,3,4381.25,Shipped,2,5,2004,Classic Cars,151,S12_3148,+358 9 8045 555,Espoo,,FIN-02271,Finland,EMEA,Suominen,Kalle,Medium
+10272,27,100,3,4283.01,Shipped,3,7,2004,Classic Cars,151,S12_3148,2155551555,Allentown,PA,70267,USA,NA,Yu,Kyung,Medium
+10282,27,100,6,4364.82,Shipped,3,8,2004,Classic Cars,151,S12_3148,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10293,24,100,9,4242.24,Shipped,3,9,2004,Classic Cars,151,S12_3148,011-4988555,Torino,,10100,Italy,EMEA,Accorti,Paolo,Medium
+10306,34,100,14,4982.7,Shipped,4,10,2004,Classic Cars,151,S12_3148,(171) 555-1555,Manchester,,EC2 5NT,UK,EMEA,Ashworth,Victoria,Medium
+10314,46,100,6,6393.54,Shipped,4,10,2004,Classic Cars,151,S12_3148,86 21 3555,Aaarhus,,8200,Denmark,EMEA,Ibsen,Palle,Medium
+10324,27,54.33,1,1466.91,Shipped,4,11,2004,Classic Cars,151,S12_3148,2125551500,NYC,NY,10022,USA,NA,Frick,Michael,Small
+10336,33,100,11,4059.33,Shipped,4,11,2004,Classic Cars,151,S12_3148,(1) 42.34.2555,Paris,,75012,France,EMEA,Bertrand,Marie,Medium
+10348,47,100,4,4801.52,Shipped,4,11,2004,Classic Cars,151,S12_3148,(91) 555 22 82,Madrid,,28023,Spain,EMEA,Sommer,Mart¡n,Medium
+10358,49,55.34,5,2711.66,Shipped,4,12,2004,Classic Cars,151,S12_3148,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Small
+10372,40,100,4,5862,Shipped,1,1,2005,Classic Cars,151,S12_3148,+81 3 3584 0555,Minato-ku,Tokyo,106-0032,Japan,Japan,Shimamura,Akiko,Medium
+10382,37,100,11,4071.85,Shipped,1,2,2005,Classic Cars,151,S12_3148,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10413,47,100,3,8236.75,Shipped,2,5,2005,Classic Cars,151,S12_3148,2035552570,Bridgewater,CT,97562,USA,NA,King,Julie,Large
+10108,45,100,4,6130.35,Shipped,1,3,2003,Classic Cars,117,S12_3380,+63 2 555 3587,Makati City,,1227 MM,Philippines,Japan,Cruz,Arnold,Medium
+10122,37,99.82,8,3693.34,Shipped,2,5,2003,Classic Cars,117,S12_3380,91.24.4555,Marseille,,13008,France,EMEA,Lebihan,Laurence,Medium
+10135,48,100,5,6031.68,Shipped,3,7,2003,Classic Cars,117,S12_3380,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10147,31,100,5,3494.94,Shipped,3,9,2003,Classic Cars,117,S12_3380,6175558555,Brickhaven,MA,58339,USA,NA,Nelson,Allen,Medium
+10160,46,100,6,5294.14,Shipped,4,10,2003,Classic Cars,117,S12_3380,2155554369,Los Angeles,CA,,USA,NA,Chandler,Michael,Medium
+10170,47,100,4,5464.69,Shipped,4,11,2003,Classic Cars,117,S12_3380,7675-3555,Graz,,8010,Austria,EMEA,Mendel,Roland,Medium
+10181,28,100,12,2860.76,Shipped,4,11,2003,Classic Cars,117,S12_3380,+47 2267 3215,Bergen,,N 5804,Norway,EMEA,Oeztan,Veysel,Small
+10191,40,100,1,5590,Shipped,4,11,2003,Classic Cars,117,S12_3380,0221-5554327,Koln,,50739,Germany,EMEA,Pfalzheim,Henriette,Medium
+10203,20,100,6,2254.8,Shipped,4,12,2003,Classic Cars,117,S12_3380,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Small
+10212,39,100,16,4946.76,Shipped,1,1,2004,Classic Cars,117,S12_3380,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Medium
+10225,25,99.82,7,2495.5,Shipped,1,2,2004,Classic Cars,117,S12_3380,0897-034555,Gensve,,1203,Switzerland,EMEA,Holz,Michael,Small
+10238,29,100,1,3167.38,Shipped,2,4,2004,Classic Cars,117,S12_3380,31 12 3555,Kobenhavn,,1734,Denmark,EMEA,Petersen,Jytte,Medium
+10253,22,100,11,2402.84,Cancelled,2,6,2004,Classic Cars,117,S12_3380,(171) 555-2282,Liverpool,,WX1 6LT,UK,EMEA,Devon,Elizabeth,Small
+10266,22,100,12,2454.54,Shipped,3,7,2004,Classic Cars,117,S12_3380,0522-556555,Reggio Emilia,,42100,Italy,EMEA,Moroni,Maurizio,Small
+10276,47,100,1,5464.69,Shipped,3,8,2004,Classic Cars,117,S12_3380,6175557555,Brickhaven,MA,58339,USA,NA,Barajas,Miguel,Medium
+10287,45,100,10,4756.5,Shipped,3,8,2004,Classic Cars,117,S12_3380,0897-034555,Gensve,,1203,Switzerland,EMEA,Holz,Michael,Medium
+10300,29,100,3,3984.6,Shipped,4,10,2003,Classic Cars,117,S12_3380,+49 69 66 90 2555,Frankfurt,,60528,Germany,EMEA,Keitel,Roland,Medium
+10310,24,100,8,3100.32,Shipped,4,10,2004,Classic Cars,117,S12_3380,0221-5554327,Koln,,50739,Germany,EMEA,Pfalzheim,Henriette,Medium
+10320,35,100,1,4850.3,Shipped,4,11,2004,Classic Cars,117,S12_3380,0921-12 3555,Lule,,S-958 22,Sweden,EMEA,Berglund,Christina,Medium
+10329,46,83.63,13,3846.98,Shipped,4,11,2004,Classic Cars,117,S12_3380,2125557818,NYC,NY,10022,USA,NA,Yu,Kwai,Medium
+10341,44,95.93,1,4220.92,Shipped,4,11,2004,Classic Cars,117,S12_3380,6562-9555,Salzburg,,5020,Austria,EMEA,Pipps,Georg,Medium
+10363,34,96.73,4,3288.82,Shipped,1,1,2005,Classic Cars,117,S12_3380,+358 9 8045 555,Espoo,,FIN-02271,Finland,EMEA,Suominen,Kalle,Medium
+10376,35,100,1,3987.2,Shipped,1,2,2005,Classic Cars,117,S12_3380,3105552373,Glendale,CA,92561,USA,NA,Young,Leslie,Medium
+10389,25,72.38,6,1809.5,Shipped,1,3,2005,Classic Cars,117,S12_3380,0695-34 6555,Boras,,S-844 67,Sweden,EMEA,Larsson,Maria,Small
+10419,10,100,11,1092.2,Shipped,2,5,2005,Classic Cars,117,S12_3380,6562-9555,Salzburg,,5020,Austria,EMEA,Pipps,Georg,Small
+10105,29,100,14,4566.05,Shipped,1,2,2003,Classic Cars,173,S12_3891,31 12 3555,Kobenhavn,,1734,Denmark,EMEA,Petersen,Jytte,Medium
+10117,39,100,8,5938.14,Shipped,2,4,2003,Classic Cars,173,S12_3891,+65 221 7555,Singapore,,79903,Singapore,Japan,Natividad,Eric,Medium
+10127,42,100,1,8138.76,Shipped,2,6,2003,Classic Cars,173,S12_3891,2125557413,NYC,NY,10022,USA,NA,Young,Jeff,Large
+10142,46,100,11,9470.94,Shipped,3,8,2003,Classic Cars,173,S12_3891,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Large
+10153,49,100,10,7036.89,Shipped,3,9,2003,Classic Cars,173,S12_3891,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Large
+10165,27,100,2,5559.03,Shipped,4,10,2003,Classic Cars,173,S12_3891,+65 221 7555,Singapore,,79903,Singapore,Japan,Natividad,Eric,Medium
+10176,50,100,1,7872.5,Shipped,4,11,2003,Classic Cars,173,S12_3891,0522-556555,Reggio Emilia,,42100,Italy,EMEA,Moroni,Maurizio,Large
+10185,43,100,12,7886.2,Shipped,4,11,2003,Classic Cars,173,S12_3891,5085559555,New Bedford,MA,50553,USA,NA,Tam,Wing C,Large
+10196,38,100,4,7232.16,Shipped,4,11,2003,Classic Cars,173,S12_3891,2035559545,New Haven,CT,97823,USA,NA,Murphy,Leslie,Large
+10208,20,100,12,3114.4,Shipped,1,1,2004,Classic Cars,173,S12_3891,78.32.5555,Lyon,,69004,France,EMEA,Saveley,Mary,Medium
+10220,27,100,1,5045.22,Shipped,1,2,2004,Classic Cars,173,S12_3891,+353 1862 1555,Dublin,,2,Ireland,EMEA,Cassidy,Dean,Medium
+10231,49,100,1,6952.12,Shipped,1,3,2004,Classic Cars,173,S12_3891,+34 913 728 555,Madrid,,28023,Spain,EMEA,Fernandez,Jesus,Medium
+10247,27,100,1,4157.73,Shipped,2,5,2004,Classic Cars,173,S12_3891,+358 9 8045 555,Espoo,,FIN-02271,Finland,EMEA,Suominen,Kalle,Medium
+10272,39,100,1,7962.24,Shipped,3,7,2004,Classic Cars,173,S12_3891,2155551555,Allentown,PA,70267,USA,NA,Yu,Kyung,Large
+10282,24,100,4,3778.8,Shipped,3,8,2004,Classic Cars,173,S12_3891,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10293,45,100,7,8253,Shipped,3,9,2004,Classic Cars,173,S12_3891,011-4988555,Torino,,10100,Italy,EMEA,Accorti,Paolo,Large
+10306,20,100,12,3633.4,Shipped,4,10,2004,Classic Cars,173,S12_3891,(171) 555-1555,Manchester,,EC2 5NT,UK,EMEA,Ashworth,Victoria,Medium
+10314,36,100,4,6913.8,Shipped,4,10,2004,Classic Cars,173,S12_3891,86 21 3555,Aaarhus,,8200,Denmark,EMEA,Ibsen,Palle,Medium
+10325,24,100,1,2583.6,Shipped,4,11,2004,Classic Cars,173,S12_3891,07-98 9555,Stavern,,4110,Norway,EMEA,Bergulfsen,Jonas,Small
+10336,49,63.38,1,3105.62,Shipped,4,11,2004,Classic Cars,173,S12_3891,(1) 42.34.2555,Paris,,75012,France,EMEA,Bertrand,Marie,Medium
+10349,26,100,10,4408.56,Shipped,4,12,2004,Classic Cars,173,S12_3891,2125557413,NYC,NY,10022,USA,NA,Young,Jeff,Medium
+10359,49,62.09,5,3042.41,Shipped,4,12,2004,Classic Cars,173,S12_3891,26.47.1555,Reims,,51100,France,EMEA,Henriot,Paul,Medium
+10372,34,100,1,5941.5,Shipped,1,1,2005,Classic Cars,173,S12_3891,+81 3 3584 0555,Minato-ku,Tokyo,106-0032,Japan,Japan,Shimamura,Akiko,Medium
+10382,34,95.35,12,3241.9,Shipped,1,2,2005,Classic Cars,173,S12_3891,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10396,33,100,3,6109.29,Shipped,1,3,2005,Classic Cars,173,S12_3891,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10413,22,100,1,3387.78,Shipped,2,5,2005,Classic Cars,173,S12_3891,2035552570,Bridgewater,CT,97562,USA,NA,King,Julie,Medium
+10108,39,89.38,7,3485.82,Shipped,1,3,2003,Classic Cars,79,S12_3990,+63 2 555 3587,Makati City,,1227 MM,Philippines,Japan,Cruz,Arnold,Medium
+10122,32,63.84,11,2042.88,Shipped,2,5,2003,Classic Cars,79,S12_3990,91.24.4555,Marseille,,13008,France,EMEA,Lebihan,Laurence,Small
+10135,24,75.01,8,1800.24,Shipped,3,7,2003,Classic Cars,79,S12_3990,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Small
+10147,21,63.84,8,1340.64,Shipped,3,9,2003,Classic Cars,79,S12_3990,6175558555,Brickhaven,MA,58339,USA,NA,Nelson,Allen,Small
+10159,24,73.42,3,1762.08,Shipped,4,10,2003,Classic Cars,79,S12_3990,6505551386,San Francisco,CA,,USA,NA,Brown,Julie,Small
+10169,36,63.84,3,2298.24,Shipped,4,11,2003,Classic Cars,79,S12_3990,02 9936 8555,North Sydney,NSW,2060,Australia,APAC,O'Hara,Anna,Small
+10181,20,81.4,15,1628,Shipped,4,11,2003,Classic Cars,79,S12_3990,+47 2267 3215,Bergen,,N 5804,Norway,EMEA,Oeztan,Veysel,Small
+10191,30,64.64,4,1939.2,Shipped,4,11,2003,Classic Cars,79,S12_3990,0221-5554327,Koln,,50739,Germany,EMEA,Pfalzheim,Henriette,Small
+10203,44,82.99,9,3651.56,Shipped,4,12,2003,Classic Cars,79,S12_3990,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Medium
+10211,28,92.57,3,2591.96,Shipped,1,1,2004,Classic Cars,79,S12_3990,(1) 47.55.6555,Paris,,75016,France,EMEA,Perrier,Dominique,Small
+10225,37,77.41,10,2864.17,Shipped,1,2,2004,Classic Cars,79,S12_3990,0897-034555,Gensve,,1203,Switzerland,EMEA,Holz,Michael,Small
+10238,20,74.21,4,1484.2,Shipped,2,4,2004,Classic Cars,79,S12_3990,31 12 3555,Kobenhavn,,1734,Denmark,EMEA,Petersen,Jytte,Small
+10253,25,90.17,14,2254.25,Cancelled,2,6,2004,Classic Cars,79,S12_3990,(171) 555-2282,Liverpool,,WX1 6LT,UK,EMEA,Devon,Elizabeth,Small
+10266,35,76.61,15,2681.35,Shipped,3,7,2004,Classic Cars,79,S12_3990,0522-556555,Reggio Emilia,,42100,Italy,EMEA,Moroni,Maurizio,Small
+10276,38,83.79,4,3184.02,Shipped,3,8,2004,Classic Cars,79,S12_3990,6175557555,Brickhaven,MA,58339,USA,NA,Barajas,Miguel,Medium
+10287,41,69.43,13,2846.63,Shipped,3,8,2004,Classic Cars,79,S12_3990,0897-034555,Gensve,,1203,Switzerland,EMEA,Holz,Michael,Small
+10300,22,76.61,6,1685.42,Shipped,4,10,2003,Classic Cars,79,S12_3990,+49 69 66 90 2555,Frankfurt,,60528,Germany,EMEA,Keitel,Roland,Small
+10310,49,81.4,11,3988.6,Shipped,4,10,2004,Classic Cars,79,S12_3990,0221-5554327,Koln,,50739,Germany,EMEA,Pfalzheim,Henriette,Medium
+10320,38,73.42,4,2789.96,Shipped,4,11,2004,Classic Cars,79,S12_3990,0921-12 3555,Lule,,S-958 22,Sweden,EMEA,Berglund,Christina,Small
+10329,33,100,14,3607.56,Shipped,4,11,2004,Classic Cars,79,S12_3990,2125557818,NYC,NY,10022,USA,NA,Yu,Kwai,Medium
+10341,36,93.56,10,3368.16,Shipped,4,11,2004,Classic Cars,79,S12_3990,6562-9555,Salzburg,,5020,Austria,EMEA,Pipps,Georg,Medium
+10363,34,81.62,5,2775.08,Shipped,1,1,2005,Classic Cars,79,S12_3990,+358 9 8045 555,Espoo,,FIN-02271,Finland,EMEA,Suominen,Kalle,Small
+10377,24,67.83,5,1627.92,Shipped,1,2,2005,Classic Cars,79,S12_3990,90-224 8555,Helsinki,,21240,Finland,EMEA,Karttunen,Matti,Small
+10389,36,70.26,7,2529.36,Shipped,1,3,2005,Classic Cars,79,S12_3990,0695-34 6555,Boras,,S-844 67,Sweden,EMEA,Larsson,Maria,Small
+10419,34,90.17,14,3065.78,Shipped,2,5,2005,Classic Cars,79,S12_3990,6562-9555,Salzburg,,5020,Austria,EMEA,Pipps,Georg,Medium
+10104,41,100,9,4615.78,Shipped,1,1,2003,Trucks and Buses,118,S12_4473,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Medium
+10115,46,100,5,5723.78,Shipped,2,4,2003,Trucks and Buses,118,S12_4473,2125558493,NYC,NY,10022,USA,NA,Hernandez,Maria,Medium
+10127,24,100,11,2559.6,Shipped,2,6,2003,Trucks and Buses,118,S12_4473,2125557413,NYC,NY,10022,USA,NA,Young,Jeff,Small
+10141,21,100,5,2140.11,Shipped,3,8,2003,Trucks and Buses,118,S12_4473,+358 9 8045 555,Espoo,,FIN-02271,Finland,EMEA,Suominen,Kalle,Small
+10151,24,100,3,3327.6,Shipped,3,9,2003,Trucks and Buses,118,S12_4473,981-443655,Oulu,,90110,Finland,EMEA,Koskitalo,Pirkko,Medium
+10165,48,100,12,6825.6,Shipped,4,10,2003,Trucks and Buses,118,S12_4473,+65 221 7555,Singapore,,79903,Singapore,Japan,Natividad,Eric,Medium
+10175,26,100,1,3543.28,Shipped,4,11,2003,Trucks and Buses,118,S12_4473,(171) 555-0297,London,,WX3 6FW,UK,EMEA,Brown,Ann,Medium
+10184,37,100,6,4516.22,Shipped,4,11,2003,Trucks and Buses,118,S12_4473,(95) 555 82 82,Sevilla,,41101,Spain,EMEA,Roel,Jose Pedro,Medium
+10195,49,100,6,6445.46,Shipped,4,11,2003,Trucks and Buses,118,S12_4473,9145554562,White Plains,NY,24067,USA,NA,Frick,Steve,Medium
+10207,34,99.54,7,3384.36,Shipped,4,12,2003,Trucks and Buses,118,S12_4473,6175552555,Boston,MA,51003,USA,NA,Franco,Valarie,Medium
+10219,48,100,2,4891.68,Shipped,1,2,2004,Trucks and Buses,118,S12_4473,4155554312,Brisbane,CA,94217,USA,NA,Taylor,Sue,Medium
+10229,36,100,1,4521.96,Shipped,1,3,2004,Trucks and Buses,118,S12_4473,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10246,46,100,5,5069.66,Shipped,2,5,2004,Trucks and Buses,118,S12_4473,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Medium
+10259,46,100,4,6541.2,Shipped,2,6,2004,Trucks and Buses,118,S12_4473,+65 224 1555,Singapore,,69045,Singapore,APAC,Victorino,Wendy,Medium
+10271,31,97.17,5,3012.27,Shipped,3,7,2004,Trucks and Buses,118,S12_4473,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10281,41,100,1,5247.18,Shipped,3,8,2004,Trucks and Buses,118,S12_4473,2155551555,Allentown,PA,70267,USA,NA,Yu,Kyung,Medium
+10292,21,100,8,2214.87,Shipped,3,9,2004,Trucks and Buses,118,S12_4473,2125557818,NYC,NY,10022,USA,NA,Yu,Kwai,Small
+10305,38,100,5,4773.18,Shipped,4,10,2004,Trucks and Buses,118,S12_4473,6175558555,Cambridge,MA,51247,USA,NA,Hernandez,Marta,Medium
+10314,45,100,14,6185.7,Shipped,4,10,2004,Trucks and Buses,118,S12_4473,86 21 3555,Aaarhus,,8200,Denmark,EMEA,Ibsen,Palle,Medium
+10324,26,58.38,7,1517.88,Shipped,4,11,2004,Trucks and Buses,118,S12_4473,2125551500,NYC,NY,10022,USA,NA,Frick,Michael,Small
+10336,38,100,3,6372.6,Shipped,4,11,2004,Trucks and Buses,118,S12_4473,(1) 42.34.2555,Paris,,75012,France,EMEA,Bertrand,Marie,Medium
+10349,48,100,9,5232.96,Shipped,4,12,2004,Trucks and Buses,118,S12_4473,2125557413,NYC,NY,10022,USA,NA,Young,Jeff,Medium
+10358,42,64.16,9,2694.72,Shipped,4,12,2004,Trucks and Buses,118,S12_4473,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Small
+10371,49,35.71,4,1749.79,Shipped,1,1,2005,Trucks and Buses,118,S12_4473,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Small
+10382,32,66.58,13,2130.56,Shipped,1,2,2005,Trucks and Buses,118,S12_4473,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Small
+10412,54,100,5,5951.34,Shipped,2,5,2005,Trucks and Buses,118,S12_4473,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Medium
+10425,33,100,4,4692.6,In Process,2,5,2005,Trucks and Buses,118,S12_4473,40.67.8555,Nantes,,44000,France,EMEA,Labrune,Janine,Medium
+10108,36,100,3,3731.04,Shipped,1,3,2003,Classic Cars,115,S12_4675,+63 2 555 3587,Makati City,,1227 MM,Philippines,Japan,Cruz,Arnold,Medium
+10122,20,100,7,2142,Shipped,2,5,2003,Classic Cars,115,S12_4675,91.24.4555,Marseille,,13008,France,EMEA,Lebihan,Laurence,Small
+10135,29,97.89,4,2838.81,Shipped,3,7,2003,Classic Cars,115,S12_4675,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Small
+10147,33,97.89,4,3230.37,Shipped,3,9,2003,Classic Cars,115,S12_4675,6175558555,Brickhaven,MA,58339,USA,NA,Nelson,Allen,Medium
+10160,50,100,5,5182,Shipped,4,10,2003,Classic Cars,115,S12_4675,2155554369,Los Angeles,CA,,USA,NA,Chandler,Michael,Medium
+10170,41,100,3,4391.1,Shipped,4,11,2003,Classic Cars,115,S12_4675,7675-3555,Graz,,8010,Austria,EMEA,Mendel,Roland,Medium
+10181,36,100,11,4477.32,Shipped,4,11,2003,Classic Cars,115,S12_4675,+47 2267 3215,Bergen,,N 5804,Norway,EMEA,Oeztan,Veysel,Medium
+10192,27,100,16,3544.56,Shipped,4,11,2003,Classic Cars,115,S12_4675,6035558647,Nashua,NH,62005,USA,NA,Young,Valarie,Medium
+10203,47,100,5,5195.85,Shipped,4,12,2003,Classic Cars,115,S12_4675,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Medium
+10212,33,100,15,4180.44,Shipped,1,1,2004,Classic Cars,115,S12_4675,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Medium
+10225,21,100,6,2684.43,Shipped,1,2,2004,Classic Cars,115,S12_4675,0897-034555,Gensve,,1203,Switzerland,EMEA,Holz,Michael,Small
+10239,21,93.28,5,1958.88,Shipped,2,4,2004,Classic Cars,115,S12_4675,981-443655,Oulu,,90110,Finland,EMEA,Koskitalo,Pirkko,Small
+10253,41,100,10,4910.57,Cancelled,2,6,2004,Classic Cars,115,S12_4675,(171) 555-2282,Liverpool,,WX1 6LT,UK,EMEA,Devon,Elizabeth,Medium
+10266,40,100,11,4468.4,Shipped,3,7,2004,Classic Cars,115,S12_4675,0522-556555,Reggio Emilia,,42100,Italy,EMEA,Moroni,Maurizio,Medium
+10277,28,100,1,3127.88,Shipped,3,8,2004,Classic Cars,115,S12_4675,+65 221 7555,Singapore,,79903,Singapore,Japan,Natividad,Eric,Medium
+10287,23,100,9,2675.13,Shipped,3,8,2004,Classic Cars,115,S12_4675,0897-034555,Gensve,,1203,Switzerland,EMEA,Holz,Michael,Small
+10300,23,100,2,2807.61,Shipped,4,10,2003,Classic Cars,115,S12_4675,+49 69 66 90 2555,Frankfurt,,60528,Germany,EMEA,Keitel,Roland,Small
+10310,25,100,7,2504.75,Shipped,4,10,2004,Classic Cars,115,S12_4675,0221-5554327,Koln,,50739,Germany,EMEA,Pfalzheim,Henriette,Small
+10321,24,100,15,2984.88,Shipped,4,11,2004,Classic Cars,115,S12_4675,5085552555,New Bedford,MA,50553,USA,NA,Benitez,Violeta,Small
+10329,39,64.74,15,2524.86,Shipped,4,11,2004,Classic Cars,115,S12_4675,2125557818,NYC,NY,10022,USA,NA,Yu,Kwai,Small
+10341,55,75.2,7,4136,Shipped,4,11,2004,Classic Cars,115,S12_4675,6562-9555,Salzburg,,5020,Austria,EMEA,Pipps,Georg,Medium
+10363,46,88.45,6,4068.7,Shipped,1,1,2005,Classic Cars,115,S12_4675,+358 9 8045 555,Espoo,,FIN-02271,Finland,EMEA,Suominen,Kalle,Medium
+10377,50,100,1,5182,Shipped,1,2,2005,Classic Cars,115,S12_4675,90-224 8555,Helsinki,,21240,Finland,EMEA,Karttunen,Matti,Medium
+10389,47,100,8,5243.79,Shipped,1,3,2005,Classic Cars,115,S12_4675,0695-34 6555,Boras,,S-844 67,Sweden,EMEA,Larsson,Maria,Medium
+10405,97,93.28,5,9048.16,Shipped,2,4,2005,Classic Cars,115,S12_4675,88.60.1555,Strasbourg,,67000,France,EMEA,Citeaux,Frederique,Large
+10419,32,100,10,3832.64,Shipped,2,5,2005,Classic Cars,115,S12_4675,6562-9555,Salzburg,,5020,Austria,EMEA,Pipps,Georg,Medium
+10103,35,100,10,3920,Shipped,1,1,2003,Trucks and Buses,116,S18_1097,07-98 9555,Stavern,,4110,Norway,EMEA,Bergulfsen,Jonas,Medium
+10113,49,100,4,4916.66,Shipped,1,3,2003,Trucks and Buses,116,S18_1097,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10126,38,100,10,3857,Shipped,2,5,2003,Trucks and Buses,116,S18_1097,(91) 555 22 82,Madrid,,28023,Spain,EMEA,Sommer,Mart¡n,Medium
+10140,32,100,10,4181.44,Shipped,3,7,2003,Trucks and Buses,116,S18_1097,6505556809,Burlingame,CA,94217,USA,NA,Hirano,Juri,Medium
+10150,34,100,7,4641,Shipped,3,9,2003,Trucks and Buses,116,S18_1097,+65 221 7555,Singapore,,79903,Singapore,Japan,Natividad,Eric,Medium
+10164,36,99.17,8,3570.12,Resolved,4,10,2003,Trucks and Buses,116,S18_1097,7675-3555,Graz,,8010,Austria,EMEA,Mendel,Roland,Medium
+10174,48,93.34,3,4480.32,Shipped,4,11,2003,Trucks and Buses,116,S18_1097,61-7-3844-6555,South Brisbane,Queensland,4101,Australia,APAC,Calaghan,Tony,Medium
+10183,21,96.84,7,2033.64,Shipped,4,11,2003,Trucks and Buses,116,S18_1097,2155554695,Philadelphia,PA,71270,USA,NA,Cervantes,Francisca,Small
+10194,21,93.34,10,1960.14,Shipped,4,11,2003,Trucks and Buses,116,S18_1097,78.32.5555,Lyon,,69004,France,EMEA,Saveley,Mary,Small
+10206,34,100,5,3966.78,Shipped,4,12,2003,Trucks and Buses,116,S18_1097,(604) 555-3392,Vancouver,BC,V3F 2K1,Canada,NA,Tannamuri,Yoshi,Medium
+10215,46,100,2,5152,Shipped,1,1,2004,Trucks and Buses,116,S18_1097,3105553722,Burbank,CA,94019,USA,NA,Thompson,Steve,Medium
+10228,32,100,1,3360,Shipped,1,3,2004,Trucks and Buses,116,S18_1097,6175555555,Cambridge,MA,51247,USA,NA,Tseng,Kyung,Medium
+10245,29,100,8,3451,Shipped,2,5,2004,Trucks and Buses,116,S18_1097,2035559545,New Haven,CT,97823,USA,NA,Murphy,Leslie,Medium
+10258,41,100,5,5453,Shipped,2,6,2004,Trucks and Buses,116,S18_1097,+81 3 3584 0555,Minato-ku,Tokyo,106-0032,Japan,Japan,Shimamura,Akiko,Medium
+10270,43,96.84,8,4164.12,Shipped,3,7,2004,Trucks and Buses,116,S18_1097,+61 2 9495 8555,Chatswood,NSW,2067,Australia,APAC,Huxley,Adrian,Medium
+10280,24,100,1,2800.08,Shipped,3,8,2004,Trucks and Buses,116,S18_1097,011-4988555,Torino,,10100,Italy,EMEA,Accorti,Paolo,Small
+10291,41,100,10,4687.94,Shipped,3,9,2004,Trucks and Buses,116,S18_1097,0695-34 6555,Boras,,S-844 67,Sweden,EMEA,Larsson,Maria,Medium
+10304,46,98,5,4508,Shipped,4,10,2004,Trucks and Buses,116,S18_1097,30.59.8555,Versailles,,78000,France,EMEA,Tonini,Daniel,Medium
+10312,32,100,2,4181.44,Shipped,4,10,2004,Trucks and Buses,116,S18_1097,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10322,22,100,10,2251.04,Shipped,4,11,2004,Trucks and Buses,116,S18_1097,6035558647,Nashua,NH,62005,USA,NA,Young,Valarie,Small
+10333,29,40.25,7,1167.25,Shipped,4,11,2004,Trucks and Buses,116,S18_1097,6505555787,San Francisco,CA,,USA,NA,Murphy,Julie,Small
+10347,42,49.6,5,2083.2,Shipped,4,11,2004,Trucks and Buses,116,S18_1097,03 9520 4555,Melbourne,Victoria,3004,Australia,APAC,Ferguson,Peter,Small
+10357,39,98,1,3822,Shipped,4,12,2004,Trucks and Buses,116,S18_1097,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10370,27,100,1,3911.49,Shipped,1,1,2005,Trucks and Buses,116,S18_1097,02 9936 8555,North Sydney,NSW,2060,Australia,APAC,O'Hara,Anna,Medium
+10381,48,98,2,4704,Shipped,1,2,2005,Trucks and Buses,116,S18_1097,6505551386,San Francisco,CA,,USA,NA,Brown,Julie,Medium
+10391,29,85.1,10,2467.9,Shipped,1,3,2005,Trucks and Buses,116,S18_1097,02 9936 8555,North Sydney,NSW,2060,Australia,APAC,O'Hara,Anna,Small
+10411,27,100,8,3213,Shipped,2,5,2005,Trucks and Buses,116,S18_1097,(514) 555-8054,Montreal,Quebec,H1J 1C3,Canada,NA,Fresnisre,Jean,Medium
+10424,54,100,5,7182,In Process,2,5,2005,Trucks and Buses,116,S18_1097,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Large
+10109,26,100,4,4379.18,Shipped,1,3,2003,Classic Cars,141,S18_1129,2155559857,Philadelphia,PA,71270,USA,NA,Hernandez,Rosa,Medium
+10122,34,100,2,5004.8,Shipped,2,5,2003,Classic Cars,141,S18_1129,91.24.4555,Marseille,,13008,France,EMEA,Lebihan,Laurence,Medium
+10136,25,100,2,3644.75,Shipped,3,7,2003,Classic Cars,141,S18_1129,61.77.6555,Toulouse,,31000,France,EMEA,Roulet,Annette,Medium
+10148,23,100,13,2702.04,Shipped,3,9,2003,Classic Cars,141,S18_1129,02 9936 8555,North Sydney,NSW,2060,Australia,APAC,O'Hara,Anna,Small
+10161,28,100,12,3764.88,Shipped,4,10,2003,Classic Cars,141,S18_1129,86 21 3555,Aaarhus,,8200,Denmark,EMEA,Ibsen,Palle,Medium
+10171,35,100,2,4508,Shipped,4,11,2003,Classic Cars,141,S18_1129,(514) 555-8054,Montreal,Quebec,H1J 1C3,Canada,NA,Fresnisre,Jean,Medium
+10181,44,100,6,5418.16,Shipped,4,11,2003,Classic Cars,141,S18_1129,+47 2267 3215,Bergen,,N 5804,Norway,EMEA,Oeztan,Veysel,Medium
+10192,22,100,11,3300.66,Shipped,4,11,2003,Classic Cars,141,S18_1129,6035558647,Nashua,NH,62005,USA,NA,Young,Valarie,Medium
+10204,42,100,17,6182.4,Shipped,4,12,2003,Classic Cars,141,S18_1129,2125557413,NYC,NY,10022,USA,NA,Young,Jeff,Medium
+10212,29,100,10,4186.73,Shipped,1,1,2004,Classic Cars,141,S18_1129,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Medium
+10225,32,100,1,4529.28,Shipped,1,2,2004,Classic Cars,141,S18_1129,0897-034555,Gensve,,1203,Switzerland,EMEA,Holz,Michael,Medium
+10240,41,100,3,5628.89,Shipped,2,4,2004,Classic Cars,141,S18_1129,+81 06 6342 5555,Osaka,Osaka,530-0003,Japan,Japan,Kentary,Mory,Medium
+10253,26,100,5,3054.48,Cancelled,2,6,2004,Classic Cars,141,S18_1129,(171) 555-2282,Liverpool,,WX1 6LT,UK,EMEA,Devon,Elizabeth,Medium
+10266,21,100,6,2526.51,Shipped,3,7,2004,Classic Cars,141,S18_1129,0522-556555,Reggio Emilia,,42100,Italy,EMEA,Moroni,Maurizio,Small
+10278,34,100,6,4667.86,Shipped,3,8,2004,Classic Cars,141,S18_1129,7025551838,Las Vegas,NV,83030,USA,NA,King,Sue,Medium
+10287,41,100,4,6499.32,Shipped,3,8,2004,Classic Cars,141,S18_1129,0897-034555,Gensve,,1203,Switzerland,EMEA,Holz,Michael,Medium
+10301,37,100,8,5917.78,Shipped,4,10,2003,Classic Cars,141,S18_1129,+47 2212 1555,Oslo,,N 0106,Norway,EMEA,Klaeboe,Jan,Medium
+10310,37,100,2,6231.91,Shipped,4,10,2004,Classic Cars,141,S18_1129,0221-5554327,Koln,,50739,Germany,EMEA,Pfalzheim,Henriette,Medium
+10321,41,100,10,5803.14,Shipped,4,11,2004,Classic Cars,141,S18_1129,5085552555,New Bedford,MA,50553,USA,NA,Benitez,Violeta,Medium
+10331,46,100,6,6434.02,Shipped,4,11,2004,Classic Cars,141,S18_1129,2155559857,Philadelphia,PA,71270,USA,NA,Hernandez,Rosa,Medium
+10342,40,100,2,6454.4,Shipped,4,11,2004,Classic Cars,141,S18_1129,03 9520 4555,Melbourne,Victoria,3004,Australia,APAC,Ferguson,Peter,Medium
+10356,43,97.6,8,4196.8,Shipped,4,12,2004,Classic Cars,141,S18_1129,+33 1 46 62 7555,Paris,,75508,France,EMEA,Da Cunha,Daniel,Medium
+10365,30,87.06,1,2611.8,Shipped,1,1,2005,Classic Cars,141,S18_1129,5085559555,New Bedford,MA,50553,USA,NA,Tam,Wing C,Small
+10377,35,100,2,5895.05,Shipped,1,2,2005,Classic Cars,141,S18_1129,90-224 8555,Helsinki,,21240,Finland,EMEA,Karttunen,Matti,Medium
+10390,36,93.77,14,3375.72,Shipped,1,3,2005,Classic Cars,141,S18_1129,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10406,61,100,3,8374.69,Disputed,2,4,2005,Classic Cars,141,S18_1129,31 12 3555,Kobenhavn,,1734,Denmark,EMEA,Petersen,Jytte,Large
+10419,38,100,5,4464.24,Shipped,2,5,2005,Classic Cars,141,S18_1129,6562-9555,Salzburg,,5020,Austria,EMEA,Pipps,Georg,Medium
+10102,39,100,2,4808.31,Shipped,1,1,2003,Vintage Cars,102,S18_1342,2125551500,NYC,NY,10022,USA,NA,Frick,Michael,Medium
+10111,33,99.66,6,3288.78,Shipped,1,3,2003,Vintage Cars,102,S18_1342,6505555787,San Francisco,CA,,USA,NA,Murphy,Julie,Medium
+10125,32,100,1,3254.72,Shipped,2,5,2003,Vintage Cars,102,S18_1342,03 9520 4555,Melbourne,Victoria,3004,Australia,APAC,Ferguson,Peter,Medium
+10139,31,100,7,3184.94,Shipped,3,7,2003,Vintage Cars,102,S18_1342,+61 2 9495 8555,Chatswood,NSW,2067,Australia,APAC,Huxley,Adrian,Medium
+10149,50,100,4,5907.5,Shipped,3,9,2003,Vintage Cars,102,S18_1342,4155554312,Brisbane,CA,94217,USA,NA,Taylor,Sue,Medium
+10162,48,91.44,2,4389.12,Shipped,4,10,2003,Vintage Cars,102,S18_1342,6505551386,San Francisco,CA,,USA,NA,Brown,Julie,Medium
+10173,43,100,6,5036.16,Shipped,4,11,2003,Vintage Cars,102,S18_1342,035-640555,Bergamo,,24100,Italy,EMEA,Rovelli,Giovanni,Medium
+10182,25,87.33,3,2183.25,Shipped,4,11,2003,Vintage Cars,102,S18_1342,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Small
+10193,28,100,7,3106.88,Shipped,4,11,2003,Vintage Cars,102,S18_1342,61-9-3844-6555,Glen Waverly,Victoria,3150,Australia,APAC,Connery,Sean,Medium
+10205,36,100,2,3735.72,Shipped,4,12,2003,Vintage Cars,102,S18_1342,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Medium
+10215,27,89.38,10,2413.26,Shipped,1,1,2004,Vintage Cars,102,S18_1342,3105553722,Burbank,CA,94019,USA,NA,Thompson,Steve,Small
+10227,25,100,3,2953.75,Shipped,1,3,2004,Vintage Cars,102,S18_1342,78.32.5555,Lyon,,69004,France,EMEA,Saveley,Mary,Small
+10244,40,100,7,4684.8,Shipped,2,4,2004,Vintage Cars,102,S18_1342,(91) 555 94 44,Madrid,,28034,Spain,EMEA,Freyre,Diego,Medium
+10256,34,95.55,2,3248.7,Shipped,2,6,2004,Vintage Cars,102,S18_1342,31 12 3555,Kobenhavn,,1734,Denmark,EMEA,Petersen,Jytte,Medium
+10280,50,100,9,5239.5,Shipped,3,8,2004,Vintage Cars,102,S18_1342,011-4988555,Torino,,10100,Italy,EMEA,Accorti,Paolo,Medium
+10289,38,100,2,4567.98,Shipped,3,9,2004,Vintage Cars,102,S18_1342,+47 2267 3215,Bergen,,N 5804,Norway,EMEA,Oeztan,Veysel,Medium
+10304,37,95.55,13,3535.35,Shipped,4,10,2004,Vintage Cars,102,S18_1342,30.59.8555,Versailles,,78000,France,EMEA,Tonini,Daniel,Medium
+10312,43,89.38,10,3843.34,Shipped,4,10,2004,Vintage Cars,102,S18_1342,4155551450,San Rafael,CA,97562,USA,NA,Nelson,Valarie,Medium
+10322,43,86.3,14,3710.9,Shipped,4,11,2004,Vintage Cars,102,S18_1342,6035558647,Nashua,NH,62005,USA,NA,Young,Valarie,Medium
+10332,46,95.13,15,4375.98,Shipped,4,11,2004,Vintage Cars,102,S18_1342,(171) 555-1555,Manchester,,EC2 5NT,UK,EMEA,Ashworth,Victoria,Medium
+10346,42,36.11,3,1516.62,Shipped,4,11,2004,Vintage Cars,102,S18_1342,7025551838,Las Vegas,NV,83030,USA,NA,King,Sue,Small
+10356,50,50.18,9,2509,Shipped,4,12,2004,Vintage Cars,102,S18_1342,+33 1 46 62 7555,Paris,,75508,France,EMEA,Da Cunha,Daniel,Small
+10369,44,100,8,9240.44,Shipped,1,1,2005,Vintage Cars,102,S18_1342,6175558555,Brickhaven,MA,58339,USA,NA,Nelson,Allen,Large

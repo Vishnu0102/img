@@ -1,0 +1,125 @@
+$# variable contains the number of command-line arguments passed to the script
+
+		while getopts :r:b:u:p:h option
+		do
+			case ${option} in
+			 r)	# Branch Directory
+					lrelease="$OPTARG"
+			   ;; 
+			   b)	# Branch Directory
+					lBranche="$OPTARG"
+			   ;; 
+			   u)	# Branch Directory
+					lUserNameSVN="$OPTARG"
+			   ;;
+			   p)	# Branch Directory
+					lPasswordSVN="$OPTARG"
+			   ;;
+			   ?|h)	echo "Unknown option [${option}]." ; Usage
+			   ;;
+	esac
+		done
+		
+-z chck if empty
+if [ $? -ne 0 ]; then
+
+ exit status of the last executed command
+ 
+     -p  Turned on whenever the real and effective user ids do not match.
+            Disables processing of the $ENV file and importing of shell
+            functions.  Turning this option off causes the effective uid and
+            gid to be set to the real uid and gid.
+			
+sed -i 's/;1  */;1/g' ${GLB_D_DATAWRK}/*FSCD_BP_AValider.csv
+
+
+
+iname  #is case insensitive 
+
+sort -k10,10 -t ';' -o  #sort -key satrtfiled,end iled -t speicfy  delimeter  ';'  o for overwrite if it is same file 
+
+join -t ';' -1 10 -2 7 a.csv b.csv # join based on  deleimeter ; by a.csv 10th elemnt with b.csb with 7th elemnt
+cat a.txt $FILE > $FILE.csv # concatinate the files 1 and 2 and append in 3 
+tar cvzf file
+
+split -l 75000 $FILE $FILE # split the file into multiple files based on no of lines 
+
+sed -i 'N;s/\n/;/' $FILE    replace \n with ; in every new line (replace acrraieg return 
+awk ' {FS=";";pat=$17; { print $0 > "bloc_"pat"_fpm.txt" }} ' abc.csv    #here fs is pattern pat is veriabel holding17th element
+ ,print the line with the path value in it  , create multiple outputfile with pat value in consideration
+ 
+sed -i 's/;1  */;1/g'  #   stream editor subsitute s/  ;1 pattern with muliple space * then replace with ;/ and g for global for all the occurance in line 
+
+
+awk -F";" '{print $2 ";" $3 } a >b print only 2nd and 3rd of a in b 
+awk -F ";" '{if($88=="FP")print $1"; # awk program , filld speartor as ; if the 88th filed == fp then print those lines 1
+
+cmd | tee -a file  put the o/p of cmd to file 
+
+typeset l_sStartMode=""
+
+while true
+do
+	case ${g_sStep} in
+	"00")	# Technical step
+		g_sShellMsg="AIS, 1st vacation. Start run."
+		Trace INF
+
+		# This script requires one parameter at least
+		if [ $# -gt 0 ]; then   #   $# no of cmd arguments 
+			l_sStartMode="$1"
+		fi
+		
+		# Next step
+		g_sStep="01"
+		
+	;;
+	esac
+ StdOut=$(eval ${AntCmd} 2>&1)    #evaluate and execute  redirect std errr to loc of std out 
+ if [ -d "$1" ] || [ -d "$2" ] || [ -d "$3" ] || [ -d "$4" ] || [ -d "$5" ];then
+ 
+ 2>/dev/null  std err to the path that is like sink the data in unix like sys
+ 
+$(grep "bean/AppConfig" ${InplyWebInterplay} | awk -F " " '{for (i=1;i<=NF;i++) {if ($i ~ /^license=.*$/ ){ print $i}}}' | awk -F\" '{print $2}' )
+# for the current line iterate over the fileds in if ~ checks if left expension matches the regexon right  ^license=.*$ if so print ,  -F separator as " and print the one in "" quote 
+
+cut -d "=" -f10 | cut -d ")" -f1  # cut the line  in fileds delimted using = and select only 10th filed  same cut the o/p by ) and select 1st filed , -d indicate delimter 
+cut -d/ -f3 | cut -d: -f2  / delimetr and : deleimeter
+cp -fr  
+awk '{print $1,$2}' |sed 's/ /","/g;s/^/"/;s/$/"/;s/\n//g'     its series of subsitiution and join 
+sed 's/ /","/g; # replace  space with ","
+s/^/"/;   # add in starting "
+s/$/"/;   # in end   add "
+s/\n//g'  # newline sub with space 
+
+
+
+if [ -d ${exs_home}/runtime/logs ]; then check if directory exists 
+			REP_LOG="${exs_home}/runtime/logs"
+		else
+			REP_LOG="${NAS_HOME}/log"
+		fi
+if [ -s ${AIS_VAC1_OUT}/OSegtSPIG.seq  ]; then   # -s test operator to check if the file is not empty
+		
+Trace() {
+  typeset l_sLogLevel="$1"   
+
+	echo "`date +"%Y-%m-%dT%T.%N %Z>"` ${l_sLogLevel}-${g_sStep}: ${g_sShellMsg}" | tee -a ${g_sShellLog}
+}
+
+Trace INF
+
+-z #check if  string empty
+-r # test operator if file readable 
+export some value to dest
+$* and $@ are used to read all the aruguments and one by one 
+
+sed -n 1p ${SAI_IN_VAC1}/IEvent.seq | cut -c 26-50`  # -n supress default behaviour , print first line , extract charcters from 26 to 50 in each line 
+-e in condi , as to check existance of file or dir 
+
+
+#Tasks like .. conversion from iso8859 to utf8 , sorting the file , iconv -f ISO8859-2 -t UTF-8 
+
+ps -ef| grep "java.*sentinel" | grep -v grep | awk '{print $2}' | xargs -IProcess kill -15 Process 1>/dev/null 2>&1
+#ps -ef all running process , excluvde grep , xargs to take each process and send it to kill using process as name for that process,xargs for storing in a list 
+

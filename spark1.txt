@@ -1,0 +1,943 @@
+databricks is like a env.. 
+
+Appache Spark:-
+
+Architectural type : 
+hadoop v/s spark 
+
+Drawbacks of hadooop 
+	It was made for batch processing ,slow processing beacuse of not in memory computaion
+	In betwen the map and reduce , the map produces the output which is in the extrenal memory , then are not in memory hence seek time is high for hadoop
+	Not fault tolerant in terms of computation..(like if the job fails it will not continue from the failure but start from beining
+	No caching mechanism  , persistance (an optimization technique in which saves the result )etc ..
+<hadoop bath will go to seek in memory to find fault in chache> 
+Apache Spark :
+
+It is an distributed computation fravmework (load big data and perform compuation in a distributed manner)
+It doenst have any seperate storage or file sysytem...
+
+features of spark :
+
+Speed : spark is 100 times faster than hadoop 
+Powerful caching : capabilites to persist data in memory
+Deployment : Posiblity of  other resource managers to work along wth spark like yarn , Mesos , kubernates ,spark own cluster 
+Good Fit for Batch and real time processing 
+Polyglot: spark provides high level Apis or libraries from different languages  , python (pyspark) , java , scala ,R
+
+<spark is running at high speed due to powerful chache in deployment ,that made it good fit for real time polyglot apis >
+
+Apache Spark Ecosystem.:-       
+refere the doc for fig  36:00
+
+important 
+
+to write some apllictaion on source data ... writing it  more complex 
+sql way of writing spark application 
+
+for real time data  spark streeming 
+
+spark r , someone good at r , spark mllib for ml , 
+spark graphics to process data which conatins hierarcial relation ..
+
+
+
+
+<Spark Core is embedded with a special collection called RDD (resilient distributed dataset). RDD is among the abstractions of Spark. Spark RDD handles partitioning data across all the nodes in a cluster. It holds them in the memory pool of the cluster as a single unit. There are two operations performed on RDDs: Transformation and Action-
+
+Transformation: It is a function that produces new RDD from the existing RDDs.
+Action: In Transformation, RDDs are created from each other. But when we want to work with the actual dataset, then, at that point we use Action.
+>
+
+
+
+Spark Architecture: 
+spark follows master slave Architecture
+1) Spark Mastrer
+2) Spark Worker Node
+fid at 57: mins
+
+The entire cluster where spark is insatlled in master slave form
+
+Saprk master is a machine and worker nodes are machines
+we can send the job to spark master directly ..
+The main function acts as an entry point for Appication as soon as you send the job  
+
+1) driver program : acts like a main method which will create the spark context 
+*the first method which will be created 
+
+
+2 spark context  or spark sesssion
+It is the entry point to the spark core of spark application,it will connect our spark appliactaion with execution environment or cluster 
+,it creates job execution graph ,manages partitions,scheduling etc...
+
+
+creating the context .. context metadata , who is calling function , application , and some basic functions , interaction with resource manager 
+, partion , interaction wth worker node
+
+before spark 2.0.0 spark context was used seperately , after 2.0+ spark session does all the things 
+
+before spark session using spark context 
+configuration has to be set up 
+eg:
+conf= new SparkConf(hive_loactaion,total_partions)
+sc= new SparkContext(conf)
+df=sc.cratedataframe(data=persodnlike,schems=schema )
+
+in a single line 
+spark=sparksession.builder.master(localhost ).appname(demo).getorcreate()
+
+
+we shd provide inforamtion like how much memory , how many executors are required while sending the job for executor
+
+optimazing the spark applicationn.. code , resource, memory , exector how will you calculate , in terms of optimazation, scaleability , ..
+
+The driver program sends request to the resource manager to yarn ..
+driver and resouce manager .. spark master ..there can be 100s of request , 100 drivers .all 100 aplications .
+ all  100 apllications need resouce so conatct resouce manager.. 
+
+application master is a repsentative of indivijual spark job  , each job will have 1 application manager -> ask resouce manager for resource  like i need 32 gtb , 16 core and req executors ..
+(virtual entity which will have cpu,memory ,NB )
+
+
+3) Resource Manager 
+what is conatiner... virtual space inside a system  have some amount of cpu , memeory , network bandwidth   
+it will create one container and start application master service in it 
+2cpu,4gb,3kb/sec
+
+resoucemanager create application master , which acts as cr ,for 100 different spark jobs how many application masters are ccreated by yarn .. 
+there will be 100 applcition master .. appliactaion  master is the repsenative of a indivijaul appplication  jobs .. 
+
+Even if you run similar job twice then it is treated as a new job
+Apliaction master will request to resouece manager for complete resouce alloaction .. or to start a required executors
+executors virtual entity which will have cpu , memeory 
+executor does the actual computation on partiotioned data 
+
+RM will create required number of executors for processing
+executor will start interacting with driver program to send the updates for job progress 
+
+job1 , job2 , connected to yarn , we have worker nodes. appliaction master is creatdted and named as job1 , and in anothere worker node job2 is done 
+alloacte ex request 
+lets say
+worker node is of 256gb 32 cpu cores ..
+what we need for job 1 , 3 executors , each wth 5 cpus cores and 32 gb memory 
+for job 1 ,1 executor , each wth 3 cpu and 
+
+
+ex1, ex2,ex3 for job 1 
+and for job 2 ex1 job2 is sued , 
+purpose of having cpu cores ..(for distributed computing..)
+each map task shd get execute in one cpu core
+
+each executors will have  5 tasks (5 cpucores ) , and for job 2 ex1 , only 3 
+
+parameter in spark submit command 
+1 numner of 
+
+spark reads data from hdfs(30 blocks) , spark can partion the data ..(p15)   .parallize()
+
+task-> smallest unit of execution
+each task  will process one data partition 
+one task will be executing on one cpu core 
+one executor can run multiple tasks and equal to number of cpu cores 
+which will be equla to number of partions 
+
+4) Application Master
+5)
+6) 
+7 clinets  can be any machine from where we are sending our spark job for execution 
+
+Remote server , web interface ,hue, 
+
+
+ways to execute hive application .
+hive shell , hue web ui (query ) , python script (query and rhe results)  from which we connect to hive cluster
+
+on spark master u login  
+in nuerolab choose pyspark+hadoop  one spark cluser is launched 
+
+spark-submit demo.py howmanyexecutor howmanymeort otherparams
+
+pyspark
+there we will have interactive mode 
+.... . parallize (u can speicfy  umber of partitions )  
+3:12
+
+spark2
+
+deployemnet modes in spark , exe apln in cluser 
+
+clinet mode  v/s cluster mode
+
+syntax for spark submit 
+>spark-submit \
+--master <master_url> \  # give where master is getting running 
+--deploy-mode <cluster or client> \
+--conf <key:value> \
+--driver-memeory ng \
+--executor-memory ng \
+--executor-cores n \
+--num-executors n\
+--jars <comma seperated jar file names> #connection libararlies for casnadra nosql etc 
+wordcount.py <space seperated cmd line arguments>
+
+\ treats as the continus line 
+
+
+in deploy and cluser mode , fig .. in deploy driver is on the client laptop 
+
+dis adv if u close laptop entire application is shuted 
+
+in cluster the driver  will be in one of the worker and clinet only 
+
+
+
+spark-submit code.py 
+
+what is RDD in spark 
+Rdd - resilient distributed data set 
+acts like a collection caplable to store data in different 
+
+rdd are the main logical data units in spark they are distributed collection of objects which are stored in memory or on 
+disk of different machines on cluster.
+
+features of rdd 
+
+resilience :-  able to recover form..  rdds tract data lineage information (lineage graph ) to recover from the failed state automatically.
+it is also known also fault tolernace.
+
+*) Distributed :- data resides in multiple nodes ...  Data presnet in an Rdd resides on Multiple nodes. 
+
+*) Lazy Evaluation:  when memory gets allocated for valiables during runtinme ... in rdds    data does not get loaded in an RDD even if you define it.
+
+
+*)Immutability: data stored in an RDD is in the read only mode you cannot edit the data which is present in rdd
+rdd1=read_some_data
+rdd2=add new column in rdd1
+
+*) In memeory compuatation:
+rdd stores any intermediate data that is genearted in the ram so that faster access can be provided.
+
+Actions & Transformations in spark.
+Transformations:- any function that changes the function or meaning data ...  
+
+we need to add the changes in to new rdd cannot be changed in same rdd
+
+it is a function that produces a new rdd from the existing Rdd.
+It takes RDD as an input and generate new RDD as a output.
+
+There are 2 types of tranforamtion .
+
+*) Narrow transformation : all the elements taht are  in the rdd that are req to compute the records in single partion live in single partion 
+
+read some data  ---> rdd (partion p1, p2 ,p3 )  transformation .. new partions  np1 np2  np3 
+
+map , flatmap , filter , union , smaple 
+
+a={1,2,3,4}  func =lambda x:x**2
+res=map(func , a)
+
+{1,2,3} {map func} {1,4,9}  . for what ever data  is computed it deosnt depend on other data 
+
+No data shuffleing among the partions 
+
+
+*) wide Transformation: All the elements that are required to compute the records in the single partiotion may live in many partition  
+
+Parent Rdd.   eg reduce by key 
+                  group by key 
+			join 
+               cartesian ,
+		   repartition,
+		   coalesce 
+
+Word Count  {'Hi':2 , 'Bye';3} rdd1 {p1,p2,p3} {group by } Rdd2{np1,np2}
+
+data shuffling happens in partions  in wide shuffling..
+
+Actions in spark:
+
+data will not be loaded in spark until an action happens 
+action is the way in which we send data from executors to drivers ... 
+
+action is the one way we sending data from executors to the driver 
+count()
+colect()
+take()
+top()
+reduce()
+aggregate()
+for each()
+
+Demo of Pyspark application 
+
+spark =sparkSession.getorcreate()
+emprdd=spark.readcsv("employee.csv")
+deptrdd=spark.readcsv("departmnet.csv")
+
+employee.csv emp_id,emp_name,salary,dep_id
+depart.cv dept_id,dept_namae
+
+Q) write application to get total salary in each department for India 
+filterrdd=emprdd.filter("country="India"")
+emprdd=emprdd.filter(...) # cannot happen bec assing to emprdd
+emprdd.filter() #cannot happen in the same rdd
+indiaDeptSalaryrdd=filterrdd.groupby("deptid").agg(sum(),salary)
+
+departlevelsalary=indiadeptsalryrdd.join(dept_rdd,on=[dept_id],"inner-join")
+
+
+2:8:00
+
+1 narrow and 2 wide transformation
+
+the execetion will not perform until an action ..
+top  action dispays 5-10  records .. 
+departlevelsalary.top()
+
+lazy evaluation.. 
+lineage graph 
+dag (directed acyclic graph ) [emprdd] -> filter rdd -> indiadeptslaryrdd   [dept rdd]->departmnetjoinrdd   
+
+resilinet due to dag type of exe  eg if faliure in child rdd then execution will not start from first but from the parent falied rdd
+
+Job execution in spark .
+
+
+the driver program recives the code to execute 
+
+dag schedluing is where the tasks are careted and provieded to driver 
+the driver req for worker to cluster manager , then submit the code to worker  along with the dag schedhuling information..
+ and in worker tasks gets created
+
+spark 3
+
+spark memory management : hdfs(b1,b2,b3,b4..)->job rm fo yarn _> am  in worker 
+
+in spark block= partitions 
+
+configuartion for spark job 
+1, number of spark executors 
+2, memeory for each executor 
+3,cpu cores for each executors 
+
+1 core will process 1 parttitions
+
+concurrent=parallel=multiple 
+
+Memory management in spark..
+
+inside executor 
+
+parameter 
+	--executor-memory 4GB RAM  (Java Heap Memeory)
+We have 1 node with 32 gb RAM (in mememory ) , total 8 execuors 
+
+fig
+Details about each component 
+
+Reserved memory : to run executor some process is required which is running here ... storage for running executor, 
+it will store the data of internal processing which is required to execute containeer.after spark 1.6 v it is ficed wth 300 mb 
+user memory : used to store data structures , metadata  and user defined data structures
+storage memory: it stors cache data , data of broadcast variable /rdd etc
+ 
+
+eg in filter we use the filter data ...
+, broadcast tiny data to each execuitor then ..
+
+4) Execution Memory :- Storage for the data requied for task execution..shuffle join , aggregation. 
+
+Common error : executor is out of Memeory .
+
+broadcast Variables   rdd =employeedata , rdd2=department data 
+ to get total salary we do join ..
+rdd b1,b2,b3 ...    rdd2  p1 
+ the block holds data ..of employee rdd 
+rdd2 hold simple department data   , now join shd be happnening tto all the data blocks 
+eg the storage meemory is 500mb then the broadcast memeory 1gb so out of mememory 
+
+caching means we put same data in all the execuries 
+
+rdd1=rdd2 
+rdd1.join(broadcastrrd2)
+cache(rdd1)
+
+example explanation for mememory distribution 
+if 4g of memory is givrn to the executor 
+
+executor memory =4gb (java heap)
+
+2 paramaters which controls the entire memory distribtuin in spark 
+
+sparj.memory.fraction=75% 
+spark.memeory.storagefraction=50%
+
+reserved meemory 
+for 4gb any other executor memory it will be 300mb
+it is fixed value =300mb 
+
+user memory 
+formula =javaheap -resevrd memeory   * (1-spark.memeory.fraction)
+
+cal= 4096-300 *(1-0.75)
+
+usermemeory =949 mb
+
+storage memnory 
+
+ formla= java heap- rseevrd memory * spark.memeory.fraction* saprk.mrmory.storagefraction  = 4096-300 *0.75*0.5 = 1.4gb
+
+
+design spark memory 
+
+4.execution mememory 
+formual =java heap- reserved memeory *spark.memory.fraction *(1-spark.mememory.storagefraction)= 4096-300*0.75*0.5 = 1423 mb
+
+after calculation 
+reserved memeory= 300 mb .. 7.23 percentage
+user memory =949mb .. 23.16
+spark memory storage and executon = 2843  69%
+
+
+Rules for execution and storage memory
+
+fig :-
+
+Storage memory can borrow space from execution memory only if the memory blocks are not used in execution  memory 
+exection memory cna also borrow space from storage memory if blocks are not used in storage memoery 
+
+if blocks from exefcution memory is used by storage memory and execution needs more memory it can forcefullt evict the  excesss blocks occupied by 
+storage memory 
+
+if blocks from storage memory is used by exceution memory and storage needs more memory it cannot  forcefully evict the  excesss blocks occupied by 
+execution memory ,it will end up having less memory  it will wait until spark releases the excess blocks stored by execution memory and then occupies them .
+
+spark memory fraction
+paramters to instruct application master  like how much u want in memory ..
+
+% of memory for exection and storage 
+
+Resource allocation for Spark aapplication 
+
+values for below mentioned parameters 
+
+num_executors 
+executor memory 
+executor core 
+
+how many cpu cores for each executors?
+Recommend is 5cpu core for each executor ....
+if u give like 1 cpu in 1 executor then we might have 
+
+1 gb and 1 core of each node will be required for operating sysytem 
+left resources for each node after ablove sstatemet 
+
+15 cores and 63 gb memeory 
+
+how many executors ... 1 executtor will have 5 cores .
+15 cores = 15/5 executors 
+1 node = 3 executors 
+
+total nodes = 6 
+ so total executors on cluster = 3*6 =18
+
+1 exer  will be created by yran as application master 
+so final execuotrs we hsd mention in 
+num_executor=18-1 = 17e xecuors
+
+*memory for ach executor .. 1 node = 3 execuotr 
+1 node  63 ram 
+1 execuir =63/3 = 21 gb .. some buffer memeory  over  head memory shd be allocated spark.memory.overheard = 10 per of execuotor memory 
+
+executor_memory = 21 gb 
+overhead =2.1gb 
+= 23.1 * 3 = 69.3gb 
+
+so manage 
+
+executor_memory = 19 gb 
+overhead =1.9gb 
+= 20.9 * 3 = 62.7gb 
+
+
+actual formula for overhead memory 
+=max(384 mb , 0.07 * excutor memeory )
+
+As per calculation 1 executor =21gb ram 
+
+overhead memory fofr each executor 
+max(384,0.07 *21 gb )
+max(384,1.47gb)
+1.47gb
+
+we need to substract overhead memory 
+final executor memory = 21 gb - 1.47 gb 
+memory for each exector= 19 gb
+
+
+final res for 6 nodes with 16 core each  64 gb ram 
+5cpu cores per executor
+17 executor
+19 gb ram for each
+
+questions to do 
+
+
+
+
+Spark 4
+ 
+1st 
+
+spark master to keep track of all the appln  spark ui 
+demo.py has  spark applictaion .. 
+spark submit is used to execiute the appln 
+
+what ever in executor is worker node 
+
+history server 
+
+in spark application developer , we need to focus on dev test 
+
+go to terminal 
+
+writing spark appliactaion in python is pyspark 
+
+inisitate pyspartk sheel 
+rdd is basic abstraction (handle or hold all thetype spf date structured data , unstructured etc )
+99% structed data we work on and data frame to work on it 
+
+data frame is a (also like an rdd) rapper on rdd to handle structured data 
+resilent a... follow alll properties of rdd
+
+>pyspark
+>>> spark appln help to connect to cluster... if we start :
+
+the master url is metioned i session , and the app name 
+sparksession.builder.master("local[*]").appName("demo").get0rCreate()
+
+[2] only 2 cores
+* means core .. all cores are being used or all the partion and parallel execution gets executed
+
+terminal is :standalone env is created for that machine
+
+data frame is a row columnar type of data 
+to create schema  
+pyspark.sql.types import structtype,structfield,stringtype,integer type 
+
+
+53:0
+
+data will be in the foem of list of tuples
+apply schema on the data 
+
+like schema=structtype(structfield("firstname",Stringtype().True)...)
+
+df= spark.createdataframe(data=person_list,schema=schema)
+df.show()
+
+df is an rdd  , any transforation applied shd be in different one 
+df.printschema()
+
+import the data into workspace 
+move data to hdfs path 
+new terminal then 
+hadoop fs -ls /
+create a folder hadoof fs -mkdir /inputdata
+hadoop fs -put  filename /inputdata
+
+spark.read.csv properties 
+>>> df1 = spark.read.option("header",True).csv("/input/depart.csv")
+spark and hdfs are in same place so it can easily read hdfs data 
+
+if not  df1 = spark.read.option("header",True).csv("hdfs:...//namenode:8888/input/depart.csv")
+
+df1.printSchema() # here everything will be string so 
+
+
+
+df1 = spark.read.option("header",True).option("inferschema",True).csv("/input/depart.csv")
+
+here in the data there is a dirty data  like - is present so couldnt convert data to int 
+
+by dirty data we need to handl eit either do parsing ... 
+
+
+empdf= spark.read.option("header",True).option("inferschema",True).csv("/input/employee.csv")
+
+emp.prntschema()
+data shd be read in proper manner ,..like hire date is string here  so we need  it data format 
+
+emp.show()
+emp.select(*).show()
+empdf.select("employeeid","first_name").show()
+empdf.select(empf.employeeid,empdf.firstnaem).show()
+empdf.select(empf["employeeid"],empdf[firstnaem]).show()  // lik for list of values 
+
+
+>> from pyspark.sql.functions import col
+>>emp.select(col("Employee_id").alas("emp_id"),col("first_name').alias(F-name)).show()
+
+alis is appalicate on column object 
+
+empDf.select("employee_id","firstname").withcolumn("new salary",col(salary)).show()  # will not work as no salary column
+
+
+empDf.select("employee_id","firstname,"salary"").withcolumn("new salary",col(salary)+1000).show()  # will not work as no salary column
+
+empDf.select("employee_id","firstname,"salary"").withcolumn("new salary",col(salary)+1000).show()  # will not work as no salary column
+
+
+empdf.withcolumn("New_salary",col(salary)+100).select("employee_id","first_name","New_salary").show()
+
+here o/p pof first actsv as input 
+
+
+empdf.withcolumn("salary",col(salary)-100).select("employee_id","first_name","salary").show() # update existing column
+
+renaming 
+
+empdf.withcolumnRenamed("salary","emp_salar").show() # rename existing column
+
+empdf.drop("commision_pct").show()
+
+apply kind of where clausees
+
+if you want the changes to be stored then stor in differnt rdd lik otheer epmdf data frAME 
+
+empDf.filter(col("salary")<5000).selct("name ..").show(100)
+
+# working in department 50 
+empDf.filter((col("departtment-id")==50)& (col("salary")<5000)).selct("name ..").show(100)
+
+sql way of writing of mysql
+
+filter(departtment-id"==50 and salary <5000).selct...
+
+
+only discinct rows 
+
+empDf.distinct().show(100)
+
+empDf.dropDuplicates().show(100)
+
+empDf.dropDuplicates([departm_id,hiredtae]).show(100)
+
+empDf.dropDuplicates([departm_id,hiredtae]).selct(empid,departmrnt,hiredate).show(100)
+
+
+
+
+Spark 5
+
+
+hadoop fs -mkdir /inputdat
+hadoop fs -put department.csv /inputdat
+hadoop fs -put employee.csv /inputdat
+
+
+
+
+empdf=spark.read.option("header",True).option("inferschema",True).csv("/input/employee.csv")
+
+we need aggregation pakcge
+>>from pyspark.sql.functions import *
+
+in select we write aggregtaion functions
+empdf.select(count("salary")).show()
+
+empdf.select(count("salary").alias("total_count")).show()
+
+empdf.select(col("salary").alias) # becomes object wth col("salary")
+
+empdf.select(max("salary").alias("max_count")).show()
+min , avg ,sd ,min , variencec ,sum ..
+
+empdf.select("employeeid",max("salary").alias("max_count")).show()#doesnt happen as its aggregation..sect has 2 valueas
+
+
+
+#order by clause...
+
+empdfd.select("emp_id","firstname","salary").orderby("salary").show()# here salary shd also be in select 
+
+
+empdfd.select("emp_id","firstname","salary",departm).orderby(col("departmentid").asc(),col("salary").desc()).show(100)
+
+
+empdfd.groupby(department_id).sum("salary").show(100)
+
+
+empdfd.groupby(department_id,jobid).sum("salary").show(100)
+
+
+empdfd.groupby(department_id,jobid).sum("salary",employeeid).show(100),
+
+empdfd.groupby(department_id).agg(sum("salary").alias(sum),max(sal).alias(maxsal),min....avg).show(100)
+
+why no select in group by ..
+when u use group by , we can use other coluns and apply group by on it .. aggreation is standalone or shd be used wth groupby ..
+
+
+having alias on group by ..
+
+empdfd.groupby(department_id).agg(sum("salary").alias(sum),max(sal).alias(maxsal),min....avg).where(col("maxsalry")>10000)show(100)
+
+when otherwise is similar to  , case when elase
+df=empdf.withcolumn("empgrade",when(col("salary")>15000,"A") .when(col(salay)>=1000) & col("salary")<15000,"B").otherwise("C"))
+
+df.select("employeeid",salary,emp-grade).show()
+
+
+convery like sql 
+
+empDf.createOrreplaceTempView("employee")
+spark.sql("select * from employee limit 5")
+df = spark.sql("select emply_id , salaryfrom employee limit by 5")
+df=spark.sql("select department_id , sum(salary)") as sum sula from emp grpoup by part_id).show()
+
+
+spark.sql("selct emp_id, depart_id, rank() over(partition by dept_id order by salary desc )as rank_slary from employee ").show()
+
+
+in industry we use hybrid model ... like using sql 
+
+
+joins in saprk ..
+
+empdf.join(departdf,empdf.department_id==dept.departmentid & dept.depamantloactaion =1700, "inner")
+.select("emp_id",dept.depart_id,dept_name).show()
+
+
+
+
+#select from employe em inner join depeatment dt on ...
+
+empdf.join(departdf,empdf.department_id==dept.departmentid,"left").show()
+.select("emp_id",dept.depart_id,dept_name).show()
+
+right
+fullouter
+#how self join happens ...
+
+deptDf.filter(deptDf.ManagerId != "-").show()
+
+now to print teh name of the managers use selfd join so ..
+
+empDf.alais("emp1").join(empDf.alias("emp2"),col("emp1.maager_id")==col(emp2.employee_id),inner).select(col("emp1.employeeid"),col("emp2.fristname")).show()
+
+
+different tables 
+
+empDf.join(deptDf,(empdf.department_id")==(deptdf.department_id),inner).select(col("emp1.employeeid"),col("emp2.fristname")).show()
+
+
+>>> from pyspark.sql.types import structtype,structfield,stringtype,integertype
+loacationdata=[(1700,india),(1800,usa)]
+schema=structype([structfield("locatinid",integertypr(),true),structfield("LOcation_name",stringtypr())..])
+
+
+
+double inner join
+
+empDf.join(deptDf,(empdf.department_id")==(deptdf.department_id),inner).jin(locdf,deptdf.location_id == locdf.loactaionid,inner).select(col("emp1.employeeid"),col("emp2.fristname"...)).show()
+
+
+df.select(max("salary"));
+
+fact .... factorial program...
+
+df.select(fact("salary"));
+
+
+>>> def uppercase(in_str):
+outstr=in_str.upper()
+return out_str
+
+
+print(uppercase("hello"))
+>>>#register function as an udf 
+>>>upperCaseUDF =udf(lambda z : upperCase(z), StringType())
+empDf.select(col("employeeid"),col(firstname),col("lastname"),upperCaseUDF(col("firstname")),uppercaseudf(col(lastname))
+in demo.py file 
+@udf(returntype=StrinngType())
+>>> def upperCase(instr):
+ out_str = in_str.upper()
+ return out_str
+ 
+ @udf(returnType=tsring())
+ def upperCasenew(instr):
+ out_str=in_str.upper()
+ return out_str
+ 
+ 
+>>>upperCaseUDF =udf(lambda z : upperCase(z), StringType())
+empDf.select(col("employeeid"),col(firstname),col("lastname"),upperCaseUDFnew(col("firstname")),uppercaseudfnew(col(lastname))
+
+
+window functions are presnt ...
+
+
+from pyspark.sql.windows import Window
+demo.py
+windowSpec = Window.partitionBy("Departmrnt_id").orderBy("Salary")
+
+rank() over(partition by Departmrnt_id rorder by salary)
+>> from pyspark.sql.windows import Window
+
+>>windowSpec = Window.partitionBy("Departmrnt_id").orderBy("Salary")
+>> empdf.withcolumn("salaryrank",rank().over(windowSpec)).select("Department_id","salary",aalary rank).show(100)
+
+>>windowSpec = Window.partitionBy("Departmrnt_id").orderBy(caol("Salary").desc())
+>>> empdf.withcolumn("sum",sum(salary).over(windowSpec)).select("Department_id","salary",sum).show(100)
+#running sum , 
+
+
+>>windowSpec = Window.partitionBy("Departmrnt_id")
+>>> empdf.withcolumn("sum",sum(salary).over(windowSpec)).select("Department_id","salary",sum).show(100)
+
+now total sum .. here the order is not considerd hence 
+
+
+2:58 qna
+
+Spark 6 
+
+spark core , sql , streaming..
+
+setup env of spark..
+where we find the scope of join  optimaztion 
+group by , join . lot of shuffling we need to optimize them ..
+how to optimize joins ..
+
+Broadcast Join 
+
+2 data frames ... employee (large in size), dpetdf (small in size
+) in hive we had map side join 
+
+mapper tasks get created to the number of blocks .. (in shuffle the common keys goes to one partion 
+) to optimize it .(if the data is 7low ) we send the complete data to all data dones 
+in spark we have  broadcast join 
+
+consider we have 2 tables employee and dept ...
+and partitions p1,p2 ,  for both empdf and depdf
+
+for join reshufle shd happen   , after appliying reshuffleing broad cast the samll data frame will 
+be cached in each executor
+
+syntax 
+empDf.join(broadcast(deptDf),....)
+we can configure teh size for broadcasted dataframe
+
+>>from pyspark.sql.functions import * # we have broadcast here 
+
+>>spark.conf.set("spark.sql.autobroadcastjointhreshold",104857600)
+>>#to disable broadcast
+>>spark.conf.set("spark.sql.autobroadcastjointhreshold",-1)
+
+>>> empdf.join(broadcast(deptdf),empdf.department_id==dept.department_id,inner).select(empdf.employeeid,empdf,deptid,deptname),show())
+
+senario of failure 
+out of memory senario , .collect is colellection action to collet data , empdf.collect() #
+#
+resuktDf=empdf.join(broadcast(deptdf),empdf.department_id==dept.department_id,inner).select(empdf.employeeid,empdf,deptid,deptname),show())
+resuktDf.write.option("header",true),csv("/output/result")
+
+now check in haddop the partioned data ..after broadcasted
+resuktDf.write.option("header",true).option("delimter","|").csv("/output/result")
+save mode overwrite append
+
+resultDf.write.option("header",true).option("mode","overwrite").csv("/output/result")
+
+# not working due to csv format due 
+
+>>resultDf.write.mode("overwrite").save("/output/result")
+>>resultDf.write.mode("overwrite").format("json").save("/output/result") 
+>>resultDf.write.mode("overwrite").option("header,true).save("/output/result") 
+>>resultDf.write.mode("overwrite").format("csv).save("/output/result") 
+
+>>resultDf.write.mode("append").format("csv).save("/output/result")
+indivijual task is gona push the data 
+ here append doest happen on the same file but on new file the data is appeneded
+ 
+ suppose we want data to be stored in hive parttion like file .. 
+ we process our data  and transform data is stored in hdfs 
+ 
+>>resultDf.write.mode("overwrite").partitionby("departmentname").format("csv).save("/output/result")  
+partioning is used to avoid full table scan ..
+
+
+Diffenece between repartition()v/s coalesce()
+
+after reading the data into spaark and  if u want to do some partionin on it explicitly 
+then say 5 partion neede but only 1 is done at start, now u try to use 5 in thta only 1 is used and others are emoty its called 
+resource over utilization
+
+1tb of data when  u read in spark doesnt mean 1 tb data is in in memory 
+process will be happening in  process...they doesnt be in in memory 
+
+1 blocks 1 partions , tasks,  and then parallelism 
+
+>spark.read.csv("employee-file-path")     it creates 1 partition
+empdf.parallize(5) =>  5 partitions  ..
+
+resource over utilization  : how to minitir it 
+as u submit the job , in spark entries will be create , for each job and how much data the taask is using 
+(over and under utilization)
+
+repartition it can increase & decrease the value of partion
+colaesc we can only decrease the number of partion   (no full shuffleing)
+
+repartion , scrap whole 7 partions  , create 7 new partion and re assign the data 
+(hence full shuffle in repartion)
+why repartioning can be helpful , because it does even data distribtuin
+(now every task have data to process and the tast is faster )
+
+dis adv  full shuffle 
+
+coalesce , only decrease the partion , 
+use existing partion and it might do the uneven data distributuin 
+like the least among the data is selected  and its data is distribtued among all other 
+  
+>>resultDf.rdd.getnumpartitions()
+>>newdf=resultDf.rdd.repartion(10)
+newdf.rdd.getnumpartitions
+df1=newdf.repartion(2)
+df2=newdf.coalsec(20) 10
+df3=newdf.coalesce(5)  5 
+
+resuktDf.coalesce(1).write.mode("overwrite").option("heavder",true).format(csv).save("/o/r/final.csv")
+copy the file to local and then u can remane 
+
+now importing the jason file 
+
+jsondf=spark.read.json("/inp/jasonfile")
+jsondf.show
+jsondf.printschema
+jsondf.select(jsondf.text1,jsondf.array1[2]).show()
+
+jsondf.select(jsondf.text1,explode(jsondf.array1)).show()
+each value wil, be in rows .. 
+he 1
+he 2 
+he 3
+ap  1...
+
+
+demo.py
+
+
+difference between job ,stage, task 
+rdd_0 =spark.parallelize(["hi , i am new "])
+rdd_1 =rdd_0.flatmap(lambda x:x.spplit())
+rdd2=rdd1.map(lambda x:(x,1))
+rdd3=rdd2.reducebykey(lambda a,b : a+b)
+rdd3.collect()
+
+faltmap and map narrow transformstion .. , reduceby key wide transformation
+
+Number of jobs = number of actions called in application.
+
+stages the number of shiffle operations 
+tasks number of partitions to be processsed 
+
+

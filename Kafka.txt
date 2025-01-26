@@ -1,0 +1,196 @@
+Apache kafka 
+
+Types of data pipelines 
+batch data pipelines
+near real time pipeline
+real time data pipeline ->event driven
+
+Where data needs to be computed in the batches or some kind of historical data 
+
+frequency 
+1)daily
+2)Weekly 
+3)monthly 
+wait for a threshold kind of value ..
+ex:nited airlines .. send data and revied in smpt(secure file transpot protocal) servers .. 
+
+when we process data in micro batches then its kind of nrt 
+
+rael time data pipeline 
+completely event driven 
+happens in fraction of seconds
+ex- databases cdc events (change data capture)
+live leader board 
+twitter streeming data .
+bank trnascatioons
+fraud detection .. data capuring pipelines ,
+cricket scoreboard.
+
+in order to buid real time data pipelines we need messaging  quee 
+kind off frame works so that data can be hoded for some time 
+
+Apache kafka (Messaging queue) 
+Holds data for real time process 
+ messaging queue kind of system 
+ invented in liknked 
+ 
+food delivery app when the customer is chefcking 
+
+food app (source)  |queuing mechanism|   process(consumer)...restuarnt 
+(data is genearted at real time very fast )  
+(these data are capured in quueue ) prossed and sent to datawarehouse for fastrer read and write  cassandra
+cassandra  is a nosql database where you want to store 
+BATCH SPARK JOB that pushes transformed data into dwh 
+
+flink frameowrk or processing engine  is the capability to consume data not juts only kafaka , from the datain batches 
+from databses and distributed systems 
+
+Kafka components {
+Producer => application which publisehes data in kafka 
+consumer => application which consumes from kafka 
+cluster kafa isa distrubed system (commodity hardware and cluster )
+brcker , topic , partiotions , replicas , offset .cpmcommits ,consumer group , 
+parallelism inkafka , backpressure 
+
+kafka architecture
+
+it is basically master slave architecture 
+broker nodes in kafka cluster where actual data gets stored 
+
+topics :- small segments or a space given within  kafka to store the data 
+(topis are like small spaces inside broker ) 
+leader:- 
+
+
+partitions. diving data in topics in multiple parts 
+
+each topic will be divided in multiple partitions 
+fig :Topic (order_data).. topics are didvide into partions , 
+
+PUBSUB Model  . p1,p2,p3 
+in partition messages will maintian their arrival sequnce based on time stamp 
+
+on topic level sequencing is not there 
+
+to mainatoin it let store in 1 partion only ..disavg no parrlele ism 
+data retention ..means what ever data in kafka topic will be erased so space is maintained 
+
+Replica ..Multiple copies of topics partitinosn
+
+Replica factor is 3 ..
+each brokeer will have 3 partions to hold replica data data
+
+key value message in kafaka 
+
+does data skewness problems exists in kafka.
+on parttition level we may observe data skewness (like adta gpoing into same place ...))
+if the key is not so distinct the hash value will go to partiotion hence so .. refer figiure 
+
+Offset: unique id number for a message within a partition 
+fig.. if you look into partition we have  an offset set for the every message recived , like for suppose if store data in array , 
+it will have the position right that 
+log conatain like m1 data pulblsihed to offset 1 
+ 
+ commits in kafka 
+ mechanism in kafka to maintain or track of meassages consumed from kafka topic 
+
+ ex: we have topic named as order_data , here internally kafka will maintain 
+ some information under <some>_order_data
+and it will start storing the upadted offset from which data was consumed and 
+consumer application made a sucessful commit 
+
+After first read commit will happen 
+and offset 0 will be maintined in meta data , kafaka is not push but poll
+now in second read data will be consumed from offset 1 
+
+if commit got failed due to faulure .. , again cluster restrt and , then consume 
+,shd handle dupplicaate data like if the messgaes are read already ..by using key s or metadata
+
+synchrous commit and asuncronous methods 
+Sync commit (Blocking call)
+Async commit (Resonse may come later)
+
+ex: sync commit  step a,step b 
+
+where we are concered about data consistency then we should use sync_commit 
+imapct will be on latemcy high latncy 
+
+async_commit 
+fire and forget 
+adv is low latency , dis adv is data inconsistency 
+
+Paralleism and consumer groups 
+
+multithread (many producers are producing data and we have ) and single consumer in round robin fasjion
+The production speed is higher than consumption .
+in this case back presssure (please slow down from consumer ) will hit the producer 
+to solve  this we should scale our application .
+
+consumer has to subscibe the kafaka topic from which data has to be read
+
+parallelism
+p1,p2 are parallelsim or partitions. 
+
+from one partition only one consumer of same group will bw able to read data
+
+all three consumers should have same consumer group id 
+
+c1-> consumer(topic , group_id=ckf_1)
+c2-> consumer(topic , group_id=ckf_2)
+
+each consumer reads data from differnt partitions 
+
+if like if you have 4 partions and 2 conusmners , c1 will point to p1 and p2 , c2 be p3,p4
+
+fig if teh g-id is same  brocker will allow only 1 of them to read the data and other will be idle .
+ 
+ to reslove  put consumer of payemnt to diffeenrt group 
+ to achive good parallelism we should increase the number of partitions 
+ 
+https://www.oreilly.com/library/view/kafka-the-definitive/9781491936153/ch04.html#:~:text=Kafka%20consumers%20are%20typically%20part,the%20partitions%20in%20the%20topic.
+
+Kafka 2
+
+confluent.io
+craete ur account frrely 
+
+go for gcp asia sinzle zone 
+give xyz on card 
+cluster as kafka demo  launch cluster 
+
+go to deafult statsu will be running
+schema registering .. if it folws stured way for data consisstency 
+data serialization and deseralization shd happen using the schema 
+Metastore  whatever schema changes happen  you maintain the version of that 
+,first pull the schema , and notify the producer about the schgema 
+
+click on kafka demo t..
+
+Api keys create key 
+kafka_brocler_key
+download
+
+topic car_topic 3 partitions
+
+we have a retenction time .. size 
+save
+deafult set schema registery for that 
+enable stram governance 
+aws sydney enable 
+to access schema registery we need key ..so +addkey 
+schema registery key 
+
+
+cd 
+pip3 install 
+
+chnages are in data we recive iwll be idffent the schema version are to there . 
+first we pull schema , then notify it and pulish t6he topic .
+
+like the validation for schema is done for each and every record 
+
+if you run 3 consumer script like for 3 consumers data will be slpit ans stored on them 
+
+
+
+

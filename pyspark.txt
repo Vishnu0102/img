@@ -1,0 +1,9 @@
+col('review'.cast(IntegerType())
+Installs,regexp_replace(col("installs"),"[^0-9]","")
+regexp_replace(col("proice"),"[$]","")
+maxrecordsperfilre option 
+
+
+
+
+

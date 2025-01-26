@@ -1,0 +1,146 @@
+-- Active: 1693282744575@@127.0.0.1@3306
+CREATE DATABASE check1;
+use check1;
+
+create table employee 
+(
+emp_name varchar(10),
+dep_id int,
+salary int
+);
+delete from employee;
+insert into employee values 
+('Siva',1,30000),('Ravi',2,40000),('Prasad',1,50000),('Sai',2,20000)
+
+with cte as (select dep_id,max(salary) as maxi,min(salary) as mini from employee group by dep_id)
+select cte.dep_id,max(case when maxi=salary then emp_name else null  end) as maximumsal,
+max(case when mini=salary then emp_name else null end)  as minimumsal from cte join employee as e on cte.dep_id=e.dep_id
+group by cte.dep_id
+
+select *,rank() over(order by no_of_times desc)
+from(SELECT s.artist_id,count(1) as no_of_times FROM songs as s
+join global_song_rank as g on s.song_id=g.song_id
+group by s.artist_id )a
+limit 5
+
+---------
+create table t3(a int);
+INSERT into t2 values(2)
+
+select * from t1 left join t3 on t1.a=t3.a
+
+create table purch(
+	cust_id int,
+	product character ,
+	revenue int
+	);
+
+insert into purch values(112,'c', 30);
+
+select cust_id,sum(revenue) from purch where product not in ('a') and cust_id in(select cust_id from purch where product in ('a') ) group by cust_id 
+
+
+insert into purchases values(827, 3585, 35, '2022/2/20 14:05:26');
+insert into purchases values(536, 3223, 5, '2022/02/03 09:33:28');
+insert into purchases values(536, 1435, 10, '2022/02/03 08:40:00');
+insert into purchases values(827, 2452, 45, '2022/09/04 00:00:00');
+
+select user_id from purchases group by user_id,product_id
+having(count(DISTINCT purchase_date)>=2) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- Active: 1693403703515@@127.0.0.1@3306
+CREATE DATABASE sub;
+create table customer_orders (
+order_id integer,
+customer_id integer,
+order_date date,
+order_amount integer
+);
+select * from customer_orders
+
+insert into customer_orders values(1,100,cast('2022-01-01' as date),2000),(2,200,cast('2022-01-01' as date),2500),(3,300,cast('2022-01-01' as date),2100)
+,(4,100,cast('2022-01-02' as date),2000),(5,400,cast('2022-01-02' as date),2200),(6,500,cast('2022-01-02' as date),2700)
+,(7,100,cast('2022-01-03' as date),3000),(8,400,cast('2022-01-03' as date),1000),(9,600,cast('2022-01-03' as date),3000)
+;
+
+
+with cte as (
+SELECT customer_id,min(order_date) as firstday from customer_orders group by customer_id)
+select co.order_date,sum((case when order_date=firstday then 1 else 0 end))as first1,
+ sum((case when order_date!=firstday then 1 else 0 end))as repeat1
+ from customer_orders co join cte cd on co.customer_id=cd.customer_id group by co.order_date
+
+
+#----------
+create table entries ( 
+name varchar(20),
+address varchar(20),
+email varchar(20),
+floor int,
+resources varchar(10));
+
+insert into entries 
+values ('A','Bangalore','A@gmail.com',1,'CPU'),('A','Bangalore','A1@gmail.com',1,'CPU'),('A','Bangalore','A2@gmail.com',2,'DESKTOP')
+,('B','Bangalore','B@gmail.com',2,'DESKTOP'),('B','Bangalore','B1@gmail.com',2,'DESKTOP'),('B','Bangalore','B2@gmail.com',1,'MONITOR')
+
+
+select * from entries
+
+select  name, GROUP_CONCAT(distinct resources) from entries
+group by name
+
+select name , floor ,count(1) as nooffloor,
+rank() over(partition by name order by count(1) ) from entries  group by name,floor
+
+
+
+
+
+select * from entries
+
+
+-------------------
+
+set @todaydate='2023-08-2'
+set @n=DAYOFWEEK(@todaydate)-1
+set @t=7
+select date_add(@todaydate,interval @t -@n day)
+
+
+
+
+
+with cte as (select first_player, first_score from matches
+union all 
+select second_player,second_score from matches  )
+SELECT p.group_id,cte.first_player,sum(cte.first_score) as total from cte
+ inner join players p on cte.first_player=p.player_id
+ group by cte.first_player,p.player_id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

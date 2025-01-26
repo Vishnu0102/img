@@ -1,0 +1,214 @@
+empDf = spark.read.option("header",True).option("inferSchema",True).csv("/input_data/employees.csv")
+empDf.printSchema()
+empDf.show()
+empDf.select("*").show()
+empDf.select("EMPLOYEE_ID","FIRST_NAME").show()
+empDf.select(empDf.EMPLOYEE_ID,empDf.FIRST_NAME).show()
+empDf.select(empDf["EMPLOYEE_ID"],empDf["FIRST_NAME"]).show()
+from pyspark.sql.functions import col
+empDf.select(col("EMPLOYEE_ID"),col("FIRST_NAME")).show()
+empDf.select(col("EMPLOYEE_ID").alias("EMP_ID"),col("FIRST_NAME").alias("F_NAME")).show()
+empDf.select("EMPLOYEE_ID","FIRST_NAME","SALARY").withColumn("NEW_SALARY",col("SALARY") + 1000).show()
+empDf.withColumn("NEW_SALARY",col("SALARY") + 1000).select("EMPLOYEE_ID","FIRST_NAME","NEW_SALARY").show()
+empDf.withColumn("SALARY",col("SALARY") - 1000).select("EMPLOYEE_ID","FIRST_NAME","SALARY").show()
+empDf.withColumnRenamed("SALARY","EMP_SALARY").show()
+empDf.drop("COMMISSION_PCT").show()
+empDf.filter(col("SALARY") < 5000).show()
+empDf.filter(col("SALARY") < 5000).show(100)
+empDf.filter(col("SALARY") < 5000).select("EMPLOYEE_ID","FIRST_NAME","SALARY").show(100)
+empDf.filter((col("DEPARTMENT_ID") == 50) & (col("SALARY") < 5000)).select("EMPLOYEE_ID","FIRST_NAME","SALARY","DEPARTMENT_ID").show(100)
+empDf.filter("DEPARTMENT_ID <> 50").select("EMPLOYEE_ID","FIRST_NAME","SALARY","DEPARTMENT_ID").show(100)
+empDf.filter("DEPARTMENT_ID != 50").select("EMPLOYEE_ID","FIRST_NAME","SALARY","DEPARTMENT_ID").show(100)
+empDf.filter("DEPARTMENT_ID == 50 and SALARY < 5000").select("EMPLOYEE_ID","FIRST_NAME","SALARY","DEPARTMENT_ID").show(100)
+empDf.distinct().show()
+empDf.distinct().show(100)
+empDf.dropDuplicates().show(100)
+empDf.dropDuplicates(["DEPARTMENT_ID", "HIRE_DATE"]).show(100)
+empDf.dropDuplicates(["DEPARTMENT_ID", "HIRE_DATE"]).select("EMPLOYEE_ID","HIRE_DATE","DEPARTMENT_ID").show(100)
+from pyspark.sql.functions import *
+empDf.count()
+empDf.select(count("salary")).show()
+empDf.select(count("salary").alias("total_count")).show()
+empDf.select(max("salary").alias("max_salary")).show()
+empDf.select(min("salary").alias("min_salary")).show()
+empDf.select(avg("salary").alias("avg_salary")).show()
+empDf.select(sum("salary").alias("sum_salary")).show()
+empDf.select("EMPLOYEE_ID", sum("salary").alias("sum_salary")).show()
+empDf.select("EMPLOYEE_ID","FIRST_NAME","DEPARTMENT_ID","SALARY").orderBy("salary").show()
+empDf.select("EMPLOYEE_ID","FIRST_NAME","DEPARTMENT_ID","SALARY").orderBy(col("DEPARTMENT_ID").asc(),col("SALARY").desc()).show(100)
+empDf.groupBy("DEPARTMENT_ID").sum("SALARY").show(100)
+empDf.groupBy("DEPARTMENT_ID").max("SALARY").show(100)
+empDf.groupBy("DEPARTMENT_ID").min("SALARY").show(100)
+empDf.groupBy("DEPARTMENT_ID","JOB_ID").sum("SALARY").show(100)
+empDf.printSchema()
+empDf.groupBy("DEPARTMENT_ID","JOB_ID").sum("SALARY", "EMPLOYEE_ID").show(100)
+empDf.groupBy("DEPARTMENT_ID").agg(sum("SALARY").alias("SUM_SALARY") , max("SALARY").alias("MAX_SALARY"), min("SALARY").alias("MIN_SALARY") , avg("SALARY").alias("AVG_SALARY")).show()
+empDf.groupBy("DEPARTMENT_ID").agg(sum("SALARY").alias("SUM_SALARY") , max("SALARY").alias("MAX_SALARY"), min("SALARY").alias("MIN_SALARY") , avg("SALARY").alias("AVG_SALARY")).where(col("MAX_SALARY") >= 10000).show()
+empDf.groupBy("DEPARTMENT_ID").agg(sum("SALARY").alias("SUM_SALARY") , max("SALARY").alias("MAX_SALARY"), min("SALARY").alias("MIN_SALARY") , avg("SALARY").alias("AVG_SALARY")).where(col("MAX_SALARY") >= 10000).show()
+df = empDf.withColumn("EMP_GRADE", when( col("SALARY") > 15000 , "A").when( (col("SALARY") >= 10000) & ( col("SALARY") < 15000), "B").otherwise("C"))
+df.select("EMPLOYEE_ID", "SALARY", "EMP_GRADE").show(100)
+empDf.createOrReplaceTempView("employee")
+spark.sql(" select * from employee limit 5").show()
+df = spark.sql(" select employee_id,salary from employee")
+df.show(100)
+spark.sql("select department_id, sum(salary) as sum_salary from employee group by department_id").show()
+spark.sql("select employee_id, department_id, rank() over(partition by department_id order by salary desc) as rank_salary from employee").show()
+empDf.join(deptDf, empDf.DEPARTMENT_ID == deptDf.DEPARTMENT_ID, "inner").show()
+empDf.join(deptDf, empDf.DEPARTMENT_ID == deptDf.DEPARTMENT_ID, "inner").select("EMPLOYEE_ID", "DEPARTMENT_ID", "DEPARTMENT_NAME").show()
+empDf.join(deptDf, empDf.DEPARTMENT_ID == deptDf.DEPARTMENT_ID, "inner").select(empDf.EMPLOYEE_ID, empDf.DEPARTMENT_ID, deptDf.DEPARTMENT_NAME).show()
+empDf.join(deptDf, empDf.DEPARTMENT_ID == deptDf.DEPARTMENT_ID, "left").select(empDf.EMPLOYEE_ID, empDf.DEPARTMENT_ID, deptDf.DEPARTMENT_NAME).show(100)
+empDf.join(deptDf, empDf.DEPARTMENT_ID == deptDf.DEPARTMENT_ID, "right").select(empDf.EMPLOYEE_ID, empDf.DEPARTMENT_ID, deptDf.DEPARTMENT_NAME).show(100)
+empDf.join(deptDf, empDf.DEPARTMENT_ID == deptDf.DEPARTMENT_ID, "fullouter").select(empDf.EMPLOYEE_ID, empDf.DEPARTMENT_ID, deptDf.DEPARTMENT_NAME).show(100)
+deptDf.show()
+empDf.show()
+deptDf.filter(deptDf.MANAGER_ID != "-").show()
+empDf.alias("emp1").join(empDf.alias("emp2") , col("emp1.manager_id") == col("emp2.employee_id"), "inner").select(col("emp1.manager_id"), col("emp2.first_name"), col("emp2.last_name")).show(100)
+empDf.alias("emp1").join(empDf.alias("emp2") , col("emp1.manager_id") == col("emp2.employee_id"), "inner").select(col("emp1.employee_id"), col("emp2.first_name"), col("emp2.last_name")).show(100)
+empDf.alias("emp1").select(col("emp1.manager_id").distinct()).join(empDf.alias("emp2") , col("emp1.manager_id") == col("emp2.employee_id"), "inner").select(col("emp1.employee_id"), col("emp2.first_name"), col("emp2.last_name")).show(100)
+empDf.alias("emp1").join(empDf.alias("emp2") , col("emp1.manager_id") == col("emp2.employee_id"), "inner").select(col("emp1.manager_id"), col("emp2.first_name"), col("emp2.last_name")).show(100)
+empDf.alias("emp1").join(empDf.alias("emp2") , col("emp1.manager_id") == col("emp2.employee_id"), "inner").select(col("emp1.manager_id"), col("emp2.first_name"), col("emp2.last_name")).dropDuplicates().show(100)
+empDf.join(deptDf, (empDf.DEPARTMENT_ID == deptDf.DEPARTMENT_ID) & (deptDf.LOCATION_ID == 1700), "inner").select(empDf.EMPLOYEE_ID, empDf.DEPARTMENT_ID, deptDf.DEPARTMENT_NAME).show()
+from pyspark.sql.types import StructType,StructField, StringType, IntegerType
+location_data = [(1700, "INDIA"), (1800, "USA")]
+schema = StructType([ StructField("LOCATION_ID",IntegerType(),True), StructField("LOCATION_NAME",StringType(),True) ])
+locDf = spark.createDataFrame(data=location_data,schema=schema)
+locDf.printSchema()
+locDf.show()
+empDf.join(deptDf, (empDf.DEPARTMENT_ID == deptDf.DEPARTMENT_ID) & (deptDf.LOCATION_ID == 1700), "inner").join(locDf, deptDf.LOCATION_ID == locDf.LOCATION_ID, "inner").select(empDf.EMPLOYEE_ID, empDf.DEPARTMENT_ID, deptDf.DEPARTMENT_NAME, locDf.LOCATION_NAME).show()
+def upperCase(in_str):
+print(upperCase("hello"))
+upperCaseUDF = udf(lambda z : upperCase(z) , StringType())
+empDf.select(col("EMPLOYEE_ID") , col("FIRST_NAME"), col("LAST_NAME"), upperCaseUDF(col("FIRST_NAME")), upperCaseUDF(col("LAST_NAME"))).show()
+@udf(returnType=StringType())
+spark.udf.register ()
+udf are session specific 
+
+empDf.select(col("EMPLOYEE_ID") , col("FIRST_NAME"), col("LAST_NAME"), upperCaseNew(col("FIRST_NAME")), upperCaseNew(col("LAST_NAME"))).show()
+from pyspark.sql.window import Window
+windowSpec = Window.partitionBy("DEPARTMENT_ID").orderBy("SALARY")
+empDf.withColumn("salary_rank", rank().over(windowSpec)).select("DEPARTMENT_ID","SALARY","salary_rank").show(100)
+windowSpec = Window.partitionBy("DEPARTMENT_ID").orderBy(col("SALARY").desc())
+empDf.withColumn("salary_rank", rank().over(windowSpec)).select("DEPARTMENT_ID","SALARY","salary_rank").show(100)
+windowSpec = Window.partitionBy("DEPARTMENT_ID").orderBy(col("SALARY").desc())
+empDf.withColumn("SUM", sum("SALARY").over(windowSpec)).select("DEPARTMENT_ID","SALARY","SUM").show(100)
+windowSpec = Window.partitionBy("DEPARTMENT_ID")
+empDf.withColumn("SUM", sum("SALARY").over(windowSpec)).select("DEPARTMENT_ID","SALARY","SUM").show(100)
+from pyspark.sql.functions import *
+spark.conf.set("spark.sql.autoBroadcastJoinThreshold", 104857600)
+empDf.join(broadcast(deptDf), empDf.DEPARTMENT_ID == deptDf.DEPARTMENT_ID, "inner").select(empDf.EMPLOYEE_ID, empDf.DEPARTMENT_ID, deptDf.DEPARTMENT_NAME).show(100)
+resultDf.write.mode("overwrite").option("header",True).save("/output/result")
+resultDf.write.mode("overwrite").option("header",True).format("csv").save("/output/result")
+resultDf.write.mode("append").option("header",True).format("csv").save("/output/result")
+resultDf.write.mode("overwrite").partitionBy("DEPARTMENT_NAME").option("header",True).format("csv").save("/output/result")
+empDf.rdd.getNumPartitions()
+deptDf.rdd.getNumPartitions()
+resultDf.rdd.getNumPartitions()
+resultDf.repartition(10)
+resultDf.rdd.getNumPartitions()
+newDf = resultDf.repartition(10)
+newDf.rdd.getNumPartitions()
+df1 = newDf.repartition(2)
+df1.rdd.getNumPartitions()
+newDf.rdd.getNumPartitions()
+df2 = newDf.coalesce(20)
+df2.rdd.getNumPartitions()
+df3 = newDf.coalesce(5)
+df3.rdd.getNumPartitions()
+resultDf.coalesce(1).write.mode("overwrite").option("header",True).format("csv").save("/output/result")
+jsonDf = spark.read.json("/input_data/jsonexample.json")
+jsonDf.show()
+jsonDf.printSchema()
+jsonDf.select(jsonDf.Text1, jsonDf.Array1).show()
+jsonDf.select(jsonDf.Text1, jsonDf.Array1[2]).show()
+jsonDf.select(jsonDf.Text1, explode(jsonDf.Array1)).show()
+
+
+cumulative sum for a particular insurance month on month and year .
+data = [("A", 10),
+    ("B", 20),
+    ("A", 30),
+    ("B", 40),
+    ("A", 50)]
+
+columns = ["category", "value"]
+df = spark.createDataFrame(data, columns)
+
+# Define a window specification
+window_spec = Window.partitionBy("category").orderBy("value")
+df.withColumn("cumulative_sum", sum("value").over(window_spec.rowsBetween(Window.unboundedPreceding, Window.currentRow))).show()
+df.withColumn("cumulative_sum", sum("value").over(window_spec.rowsBetween(Window.currentRow, Window.unboundedFollowing))).show()
+df.withColumn("cumulative_sum", sum("value").over(window_spec.rowsBetween(Window.unboundedPreceding, Window.unboundedFollowing))).show()
+df.withColumn("cumulative_sum", sum("value").over(window_spec.rowsBetween(Window.currentRow,1))).show()
+
+
+
+
+sales_data = spark.read.csv("dbfs:/FileStore/sales_data.csv", header=True, inferSchema=True)
+customer_info = spark.read.csv("dbfs:/FileStore/customer_info.csv", header=True, inferSchema=True)
+
+# Optimize the join by broadcasting the smaller DataFrame (customer_info)
+enriched_sales_data = sales_data.join(broadcast(customer_info), "customer_id", "left").explain(True)
+
+
+there are four types of plans: Logical Plan, Analyzed Logical Plan, Optimized Logical Plan and Physical Plan
+🔹Logical Plan: Represents the abstract representation of a query without optimization.
+🔹Analyzed Logical Plan: Represents the query plan after parsing and semantic analysis but before optimization.
+🔹Optimized Logical Plan: Incorporates query optimizations to improve query efficiency.
+🔹Physical Plan: Specifies how the query will be executed physically, including details about data shuffling, joins, and partitioning strategies.
+
+
+
+# Initialize SparkSession
+spark = SparkSession.builder.appName("SalaryAnalysis").getOrCreate()
+
+# Assume you have a DataFrame named 'employee' with columns 'emp_id', 'name', 'dept_id', and 'salary'
+# Read your data or replace this with your actual DataFrame creation
+# Read your data or replace this with your actual DataFrame creation
+
+# Add a row number partitioned by department and ordered by salary in descending order
+window_spec = Window.partitionBy("dept_id").orderBy(col("salary").desc())
+employee_with_rank = employee.withColumn("rank", row_number().over(window_spec))
+
+# Filter for 10th highest salary
+tenth_highest_salary = employee_with_rank.filter(col("rank") == 10)
+
+# Filter for top 6 salaries
+top_six_salaries = employee_with_rank.filter(col("rank").between(1, 6))
+
+# Show the results
+print("10th Highest Salary in each department:")
+tenth_highest_salary.show()
+
+print("Top 6 Salaries in each department:")
+top_six_salaries.show()
+
+# Stop the SparkSession
+spark.stop()
+
+
+
+ Create a DataFrame with sales data
+data = [(1,10.0, 2.0), (2,8.0, float('nan')), (3,12.0, 3.0), (4,float('nan'), 5.0)]
+df = spark.createDataFrame(data, ["product_id","quantity_sold", "quantity_returned"])
+
+# Calculate net quantity sold, handling NaN values
+net_sales_df = df.withColumn(
+  "quantity_sold_withoutNull", nanvl(df["quantity_sold"], lit(0.0))
+).withColumn(
+  "quantity_returned_withoutNull", nanvl(df["quantity_returned"], lit(0.0))
+)
+result_df = net_sales_df.withColumn(
+  "net_quantity_sold", net_sales_df["quantity_sold_withoutNull"] - net_sales_df["quantity_returned_withoutNull"]
+)
+
+# Show the result
+result_df.drop('quantity_sold','quantity_returned').show()
+
+spark.read.format("jdbc").option("driver",apche.postre.org).option(url,url).option(user).option(password).option(query,select * from dep ).save("/output/result")
+spark.write.format("jdbc").option("driver",apche.postre.org).option(url,url).option(user).option(password).option(query,select * from dep ).save("/output/result")
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+
+facts and dimesnional :
+
+fact :- measuremnet 
+dimnesinal -context 
+
+for example if 200 (fact ) , what the fact is (whether its a 200rs , 200 quantity lke that )
+
+_fact_table (alwyas numnerical and measuremnet)- txn id ,sqles quant,diount,net unit , sales , discount 
+
+context for above is from dimnesion 
+
+eg product_dimensional table 
+profd_id,Prod_disc,brand_disc,cate_disc,pck_size,
+
+fact_table_new (alwyas numnerical and measuremnet)- txn id ,prod_id,sqles quant,diount,net unit , sales , discount
+
+we connect fact with dimnesion and get full details 
+
+date_dim_table 
+date_id,date,fulldate,day_of_week_calender_month,cal_quater,holiday indicator,week_indicator
+
+store_dim_tbl-
+store_id,name,adres,city,zipcode,
+
+promotion_dim_tbl:
+promotion_id,code,name,media_type,ad_type,prom_cost,
+
+
+now the fact contains fact table 
+
+
+incremental load :
+initial (full load only once , before live ) and incremental load :
+skeep data uptodate we use incrementa l load.
+..new data , modified data , deleet data 
+Types of incremental load : 
+Append    new records 
+In place update (scd1)---  update the exusting record 
+complete replacement-- compleet replace (overwrite completely)
+rolling append : eg last 2 yrs data , thenew data is appened and the previous 24th month data is deleted 
+
+
+Transformation :
+why to do transformation for uniform and restructuring
+uniformity --  in DW
+restructuring --zone 1  40 col, zone 2 -35 
+ to get smae no 
+ 
+ Data Vlaue unification 
+  adding a new col col1 (staus active/inactieve)
+    adding a new col col1 (active)(y?N)
+ either take statsu or active in dw 
+ 
+ 2. data type and size unification 
+ 
+ souce1 -t1-col_name (has varchar 25)
+ source2 -t1-col_nmae(has varchar 35)
+  in traget dw keep in only one type 
+  
+  3. de duplication 
+  s1-col1-1
+  s2-col1-1   getting same records  get only unine one 
+  
+  dropping columns , rows 
+  dropping same rows and columns 
+  
+  common known errors 
+  in one field total paid is null , in this case .. u can fix it by avg , if pincode get the common one 
+  
+  
+  -
